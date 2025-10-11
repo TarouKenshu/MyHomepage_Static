@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2021-08-14T19:05:08.214148606"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-02T23:08:03.458855046">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T19:22:19.175172977">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T00:55:29.810064464">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T12:38:44.351755603">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:20:37.145744344">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:16:43.156054461">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T23:39:37.764440793">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T00:23:23.580813362">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-23T11:35:30.589937483">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:37:38.239749833">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:32:04.286841525">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-11T23:31:19.262481190">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T17:32:58.358818044">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:56:45.033277703">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:45:58.463880015">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-08T19:32:04.879001103">
+</head>
+<body lang="ja-JP" dir="ltr">
+<p><font face="IPAゴシック, sans-serif"><b>工事中・・・・・</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows2.html">前のページヘ</a>　　<a href="https://ippeus.ninja-mania.jp/cui/command_windows4.html">次のページへ</a>　　　　　　　</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>（９）なりすましメール対策の確認方法（</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup</span></font></span></font><font face="IPAゴシック, sans-serif"><b>コマンド）</b></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">自分たちの会社のメールアドレスを詐称したなりすましメールが取引先などに送られるのは回避したい。その場合の対策として、送信先（受取側）のメールサーバに自分たちの会社の正規のメールサーバから送られたものかそうでないかを判定させる仕組みをつかう。</font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">自ドメインのコンテンツサーバ（権威</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">DNS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">サーバ）の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">レコードに正規のメールサーバの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスがわかるように記述するだけで、受信側サーバに送信者ドメイン認証の機能があれば、なりすましメールに一定の判定を行うことができる。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">宛先のメールサーバはメールを受信するときに、送信元のサーバの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを確認することが可能である。また、送信者のメールアドレスやドメインはエンベロープ</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">FROM</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">やヘッダー</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">FROM</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">に記載されているので、それらも知ることができる。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">送信者ドメイン（メールアドレスの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">@</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">以下）がわかれば、当該ドメインを管轄するコンテンツサーバ（権威</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">DNS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">サーバ）にアクセスし、その</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">レコード（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">TXT</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">レコード）にある送信者の正規のメールサーバの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレス（複数ある場合もある）を知ることができる。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">実際にメールを送信してきたサーバのアクセス元</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスと送信者ドメイン名から</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">DNS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">で検索した正規のメールサーバの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを比較することで、受信側サーバはメールのヘッダーに</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Received-SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">フィールドを使い、比較したデータと判定結果、たとえば</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">pass</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（問題なし）、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">fail</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（問題あり）、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">softfail</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（ちょっとおかしい）とか</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">hardfail</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（かなりおかしい）を追記してくれる。この部分をメールの受信者が確認することで、なりすましメールか判定できる。これを送信者ドメイン認証という。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">メールのヘッダを確認した時に、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Received-SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の文字がない場合は、受信側のサーバに送信者ドメイン認証の機能がないと考えられます。また判定結果が</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">none</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の場合は送信者のドメインを管轄する権威</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">DNS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">サーバに、正当なメールの送信元</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスの記述がないということです。つまり、送信者のほうが自己（自社）ドメインになりすましたメールの対策をしていないことになります。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">実際よくあるカード会社をなりすましたメールの一例ですが、ヘッダーの</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Received-SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の部分を見ると、判定は</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">softfail</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">であった。</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">client-ip=116.**.**.***</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（送信元</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレス）があり、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">envelope-from=&lt;pbi@r******-card.co.jp&gt;</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">となっている。実際に、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">nslookup</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">で
+</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">r******-card.co.jp</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">txt</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">レコード（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">SPF</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">レコードが記載されている）を調べてみよう。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=txt r******-card.co.jp</span></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">以上のコマンド実行結果の中の次の部分に注目してください。</font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">text =
+&quot;v=spf1 include:spf-***.mpme.jp include:spf01.r******-card.co.jp
+include:spf02.r******-card.co.jp include:spf03.r******-card.co.jp
+~all&quot;</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">さらに</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">include</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">で指定されているドメイン名を４つについて、以下のようにコマンドを打ちます。このようなサブドメインは、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを多数記述する場合や</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">DKIM</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">認証の公開鍵を記述する場合にも使われます。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=txt spf-***.mpme.jp</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=txt spf01.r******-card.co.jp</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=txt spf02.r******-card.co.jp</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">nslookup
+-type=txt spf03.r******-card.co.jp</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">　</span></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">結果は以下のようになります。</font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">spf-***.mpme.jp
+text = &quot;v=spf1 &quot; &quot;ip4:106.***.**.0/24
+ip4:106.***.**.192/26 ip4:125.**.**.64/26 ip4:106.**.**.0/23
+ip4:106.***.**.0/23 ip4:106..**.**/22 ip4:106.**.***.0/23
+ip4:18.***.**.0/24 ip4:106.***.**.0/26 ip4:165.***.***.1/32
+ip4:52.***.***.***/32 ip4:3.***.**.0/32 &quot; &quot;~all&quot;</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">spf01.r******-card.co.jp
+text = &quot;v=spf1 ip4:202.**.**.0/20 ip4:203.***.**.0/21
+ip4:133.***.0.0/16 ip4:202.*.***.**/27 -all&quot;</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">spf02.r******-card.co.jp
+text = &quot;v=spf1 ip4:61.**.***.**/28 ip4:***.***.***.***/28
+ip4:210.***.***.96/27 ip4:211.*.***.***/27 ip4:210.***.***.0/26
+ip4:210.***.**.64/26 ip4:203.***.***.0/25 ip4:180.***.163.128/25
+ip4:210.***.**.224/27 ip4:210.***.***.64/27 ip4:133.***.**.0/28 -all&quot;</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">spf03.r******-card.co.jp
+text = &quot;v=spf1 ip4:218.**.**.142 ip4:218.**.**.***
+ip4:218.**.**.144 ip4:218.**.**.145 ip4:218.**.**.146
+ip4:124.***.***.8 ip4:124.***.***.9 -all&quot;</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">以上の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">IPv4</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスが
+</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">r******-card.co.jp</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の権威</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">DNS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">サーバに記載のある許容された送信元</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスであり、実際のメールの送信元</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレス（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">116.**.**.***</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">）は該当しないことがわかります。</span></font></p>
+<p>※<font face="IPAゴシック, sans-serif"><span style="font-weight: normal">上記内容で＊で内容をマスクしているのは、情報を見せるのが目的ではないからです。</span></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">以上のような検証をメールを受信したサーバが行っています。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">上記内容は、実際にあるカード会社になりすまして送られてきたメールのヘッダー情報元に、検証方法を説明しているに過ぎません。</font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">ご自身で、検証される場合は、念のため</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">PC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">をネットから切断した状態（オフライン）でメールのヘッダーを表示させ（本文のリンクや添付ファイルは開かないように）、その内容をテキストエディタなどにコピペし、メールを迷惑メールとして処理した後、オンラインに戻して検証してください。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">WEB</span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">メールの場合はオンラインのままソース表示にすれば見れるので、おすすめです。</span></font></p>
+<p><font face="IPAゴシック, sans-serif">送信者の正当性判定やメールの改ざん検知のシステムに、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">DKIM</span></font></span></font><font face="IPAゴシック, sans-serif">という方式もありますが（ここでは詳しくは解説しません）、その検証に必要となる送信側サーバの署名を復号する公開鍵も</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">nslookup</span></font></span></font><font face="IPAゴシック, sans-serif">コマンドで確認します。署名が含まれるのが、メールヘッダの</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">DKIM-Signature</span></font></span></font><font face="IPAゴシック, sans-serif">です。</font></p>
+<p><font face="IPAゴシック, sans-serif">次のサンプルは</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">yahoo</span></font></span></font><font face="IPAゴシック, sans-serif">のフリーメールから</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">GMail</span></font></span></font><font face="IPAゴシック, sans-serif">のアドレスにテストメールを送ってもらった時のものです。</font>※<font face="IPAゴシック, sans-serif"><span style="font-weight: normal">＊で内容をマスクしているのは、情報を見せるのが目的ではないからです。</span></font><font face="IPAゴシック, sans-serif">　</font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">DKIM-Signature:
+v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1627742907;
+s=yj2011****; d=yahoo.co.jp;
+h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:References;
+bh=+xq*W/3*****6VT****eK/2*****ZJW******f87XtU=;
+b=****CRMC/********lE3v****gqe****Ox2vK****uRnhINbJ****QyDNi7****
+I2Sgfsd22****vNIzyZ****sNU****48DDN****Z1UF****at*Rfc****qAHw+vlpot****dOYG****TDge0P****nOAEaB0Op****=</span></font></p>
+<p><font face="IPAゴシック, sans-serif">署名の検証に必要な公開鍵を取得する。上記の中の
+</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">s=yj2011****,d=yahoo.co.jp</span></font></span></font><font face="IPAゴシック, sans-serif">という値から、コマンドを組み立てる。</font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=txt yj2011****._domainkey.yahoo.co.jp</span></font></p>
+<p><font face="IPAゴシック, sans-serif">コマンドの結果は、以下のようになります。</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">p=</span></font></span></font><font face="IPAゴシック, sans-serif">の後が</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">DNS</span></font></span></font><font face="IPAゴシック, sans-serif">サーバに登録された公開鍵で、秘密鍵を持つ</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">yahoo</span></font></span></font><font face="IPAゴシック, sans-serif">の送信側のメールサーバによって付加された</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">DKIM-Signature</span></font></span></font><font face="IPAゴシック, sans-serif">の</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">b=</span></font></span></font><font face="IPAゴシック, sans-serif">の後の部分を受信側サーバが復号するのに利用されます。</font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">yj2011****._domainkey.yahoo.co.jp
+text = &quot;v=DKIM1; g=*; k=rsa;
+p=****MA0GCSqGSIb3D****QUAA4GNADCBiQKBgQC/YNUcGXl****eYVQ1O/I0/****cG3FsjYCp4j1UW8TxOxQGpdLPr3MYL2gngH82LA/****cl2rU3msd****NemYxrtNpNfs+IvqYsLJv3vItz****/0Yt0caVFF9ab4W51c8PJv8aclR****Ai3trHG****rA4/8iUvSoIhGP6wID****&quot;</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup</span></font></span></font><font face="IPAゴシック, sans-serif">は</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">DNS</span></font></span></font><font face="IPAゴシック, sans-serif">サーバから必要な情報を聞き出すために使用されるコマンドです。</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">-type=</span></font></span></font><font face="IPAゴシック, sans-serif">の後には、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ns</span></font></span></font><font face="IPAゴシック, sans-serif">（権威</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">DNS</span></font></span></font><font face="IPAゴシック, sans-serif">サーバを調べるとき）、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">mx</span></font></span></font><font face="IPAゴシック, sans-serif">（メールサーバを調べるとき）などの値が入ります。</font></p>
+<p><font face="IPAゴシック, sans-serif">また</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup</span></font></span></font><font face="IPAゴシック, sans-serif">コマンドの最後に問い合わせたいドメインの権威</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">DNS</span></font></span></font><font face="IPAゴシック, sans-serif">サーバのドメイン名、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ns01.*******.com</span></font></span></font><font face="IPAゴシック, sans-serif">のようなものを入れたり</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">(</span></font></span></font><font face="IPAゴシック, sans-serif">権限のない回答は表示されません）、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">Google</span></font></span></font><font face="IPAゴシック, sans-serif">のキャッシュサーバ</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">8.8.8.8</span></font></span></font><font face="IPAゴシック, sans-serif">（権限のない回答が表示されます）などをいれて、問い合わせるサーバを指定することも可能です。</font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">(</span></font></span></font><font face="IPAゴシック, sans-serif">例</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">)</span></font></span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=ns ***.co.jp</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+-type=mx ***.co.jp ns01.***.co.jp</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nslookup
+***.co.jp 8.8.8.8</span></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">　</span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal"><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows2.html">前のページヘ</a>
+<a href="https://ippeus.ninja-mania.jp/cui/command_windows4.html">次のページへ</a></b></font></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">
+</span></font></span>
+</p>
+<!-- admax -->
+<script src="https://adm.shinobi.jp/s/2166789698af39e77bd36cb724e8b230"></script>
+<!-- admax -->
+</body>
+</html>

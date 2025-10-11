@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2021-11-15T23:43:03.831706139"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-11-14T23:32:27.149153505">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-14T23:58:28.254900403">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-14T19:38:08.086822286">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-14T19:05:08.214148606">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-02T23:08:03.458855046">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T19:22:19.175172977">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T00:55:29.810064464">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T12:38:44.351755603">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:20:37.145744344">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:16:43.156054461">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T23:39:37.764440793">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T00:23:23.580813362">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-23T11:35:30.589937483">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:37:38.239749833">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:32:04.286841525">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-11T23:31:19.262481190">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T17:32:58.358818044">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:56:45.033277703">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:45:58.463880015">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-08T19:32:04.879001103">
+</head>
+<body lang="ja-JP" dir="ltr">
+<p><font face="IPAゴシック, sans-serif"><b>工事中・・・・・</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows1.html">前のページヘ</a>　　<a href="https://ippeus.ninja-mania.jp/cui/command_windows3.html">次のページへ</a>　　　　　　　</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>（５）</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">LAN</span></font></span></font><font face="IPAゴシック, sans-serif"><b>内の端末の確認方法</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>・</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ARP</span></font></span></font><font face="IPAゴシック, sans-serif"><b>テーブル（</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">LAN</span></font></span></font><font face="IPAゴシック, sans-serif"><b>内端末の</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">IP</span></font></span></font><font face="IPAゴシック, sans-serif"><b>アドレスと</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">MAC</span></font></span></font><font face="IPAゴシック, sans-serif"><b>アドレスの対照表）の確認</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">ここで、問題となる端末が所属する</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">LAN</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">のネットワークアドレスが</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">192.168.0.1/24</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">であるという仮定を入れておきます。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">まず、端末がすでに持っている</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">ARP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">テーブルが完全でない（情報が古い、網羅できていない）を仮定して、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">ARP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">テーブルを作りなおさせるコマンドを打ちます。コマンドプロンプトで入力します。現状で一度</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">ARP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">テーブルを確認したいときは、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">ping</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">を打つ前に</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">arp</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">コマンドを実施しても構いません。変化が見られたら面白いです。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ping
+192.168.0.255 </span></font></span></font><font face="IPAゴシック, sans-serif"><b>（操作端末からブロードキャストへ</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ping</span></font></span></font><font face="IPAゴシック, sans-serif"><b>を打つ）</b></font></p>
+<p>※<font face="IPAゴシック, sans-serif"><span style="font-weight: normal">ブロードキャストへのパケットはルータを超えることはできないこと。電源が入っていないかネットワークに接続できていない端末の情報は得ることはできない。無線接続で使っている端末で</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">ARP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">を取得すると、完全なものは取得できない時もあります。プライバシーセパレータ機能以外にも、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">AP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の制限や不具合で</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">LAN</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">内端末の全ての情報を取得できない場合もあります。有線接続した端末で行うのが望ましい。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">arp
+-a </span></font></span></font><font face="IPAゴシック, sans-serif"><b>（操作端末が持つ</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">ARP</span></font></span></font><font face="IPAゴシック, sans-serif"><b>テーブルを取得します）</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">結果のサンプル　＊＊には本当は</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">0</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">から</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">9</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">までの数字か</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">a</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">から</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">f</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">までの英字が入っています。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">Interface:
+192.168.0.6 --- 0x2</span></font></span></font><font face="IPAゴシック, sans-serif"><b>　コマンド操作している端末の</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font></span></font><font face="IPAゴシック, sans-serif"><b>です。</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">Internet
+Address Physical Address Type</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+10-**-**-**-**-** dynamic</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.2
+34-76-**-**-**-** dynamic</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.4
+00-c0-**-**-**-** dynamic</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.8
+00-a0-**-**-**-** dynamic</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">MAC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスは
+</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">Physical
+Address</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">と表記されます。上位</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">24</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">バイトの部分（例：</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">10-**-**</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">）はベンダーコードと言われ、製造メーカを判別できる固有の値が入っています。これだけでも、各</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを取得している端末の予想はつきますが、もう一歩進めましょう。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">192.168.0.4</span></span></font></span></font><font face="IPAゴシック, sans-serif"><b>はどうも</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">PC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><b>らしいので、次のコマンドを打って見ましょう</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><span lang="en-US">nbtstat
+-a 192.168.0.4</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>結果のサンプル</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>インターフェース名（イーサネットや</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">Wi-Fi</span></font></span></font><font face="IPAゴシック, sans-serif"><b>等）</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">Node
+IpAddress: [192.168.0.6] Scope Id: []</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">NetBIOS
+Remote Machine Name Table</span></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">Name Type
+Status</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">---------------------------------------------</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">DESKTOP-*******
+&lt;00&gt; UNIQUE Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">DESKTOP-*******
+&lt;03&gt; UNIQUE Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">DESKTOP-*******
+&lt;20&gt; UNIQUE Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">..__MSBROWSE__.&lt;01&gt;
+GROUP Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">WORKGROUP
+&lt;00&gt; GROUP Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">WORKGROUP
+&lt;1D&gt; UNIQUE Registered </span></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US">WORKGROUP
+&lt;1E&gt; GROUP Registered</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスからデバイス名（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">NETBIOS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">名や</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">PC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">名といったりする）を</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">NETBIOS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">で公開している端末、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">WindowsPC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">や</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">NAS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">などを見つけることができます。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">プロキシサーバや、セキュリティ機器（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IPS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">や</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IDS</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">UTM</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">など）などのログから</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">LAN</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">内で不審な通信を行っている端末の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを突き止めれば、どの端末であるかもコマンド操作でわかるようになっています。機器によってはログに</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">DESKTOP-*******</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">といったデバイス名がはじめから記載されているものもあります。</span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">LAN</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">内の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">PC</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレスを全て固定で設定している場合、誤って別の機器の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">を使用している端末を割り出すことにも使えます。</span></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>（参考）</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>コマンドプロンプトから</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>NetBios</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>名のわかっている</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>PC</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>の</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>IP</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>を調べつつ、疎通も確かめる</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">ping
+-4
+DESKTOP-*******</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（デバイス名、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Netbios</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">名）</span></font><font face="IPAゴシック, sans-serif"><b>　</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>IPv4</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>アドレスに変換して</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>PING</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>してくれるので画面結果から判別できる。</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>-4</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>は</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>IPv4</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>という意味。</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">ping
+DESKTOP-*******</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（デバイス名、</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Netbios</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">名）</span></font><font face="IPAゴシック, sans-serif"><b>　</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>Vista</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>以降はこのコマンドではデバイス名を</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>IPv6</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>アドレスに変換して</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>PING</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>してくれる。</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>xp</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>以前では</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>ping
+-4</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>と同じになる。</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>ping</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>宛先の</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><b>IPv6</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>アドレスがわかる。</b></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><font face="IPAゴシック, sans-serif"><b>（６）</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font></span></font><font face="IPAゴシック, sans-serif"><b>や</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">tracert</span></font></span></font><font face="IPAゴシック, sans-serif"><b>､</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">arp</span></font></span></font><font face="IPAゴシック, sans-serif"><b>を使ったネットワークの切り分け</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>・</b></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US">p</span></font><font face="Liberation Serif, serif"><span lang="en-US"><b>ing</b></span></font></span></font><font face="IPAゴシック, sans-serif"><b>の実行結果の詳細な見方</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">Windows</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">で</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">ping
+</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">（</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">アドレス）を実施した場合　４回の</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-weight: normal">ping</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">送信が行われ、その回答（戻りパケット）があった場合は受信とカウントし、パケットがロスして、回答がなかった場合は損失としてカウントし、その結果を表示します。</span></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">重要なことは、回答があった場合でも、様々な種類のものがあるということです。</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1</span></font><font face="IPAゴシック, sans-serif">は試験端末のデフォルトゲートウェイとなっているルータの</font><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font><font face="IPAゴシック, sans-serif">アドレスです。このルータに異常なければ、通常は、次のような結果です。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">（正常な</font><font face="Liberation Serif, serif"><span lang="en-US">Ping</span></font><font face="IPAゴシック, sans-serif">の結果の例）</font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">に </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">を送信しています
+</font><font face="Liberation Serif, serif"><span lang="en-US">32
+</span></font><font face="IPAゴシック, sans-serif">バイトのデータ</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">バイト数
+</font><font face="Liberation Serif, serif"><span lang="en-US">=32 </span></font><font face="IPAゴシック, sans-serif">時間
+</font><font face="Liberation Serif, serif"><span lang="en-US">&lt;1ms
+TTL=64</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">バイト数
+</font><font face="Liberation Serif, serif"><span lang="en-US">=32 </span></font><font face="IPAゴシック, sans-serif">時間
+</font><font face="Liberation Serif, serif"><span lang="en-US">&lt;1ms
+TTL=64</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">バイト数
+</font><font face="Liberation Serif, serif"><span lang="en-US">=32 </span></font><font face="IPAゴシック, sans-serif">時間
+</font><font face="Liberation Serif, serif"><span lang="en-US">&lt;1ms
+TTL=64</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">バイト数
+</font><font face="Liberation Serif, serif"><span lang="en-US">=32 </span></font><font face="IPAゴシック, sans-serif">時間
+</font><font face="Liberation Serif, serif"><span lang="en-US">&lt;1ms
+TTL=64</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1
+</span></font><font face="IPAゴシック, sans-serif">の </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">統計</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm">    <font face="IPAゴシック, sans-serif">パケット数</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">送信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4</span></font><font face="IPAゴシック, sans-serif">、受信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4</span></font><font face="IPAゴシック, sans-serif">、損失 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+0 (0% </span></font><font face="IPAゴシック, sans-serif">の損失</font><font face="Liberation Serif, serif"><span lang="en-US">)</span></font><font face="IPAゴシック, sans-serif">、</font></p>
+<p style="font-weight: normal; line-height: 0.49cm"><font face="IPAゴシック, sans-serif">ラウンド
+トリップの概算時間 </font><font face="Liberation Serif, serif"><span lang="en-US">(</span></font><font face="IPAゴシック, sans-serif">ミリ秒</font><font face="Liberation Serif, serif"><span lang="en-US">):</span></font></p>
+<p style="font-weight: normal; line-height: 0.49cm">    <font face="IPAゴシック, sans-serif">最小
+</font><font face="Liberation Serif, serif"><span lang="en-US">=
+0ms</span></font><font face="IPAゴシック, sans-serif">、最大 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+0ms</span></font><font face="IPAゴシック, sans-serif">、平均 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+0ms</span></font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">（異常な</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">の例−１）</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">ping
+192.168.0.21</span></font><font face="IPAゴシック, sans-serif">をコマンドプロンプトで実行します</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">・</font><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font><font face="IPAゴシック, sans-serif">アドレスが</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.21</span></font><font face="IPAゴシック, sans-serif">という機器が実在しますが、電源を入れ忘れていました。</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.5</span></font><font face="IPAゴシック, sans-serif">は試験端末の</font><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font><font face="IPAゴシック, sans-serif">アドレスです。前の例と異なり、</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">の対象からは応答がなく、</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">を送信している自分の</font><font face="Liberation Serif, serif"><span lang="en-US">PC</span></font><font face="IPAゴシック, sans-serif">が</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.21</span></font><font face="IPAゴシック, sans-serif">に対して</font><font face="Liberation Serif, serif"><span lang="en-US">ICMP</span></font><font face="IPAゴシック, sans-serif">で送信したが届きませんでしたよというのが以下の結果です。この場合は回答が帰ってきているので、損失は</font><font face="Liberation Serif, serif"><span lang="en-US">0</span></font><font face="IPAゴシック, sans-serif">です。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.21
+</span></font><font face="IPAゴシック, sans-serif">に </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">を送信しています
+</font><font face="Liberation Serif, serif"><span lang="en-US">32
+</span></font><font face="IPAゴシック, sans-serif">バイトのデータ</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.5
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">宛先ホストに到達できません。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.5
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">宛先ホストに到達できません。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.5
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">宛先ホストに到達できません。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.5
+</span></font><font face="IPAゴシック, sans-serif">からの応答</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">宛先ホストに到達できません。</font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.21
+</span></font><font face="IPAゴシック, sans-serif">の </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">統計</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal">    <font face="IPAゴシック, sans-serif">パケット数</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">送信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4</span></font><font face="IPAゴシック, sans-serif">、受信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4</span></font><font face="IPAゴシック, sans-serif">、損失 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+0 (0% </span></font><font face="IPAゴシック, sans-serif">の損失</font><font face="Liberation Serif, serif"><span lang="en-US">)</span></font><font face="IPAゴシック, sans-serif">、</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">（異常な</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">の例−</font><font face="Liberation Serif, serif"><span lang="en-US">2</span></font><font face="IPAゴシック, sans-serif">）</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">・今度は検証環境では存在しないネットワークセグメントに対して、</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">を打ちます。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">Ping
+192.168.1.1</span></font><font face="IPAゴシック, sans-serif">を実行します。</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.1
+</span></font><font face="IPAゴシック, sans-serif">に </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">を送信しています
+</font><font face="Liberation Serif, serif"><span lang="en-US">32
+</span></font><font face="IPAゴシック, sans-serif">バイトのデータ</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.1
+</span></font><font face="IPAゴシック, sans-serif">の </font><font face="Liberation Serif, serif"><span lang="en-US">ping
+</span></font><font face="IPAゴシック, sans-serif">統計</font><font face="Liberation Serif, serif"><span lang="en-US">:</span></font></p>
+<p style="font-weight: normal">    <font face="IPAゴシック, sans-serif">パケット数</font><font face="Liberation Serif, serif"><span lang="en-US">:
+</span></font><font face="IPAゴシック, sans-serif">送信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4</span></font><font face="IPAゴシック, sans-serif">、受信 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+0</span></font><font face="IPAゴシック, sans-serif">、損失 </font><font face="Liberation Serif, serif"><span lang="en-US">=
+4 (100% </span></font><font face="IPAゴシック, sans-serif">の損失</font><font face="Liberation Serif, serif"><span lang="en-US">)</span></font><font face="IPAゴシック, sans-serif">、</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.1</span></font><font face="IPAゴシック, sans-serif">も</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.21</span></font><font face="IPAゴシック, sans-serif">も</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">に応答できなかったわけですが前者は損失０で後者は損失４です。この違いはどこになるのか、</font><font face="Liberation Serif, serif"><span lang="en-US">tracert</span></font><font face="IPAゴシック, sans-serif">コマンドの結果を比較して見ます。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">（異常な</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">の例−</font><font face="Liberation Serif, serif"><span lang="en-US">1</span></font><font face="IPAゴシック, sans-serif">）</font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">（異常な</font><font face="Liberation Serif, serif"><span lang="en-US">ping</span></font><font face="IPAゴシック, sans-serif">の例−</font><font face="Liberation Serif, serif"><span lang="en-US">2</span></font><font face="IPAゴシック, sans-serif">）</font></p>
+<p style="font-weight: normal"><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.1
+</span></font><font face="IPAゴシック, sans-serif">へのルートをトレースしています。経由するホップ数は最大
+</font><font face="Liberation Serif, serif"><span lang="en-US">30 </span></font><font face="IPAゴシック, sans-serif">です</font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">1
+   &lt;1 ms    &lt;1 ms    &lt;1 ms  192.168.0.1</span></font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">2
+    3 ms     2 ms     2 ms  ISP</span></font><font face="IPAゴシック, sans-serif">がルータに払い出している</font><font face="Liberation Serif, serif"><span lang="en-US">IP</span></font><font face="IPAゴシック, sans-serif">アドレス</font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">3
+    3 ms     2 ms     3 ms  </span></font>
+</p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">4
+    3 ms     3 ms     3 ms  61.205.119.81</span></font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">5
+    *        *        *     </span></font><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">6
+    *        *        *     </span></font><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal">  <font face="Liberation Serif, serif"><span lang="en-US">7
+    *        *        *     </span></font><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"> <font face="IPAゴシック, sans-serif">（省略）</font></p>
+<p style="font-weight: normal"> <font face="Liberation Serif, serif"><span lang="en-US">29
+    *        *        *     </span></font><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"> <font face="Liberation Serif, serif"><span lang="en-US">30
+    *        *        *     </span></font><font face="IPAゴシック, sans-serif">要求がタイムアウトしました。</font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">トレースを完了しました。</font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif">パケットの最大ホップ数を超過したので、パケットは消えてしまいました。デフォルトゲートウェイ</font><font face="Liberation Serif, serif"><span lang="en-US">(192.168.0.1)</span></font><font face="IPAゴシック, sans-serif">が知らないネットワーク（</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.0/24)</span></font><font face="IPAゴシック, sans-serif">上</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.1.1</span></font><font face="IPAゴシック, sans-serif">への</font><font face="Liberation Serif, serif"><span lang="en-US">Ping</span></font><font face="IPAゴシック, sans-serif">は</font><font face="Liberation Serif, serif"><span lang="en-US">192.168.0.1</span></font><font face="IPAゴシック, sans-serif">のでデフォルトゲートウェイである</font></p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p style="font-weight: normal"><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">　</span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal"><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows1.html">前のページヘ</a>
+<a href="https://ippeus.ninja-mania.jp/cui/command_windows3.html">次のページへ</a></b></font></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">
+</span></font></span>
+</p>
+<p><!-- admax --><script src="https://adm.shinobi.jp/s/2166789698af39e77bd36cb724e8b230"></script><!-- admax --></p>
+</body>
+</html>

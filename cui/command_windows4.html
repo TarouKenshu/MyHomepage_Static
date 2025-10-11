@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2021-08-14T19:05:49.664377887"/>
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-02T23:08:03.458855046">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T19:22:19.175172977">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-08-01T00:55:29.810064464">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T12:38:44.351755603">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:20:37.145744344">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-31T11:16:43.156054461">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T23:39:37.764440793">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-28T00:23:23.580813362">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-23T11:35:30.589937483">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:37:38.239749833">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-15T12:32:04.286841525">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-11T23:31:19.262481190">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T17:32:58.358818044">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:56:45.033277703">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-09T00:45:58.463880015">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2021-07-08T19:32:04.879001103">
+</head>
+<body lang="ja-JP" dir="ltr">
+<p><font face="IPAゴシック, sans-serif"><b>工事中・・・・・</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows3.html">前のページヘ</a>　　<a href="https://ippeus.ninja-mania.jp/cui/command_windows5.html">次のページへ</a>　　　　　　　</b></font></p>
+<p><font face="IPAゴシック, sans-serif"><b>（２０）<meta name="changed" content="2021-07-07T00:42:18.723637897">データ等の変換コマンド</b></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">1.<meta name="created" content="2021-07-06T00:00:36.203576989"><meta name="changed" content="2021-07-06T00:23:44.156839174"></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><b>ファイルの比較（ハッシュ値を比較して、ファイルが同一か、異なるかを確認する）</b></font></font></p>
+<p style="font-weight: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt">実例として、ウィルスに感染した異なるファイル名の同一ファイルの存在を確認したり、ファイルが改ざんされていないことを示すために、ファイルとそのハッシュ値を合わせて開示する場合が多い。その検証時、ハッシュ値の計算が必要となる。</font></font></p>
+<p><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt">　　　</font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">certutil
+-hashfile </span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt">　ファイル名　アルゴリズム名</font></font></p>
+<p><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt">　　アルゴリズム名＝</font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">MD2,MD4,MD5,SHA1,SHA256,SHA384,SHA512</span></font></font></span></font></p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font color="#000000"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal"><span lang="en-US"><span style="font-style: normal"><b>2.</b></span></span></span></font></font></font></span></span></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>文字列を</b></span></font></font></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-style: normal"><b>BASE64</b></span></span></font></font></span></span></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>で変換する。</b></span></font></font></span></p>
+<p><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">変換</span></span></font></font></span><span style="font-variant: normal">
+</span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">certutil
+-encode </span></font></font></span></span></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">入力ファイル名　出力ファイル名</span></span></font></font></span></p>
+<p><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">戻す
+　 </span></span></font></font></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">certutil
+-decode </span></span></font></font></span></span></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">入力ファイル名　出力ファイル名</span></span></font></font></span></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">（例）</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">user:12345</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">を</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">base64</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">でエンコードする。
+</span></span></font></font>
+</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">echo
+user:12345</span></font></font></span><span style="font-variant: normal">
+</span><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">&gt;
+source.txt &amp;&amp; certutil -encode source.txt destination.txt &amp;&amp;
+type destination.txt</span></font></font></span></span></font></p>
+<p lang="en-US" style="font-variant: normal; font-weight: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt">（結果）</font></font></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">-----BEGIN
+CERTIFICATE-----</span></font></font></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">dXNlcjoxMjM0NSAgDQo=</span></font></font></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">-----END
+CERTIFICATE-----3EldEll6VTtMQHeK</span></font></font></p>
+<p><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">（例）</span></span></font></font></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">dXNlcjoxMjM0NSAgDQo=</span></span></font></font></span></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><b>　</b></span></font></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">をデコードする。</span></span></font></font></span></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US">echo
+dXNlcjoxMjM0NSAgDQo= &gt;from.txt &amp;&amp; certutil -decode
+from.txt to.txt &amp;&amp; type to.txt</span></font></font></p>
+<p style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">（結果）</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">user:12345</span></span></font></font></span></font></p>
+<p style="font-variant: normal">※<font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">Linux</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">等　</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">Unix</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">の</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">Base64</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">コマンドを使うと、エンコード後の値が</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">dXNlcjoxMjM0NQo=
+</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">又は
+</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">dXNlcjoxMjM0NQ==
+</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">になったりするが、デコードすると</span></span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">user:12345</span></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">になるので、平文では特に問題はないと思われる。</span></span></font></font></p>
+<p><span style="font-variant: normal">※</span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">Windows</span></span></font></font></span></span></font><span style="font-variant: normal"><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">ではファイルの上書きができず同じファイル名を使ったコマンドを２回打つとエラー（上書きできない）になります。繰り返し試すときはすでにあるファイルを削除してください。</span></span></font></font></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="Liberation Serif, serif"><span lang="en-US">Linux</span></font></span></span></font><font face="IPAゴシック, sans-serif"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">の場合ははファイルを作る必要ないので楽です。</span></span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">　</span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal"><font face="IPAゴシック, sans-serif"><b><a href="https://ippeus.ninja-mania.jp/cui/command_windows3.html">前のページヘ</a>
+<a href="https://ippeus.ninja-mania.jp/cui/command_windows5.html">次のページへ</a></b></font></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="letter-spacing: normal">
+</span></font></span>
+</p>
+<!-- admax -->
+<script src="https://adm.shinobi.jp/s/2166789698af39e77bd36cb724e8b230"></script>
+<!-- admax -->
+</body>
+</html>

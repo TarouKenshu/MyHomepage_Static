@@ -1,0 +1,120 @@
+@charset "utf-8";
+     
+body {
+    width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+    
+    "... ...... ...... ...... ...... ...... ..." max-content
+    "... header header header header header ..." max-content
+    "... ...... ...... ...... ...... ...... ..." 5px
+    "... left   ...... center ...... right  ..." 1fr
+    "... ...... ...... ...... ...... ...... ..." 5px
+    "... footer footer footer footer footer ..." max-content
+    "... ...... ...... ...... ...... ...... ..." 5px
+    / 0px max-content  5px 1fr 5px max-content  auto;
+}
+header {
+    grid-area: header; 
+    
+}  
+main {
+    grid-area: center;
+    background-color: lightgreen;
+
+}
+nav {
+    grid-area: left;
+    background-color: lightgreen;
+   }
+aside {
+    grid-area: right;
+    font: x-large;
+    color: #fff;
+    background-color: lightskyblue;
+    text-align: center;
+
+}
+footer {
+    grid-area: footer;
+}
+div.title{
+    font: x-large;
+    color: #fff;
+    background-color: lightseagreen;
+    text-align: center;
+}
+
+div.menu{
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+    } 
+
+/*CSSボタン*/
+
+div.btn-wrapper_menu {
+    
+    display: flex;
+    flex-direction: column;
+
+    
+
+     
+}
+
+a.menu-btn{
+    padding: 6px;
+    margin-bottom: 5px;
+    background-color: #3d8d50;
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+    border-radius: 8px;
+    /* box-shadow: 0 0 2px 2px #04300e ; */
+}
+
+
+/* a.link {
+    text-decoration: none;
+      }
+
+a.btn-radius-solid {
+    background: #f1e767;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f1e767), to(#feb645));
+    background: -webkit-linear-gradient(top, #f1e767 0%, #feb645 100%);
+    background: linear-gradient(to bottom, #f1e767 0%, #feb645 100%);
+  }
+  
+  a.btn-radius-solid:hover {
+    background: -webkit-gradient(linear, left bottom, left top, from(#f1e767), to(#feb645));
+    background: -webkit-linear-gradient(bottom, #f1e767 0%, #feb645 100%);
+    background: linear-gradient(to top, #f1e767 0%, #feb645 100%);
+  }     */
+div.intro{
+    font-size: medium;  
+    background-color: lightgreen;  
+}
+div.bio{
+    font-size: medium;
+    background-color: lightgreen;
+
+
+    
+}
+@media screen and (max-width: 1000px) {
+body {
+        grid-template:
+            "header" 150px
+            "center" max-content
+            "left  " max-content
+            "right " max-content
+            "footer" 300px;
+    }
+}
+
+
+      
+
