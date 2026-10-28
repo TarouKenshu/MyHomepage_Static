@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="investigation01">
+    <meta name="keywords" content="ドメイン調査,URL安全性評価,マルウェア調査">
+    <title>サイト・ドメイン調査</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* リストと本文の視認性のための最小限のカスタム調整 */
+        .wiki-content .card {
+            transition: box-shadow 0.15s ease-in-out;
+        }
+        .wiki-content .card:hover {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ITのツボというか経絡秘孔図的な何か</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./investigation01.html">サイト・ドメイン調査</a></li>
+                                <li><a class="dropdown-item" href="./investigation02.html">セキュリティ・ネットワーク調査</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_windows1.html">Windowsコマンド</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_linux1.html">linuxコマンド</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><h6 class="dropdown-header">外部サイト</h6></li>
+                                <li><a class="dropdown-item" href="https://heiho.kai-seki.net/">IT関連知識の備忘録</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a></li>
+                                <li><a class="dropdown-item" href="#">セキュリティマニア（動画）</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>    
+</head>
+<body class="bg-light text-dark">
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="h3 mb-1">サイト・ドメイン調査</h1>
+            <p class="mb-0">ドメイン調査、URL安全性評価など</p>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="row g-4" id="wikiAccordion">
+            <!-- 左側：目次リスト（項目は自由に追加できる） -->
+            <div class="col-12 col-lg-4">
+                <!-- <h2 class="h5 text-secondary mb-3">目次</h2> -->
+                <div class="list-group" id="wikiList">
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List1" aria-expanded="false" aria-controls="wikiCollapseI01_List1">
+                        WHOIS ドメイン情報取得
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List2" aria-expanded="false" aria-controls="wikiCollapseI01_List2">
+                        国/地域別のIPアドレス割り当て
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List3" aria-expanded="false" aria-controls="wikiCollapseI01_List3">
+                        URL 安全性評価
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List4" aria-expanded="false" aria-controls="wikiCollapseI01_List4">
+                        I01_List4
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List5" aria-expanded="false" aria-controls="wikiCollapseI01_List5">
+                        I01_List5
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List6" aria-expanded="false" aria-controls="wikiCollapseI01_List6">
+                        I01_List6
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List7" aria-expanded="false" aria-controls="wikiCollapseI01_List7">
+                        I01_List7
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List8" aria-expanded="false" aria-controls="wikiCollapseI01_List8">
+                        I01_List8
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List9" aria-expanded="false" aria-controls="wikiCollapseI01_List9">
+                        I01_List9
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List10" aria-expanded="false" aria-controls="wikiCollapseI01_List10">
+                        I01_List10
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右側：本文（選択された項目に対応するカードを表示） -->
+            <div class="col-12 col-lg-8 wiki-content">
+                <div id="wikiCollapseI01_List1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">日本のドメイン</h5>
+                                    <p class="card-text text-muted"><a href="https://whois.jprs.jp/">JPRS</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">海外のドメインも検索可能</h5>
+                                    <p class="card-text text-muted"><a href="https://tech-unlimited.com/whois.html">TECH-UNLiMITED</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List2" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">fetus</h5>
+                                    <p class="card-text text-muted"><a href="https://ipv4.fetus.jp/">https://ipv4.fetus.jp/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/25</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">ipvx.info</h5>
+                                    <p class="card-text text-muted"><a href="https://www.ipvx.info/country/">https://www.ipvx.info/country/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/27</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List3" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Trend Micro Site Safety Center トレンドマイクロ社</h5>
+                                    <p class="card-text text-muted"><a href="https://global.sitesafety.trendmicro.com/?cc=jp"></a>https://global.sitesafety.trendmicro.com/?cc=jp</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/28</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_06</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/29</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List4" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_07</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/30</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_08</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List5" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_09</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/02</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_10</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/04</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List6" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_11</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/05</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_12</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/06</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List7" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_13</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/07</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_14</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/09</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List8" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_15</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/10</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_16</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/11</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List9" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_17</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/12</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_18</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/13</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List10" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_19</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/14</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_20</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-light border-top border-secondary py-4 mt-5">
+            <div class="container">
+                <h5>IPAが公開する「重要なセキュリティ情報」</h5>
+                <div>
+                    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+                    <script type="text/javascript" src="https://www.ipa.go.jp/security/announce/irss/icatw.js"></script>
+                </div>
+                <div class="mt-3">
+                    <div class="admax-switch" data-admax-id="496a4e9dcd8ed910061f50774978c557" style="display:inline-block;"></div>
+                    <script type="text/javascript">
+                        (admaxads = window.admaxads || []).push({admax_id: "496a4e9dcd8ed910061f50774978c557",type: "switch"});
+                    </script>
+                    <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
+                </div>
+            </div>
+        </footer>    
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
