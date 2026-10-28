@@ -1,83 +1,173 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
-        <meta http-equiv="Content-Style-Type" content="text/css" />
-        <meta http-equiv="Content-Script-Type" content="text/javascript" />
-        <meta http-equiv="imagetoolbar" content="no" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <link rel="stylesheet" href="css/style.css" />
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
-        <meta charset="UTF-8" />
-        
-        <title>ITの経絡秘孔図的なもの（備忘録）</title>
-    </head>
-     <body>
-        <header>
-            <div class="title">
-            ITのツボというか経絡秘孔図的な何か
-            </div>
-        </header>
-        <nav>
-            MENU<br>
-                  <br>
-            <div class="menu">
-                  
-                <div class="btn-wrapper_menu">
-
-                    <a class="menu-btn" href="./investigation01.html">サイト・ドメイン調査</a>
-            
-                    <a class="menu-btn" href="./investigation02.html">セキュリティ・ネットワーク調査</a>
-
-                    <a class="menu-btn" href="./cui/command_windows1.html">Windowsコマンド</a>
-
-                    <a class="menu-btn" href="./cui/command_linux1.html">linuxコマンド</a>
-
-                    <a class="menu-btn" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a>
-
-                    <a class="menu-btn" href="#">セキュリティマニア（動画）</a> 
-
-                    <a class="menu-btn" href="https://heiho.kai-seki.net/">IT関連知識の備忘録 </a>
-                 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>ITの経絡秘孔図的なもの（備忘録）</title>
+</head>
+<body class="bg-dark text-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ITのツボというか経絡秘孔図的な何か</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./investigation01.html">サイト・ドメイン調査</a></li>
+                                <li><a class="dropdown-item" href="./investigation02.html">セキュリティ・ネットワーク調査</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_windows1.html">Windowsコマンド</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_linux1.html">linuxコマンド</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><h6 class="dropdown-header">外部サイト</h6></li>
+                                <li><a class="dropdown-item" href="https://heiho.kai-seki.net/">IT関連知識の備忘録</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a></li>
+                                <li><a class="dropdown-item" href="#">セキュリティマニア（動画）</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
                 </div>
-                            
-                 <br>               
             </div>
         </nav>
-        <main>
-            <div class="intro">
-                 このコンテンツは、PCやネットワーク関係の仕事をしていくうえで、得た知識などを記録・保存し、後から
-                 参照・利用する目的で立ち上げました。何かのお役に立てばさいわいです。
-            </div>     
-                 
-            <div class="bio">
-                （自己紹介）通信機器やPC関連の仕事に従事。情報処理安全確保支援士試験合格、ドットコムマスター★★2009
-                 ITパスポート、ビジネス実務法務検定2級、エコ検定など取得。
-            </div> 
-        </main>
-        <aside>
-            <img src="./images/carrier pigeon.jpg">
-            <div hidden>
-                <a class="menu-btn" href="https://www.dropbox.com/request/cvdg6plf4Kx3PbahNGwq" target="_blank" rel="noreferrer noopener">ファイル回収</a>  
-            </div>      
-        </aside>
-        <footer>footer
-            <h4 font-color:red>IPAが公開する「重要なセキュリティ情報」
-                <!-- subR end --> </h4>
-              <!-- icat -->
-              <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"> </script>
-              <script type="text/javascript" src="https://www.ipa.go.jp/security/announce/irss/icatw.js"> </script>
-              <!-- icat --> </div>
-         <br>
-         <!-- admax -->
-            <div class="admax-switch" data-admax-id="496a4e9dcd8ed910061f50774978c557" style="display:inline-block;"></div>
-            <script type="text/javascript">
-            (admaxads = window.admaxads || []).push({admax_id: "496a4e9dcd8ed910061f50774978c557",type: "switch"});</script>
-            <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
-        <!-- admax -->  
-        </footer>
-        <!-- <script src="js/app.js"></script> -->
-     </body>
+    </header>
+
+    <main class="container my-4">
+        <section class="mb-4">
+            <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title">紹介</h5>
+                    <p class="card-text">
+                        このコンテンツは、PCやネットワーク関係の仕事をしていくうえで、得た知識などを記録・保存し、後から
+                        参照・利用する目的で立ち上げました。何かのお役に立てばさいわいです。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title">自己紹介</h5>
+                    <p class="card-text">
+                        （自己紹介）通信機器やPC関連の仕事に従事。情報処理安全確保支援士試験合格、ドットコムマスター★★2009
+                        ITパスポート、ビジネス実務法務検定2級、エコ検定など取得。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <h2 class="mb-3">メニュー</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">サイト・ドメイン調査</h5>
+                            <p class="card-text flex-grow-1">サイトやドメインに関する調査資料</p>
+                            <a href="./investigation01.html" class="btn btn-success mt-auto">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">セキュリティ・ネットワーク調査</h5>
+                            <p class="card-text flex-grow-1">セキュリティとネットワークに関する調査資料</p>
+                            <a href="./investigation02.html" class="btn btn-success mt-auto">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Windowsコマンド</h5>
+                            <p class="card-text flex-grow-1">Windowsコマンドに関する資料</p>
+                            <a href="./cui/command_windows1.html" class="btn btn-success mt-auto">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">linuxコマンド</h5>
+                            <p class="card-text flex-grow-1">Linuxコマンドに関する資料</p>
+                            <a href="./cui/command_linux1.html" class="btn btn-success mt-auto">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">検証マニア（動画）</h5>
+                            <p class="card-text flex-grow-1">YouTubeチャンネル</p>
+                            <a href="https://www.youtube.com/@user-gp6tl1mx1j" class="btn btn-success mt-auto" target="_blank" rel="noopener noreferrer">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">セキュリティマニア（動画）</h5>
+                            <p class="card-text flex-grow-1">セキュリティ関連動画</p>
+                            <a href="#" class="btn btn-success mt-auto">開く</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 bg-dark border-success text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">IT関連知識の備忘録</h5>
+                            <p class="card-text flex-grow-1">IT関連知識の備忘録ブログ</p>
+                            <a href="https://heiho.kai-seki.net/" class="btn btn-success mt-auto" target="_blank" rel="noopener noreferrer">開く</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4 text-center">
+            <img src="./images/carrier pigeon.jpg" class="img-fluid rounded" alt="carrier pigeon" style="max-width: 300px;">
+            <div class="mt-2" hidden>
+                <a class="btn btn-primary" href="https://www.dropbox.com/request/cvdg6plf4Kx3PbahNGwq" target="_blank" rel="noreferrer noopener">ファイル回収</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light border-top border-secondary py-4 mt-5">
+        <div class="container">
+            <h5>IPAが公開する「重要なセキュリティ情報」</h5>
+            <div>
+                <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+                <script type="text/javascript" src="https://www.ipa.go.jp/security/announce/irss/icatw.js"></script>
+            </div>
+            <div class="mt-3">
+                <div class="admax-switch" data-admax-id="496a4e9dcd8ed910061f50774978c557" style="display:inline-block;"></div>
+                <script type="text/javascript">
+                    (admaxads = window.admaxads || []).push({admax_id: "496a4e9dcd8ed910061f50774978c557",type: "switch"});
+                </script>
+                <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agentic Wiki 用のホームページ（テンプレート）">
+    <meta name="keywords" content="Wiki, Agentic, ホームページ">
+    <title>Wiki_Agentic</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* リストと本文の視認性のための最小限のカスタム調整 */
+        .wiki-content .card {
+            transition: box-shadow 0.15s ease-in-out;
+        }
+        .wiki-content .card:hover {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="h3 mb-1">Wiki_Agentic</h1>
+            <p class="mb-0">Agentic Wiki 用のホームページ（テンプレート）</p>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="row g-4" id="wikiAccordion">
+            <!-- 左側：目次リスト（項目は自由に追加できる） -->
+            <div class="col-12 col-lg-4">
+                <h2 class="h5 text-secondary mb-3">目次</h2>
+                <div class="list-group" id="wikiList">
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy1" aria-expanded="false" aria-controls="wikiCollapseDummy1">
+                        dummy1
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy2" aria-expanded="false" aria-controls="wikiCollapseDummy2">
+                        dummy2
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy3" aria-expanded="false" aria-controls="wikiCollapseDummy3">
+                        dummy3
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy4" aria-expanded="false" aria-controls="wikiCollapseDummy4">
+                        dummy4
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy5" aria-expanded="false" aria-controls="wikiCollapseDummy5">
+                        dummy5
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy6" aria-expanded="false" aria-controls="wikiCollapseDummy6">
+                        dummy6
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy7" aria-expanded="false" aria-controls="wikiCollapseDummy7">
+                        dummy7
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy8" aria-expanded="false" aria-controls="wikiCollapseDummy8">
+                        dummy8
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy9" aria-expanded="false" aria-controls="wikiCollapseDummy9">
+                        dummy9
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy10" aria-expanded="false" aria-controls="wikiCollapseDummy10">
+                        dummy10
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右側：本文（選択された項目に対応するカードを表示） -->
+            <div class="col-12 col-lg-8 wiki-content">
+                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_01</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_02</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy2" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_03</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/25</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_04</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/27</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy3" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_05</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/28</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_06</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/29</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy4" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_07</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/30</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_08</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy5" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_09</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/02</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_10</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/04</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy6" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_11</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/05</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_12</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/06</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy7" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_13</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/07</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_14</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/09</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy8" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_15</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/10</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_16</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/11</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy9" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_17</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/12</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_18</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/13</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy10" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_19</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/14</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_20</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
