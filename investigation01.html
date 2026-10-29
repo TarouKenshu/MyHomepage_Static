@@ -1,91 +1,349 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2021-07-25T22:50:23.533992291"/>
-	<meta name="created" content="00:00:00">
-	<meta name="changed" content="2021-07-25T22:38:06.726326146">
-	<meta name="created" content="00:00:00">
-	<meta name="changed" content="2021-07-23T23:26:28.170717712">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="investigation01">
+    <meta name="keywords" content="ドメイン調査,URL安全性評価,マルウェア調査">
+    <title>サイト・ドメイン調査</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* リストと本文の視認性のための最小限のカスタム調整 */
+        .wiki-content .card {
+            transition: box-shadow 0.15s ease-in-out;
+        }
+        .wiki-content .card:hover {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ITのツボというか経絡秘孔図的な何か</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">ホーム</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./investigation01.html">サイト・ドメイン調査</a></li>
+                                <li><a class="dropdown-item" href="./investigation02.html">セキュリティ・ネットワーク調査</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_windows1.html">Windowsコマンド</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_linux1.html">linuxコマンド</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><h6 class="dropdown-header">外部サイト</h6></li>
+                                <li><a class="dropdown-item" href="https://heiho.kai-seki.net/">IT関連知識の備忘録</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a></li>
+                                <li><a class="dropdown-item" href="#">セキュリティマニア（動画）</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>    
 </head>
-<body lang="ja-JP" dir="ltr">
-<p><span style="font-variant: normal"><span style="text-decoration: none"><span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">　　　　　　　　　　　　　　　　　　　　　　　　<a href="https://ippeus.ninja-mania.jp/index.html">トップページに戻る</a></span></font></font></span></span></span></p>
-<p><u><span style="background: transparent"><meta name="created" content="00:00:00"><meta name="changed" content="2021-05-31T22:26:49.759826358"><meta name="created" content="2021-05-30T18:56:18.511414362"><meta name="changed" content="2021-05-30T19:07:45.397206311"><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><b>IT</b></span></font></font></span></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><b>のつぼ　リンク集　調査関連（よく利用させてもらっているサイトです）</b></font></font></span></u></p>
-<p><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><b>ドメイン調査、</b></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b>URL</b></span></font></font></span></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><b>安全性評価など</b></font></font></p>
-<p><font color="#000000"><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US">&lt;WHOIS
-</span></font></font></span></font><font size="4" style="font-size: 15pt">　ドメイン情報取得</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US">&gt;</span></font></font></span></font></font></p>
-<p><font size="4" style="font-size: 14pt">・日本のドメインに限定するなら</font>　<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">JPRS</span></font></font></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://whois.jprs.jp/"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US">https://whois.jprs.jp/</span></font></font></a></span></font></p>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">TECH-UNLiMITED</span></font></font></span></font><font size="4" style="font-size: 16pt">　</font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt">海外のドメインも検索可能です。</font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://tech-unlimited.com/whois.html"><font face="ＭＳ ゴシック, sans-serif"><span lang="en-US">https://tech-unlimited.com/whois.html</span></font></a></span></font></p>
-<h1><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&lt;</span></span></font></font></span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">国</span></font></font><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">/</span></span></font></font></span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">地域別</span></font></font><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">IP</span></span></font></font></span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">アドレス割り振り一覧</span></font></font><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&gt;</span></span></font></font></span></font></font></h1>
-<p><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b>ipv4.fetus.jp</b></span></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://ipv4.fetus.jp/"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">https://ipv4.fetus.jp/</span></span></font></font></a></span></font></p>
-<p><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">ipvx.info</span></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.ipvx.info/country/"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US">https://www.ipvx.info/country/</span></font></font></a></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">&lt;URL
-</span></font></font></span></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 16pt">安全性評価</font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">&gt;</span></font></font></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US">Trend
-Micro Site Safety Center</span></font></font><font face="Liberation Serif, serif"><span lang="en-US">
-</span></font></span></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 16pt">　</font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt">トレンドマイクロ社</font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://global.sitesafety.trendmicro.com/?cc=jp"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US">https://global.sitesafety.trendmicro.com/?cc=jp</span></font></font></a></span></font></p>
+<body class="bg-light text-dark">
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="h3 mb-1">サイト・ドメイン・ネットワーク・ファイルの調査</h1>
+            <p class="mb-0">ドメイン調査、URL安全性評価など</p>
+        </div>
+    </header>
 
+    <main class="container my-4">
+        <div class="row g-4" id="wikiAccordion">
+            <!-- 左側：目次リスト（項目は自由に追加できる） -->
+            <div class="col-12 col-lg-4">
+                <!-- <h2 class="h5 text-secondary mb-3">目次</h2> -->
+                <div class="list-group" id="wikiList">
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List1" aria-expanded="false" aria-controls="wikiCollapseI01_List1">
+                        WHOIS ドメイン情報取得
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List2" aria-expanded="false" aria-controls="wikiCollapseI01_List2">
+                        国/地域別のIPアドレス割り当て
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List3" aria-expanded="false" aria-controls="wikiCollapseI01_List3">
+                        URL 安全性評価
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List4" aria-expanded="false" aria-controls="wikiCollapseI01_List4">
+                        怪しいURLやファイルの調査
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List5" aria-expanded="false" aria-controls="wikiCollapseI01_List5">
+                        自身のインターネットアクセス環境の確認。ブラウザやOSの種類、自身のIPの表示など
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List6" aria-expanded="false" aria-controls="wikiCollapseI01_List6">
+                        ポート開放確認（カメラや公開サーバの設定、ポート閉塞の確認などに使用する）
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List7" aria-expanded="false" aria-controls="wikiCollapseI01_List7">
+                        MACアドレス調査
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List8" aria-expanded="false" aria-controls="wikiCollapseI01_List8">
+                        I01_List8
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List9" aria-expanded="false" aria-controls="wikiCollapseI01_List9">
+                        I01_List9
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List10" aria-expanded="false" aria-controls="wikiCollapseI01_List10">
+                        I01_List10
+                    </button>
+                </div>
+            </div>
 
-<button onClick="openNewWindow()">新規ウィンドウで開く</button>
+            <!-- 右側：本文（選択された項目に対応するカードを表示） -->
+            <div class="col-12 col-lg-8 wiki-content">
+                <div id="wikiCollapseI01_List1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">日本のドメイン</h5>
+                                    <p class="card-text text-muted"><a href="https://whois.jprs.jp/">JPRS</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">海外のドメインも検索可能</h5>
+                                    <p class="card-text text-muted"><a href="https://tech-unlimited.com/whois.html">TECH-UNLiMITED</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<script>
-function openNewWindow() {
-  window.open('https://global.sitesafety.trendmicro.com/?cc=jp', null, 'location=no, menubar=no, toolbar=no, scrollbars=yes, resizable=yes, top=100, left=500, width=1000, height=800')
-}
-</script>
-<h1><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">Customer
-URL Ticketing System</span></span></font></font></span></font></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">　</span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">マカフィー社</span></font></font></h1>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.trustedsource.org/?p=mcafee"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">https://www.trustedsource.org/?p=mcafee</span></span></font></font></a></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">aguse.jp
-</span></span></font></font></span></font><font size="4" style="font-size: 16pt"><span style="font-weight: normal">メールのヘッダーの調査や、サイトへ代理アクセスしてくれたりします。</span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.aguse.jp/"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">https://www.aguse.jp/</span></span></font></font></a></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseI01_List2" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">fetus</h5>
+                                    <p class="card-text text-muted"><a href="https://ipv4.fetus.jp/">https://ipv4.fetus.jp/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/25</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">ipvx.info</h5>
+                                    <p class="card-text text-muted"><a href="https://www.ipvx.info/country/">https://www.ipvx.info/country/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/27</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&lt;</span></span></font></font></span></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">ウィルスが含まれる可能性あるファイルの調査</span></font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&gt;</span></span></font></font></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">Virus
-Total
-</span></span></font></font></span></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span style="font-weight: normal">アップロードされた検体（ファイル）は調査・研究のために広く公開される可能性があります。個人情報などが含まれる可能性のあるファイルのアップロードはやめましょう。</span></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.virustotal.com/ja/"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">https://www.virustotal.com/ja/</span></span></font></font></a></span></font></p>
-<p>※インターネット上のサービスの利用は自己責任のもと慎重に行ってください。誰も責任は取りません。</p>
-<p style="text-decoration: none; page-break-before: always"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">&lt;</span></span></span></font></font></span></span></font><span style="font-variant: normal"><span style="background: transparent"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 15pt"><span style="font-style: normal"><span style="font-weight: normal">自分の</span></span></font></font></span></span><span style="font-variant: normal"><span style="background: transparent"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-style: normal"><span style="font-weight: normal">インターネットアクセス環境の確認　ブラウザや</span></span></font></font></span></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">OS</span></span></span></font></font></span></span></font><span style="font-variant: normal"><span style="background: transparent"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-style: normal"><span style="font-weight: normal">の種類、アクセス元</span></span></font></font></span></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">IP</span></span></span></font></font></span></span></font><span style="font-variant: normal"><span style="background: transparent"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-style: normal"><span style="font-weight: normal">の表示など</span></span></font></font></span></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">&gt;</span></span></span></font></font></span></span></font></p>
-<p style="font-variant: normal; font-style: normal; text-decoration: none">
-<span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt">確認君</font></font></span></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.ugtop.com/spill.shtml"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><u><span style="font-weight: normal"><span style="background: transparent">https://www.ugtop.com/spill.shtml</span></span></u></span></font></font></span></span></a></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseI01_List3" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Trend Micro Site Safety Center トレンドマイクロ社</h5>
+                                    <p class="card-text text-muted"><a href="https://global.sitesafety.trendmicro.com/?cc=jp">https://global.sitesafety.trendmicro.com/?cc=jp</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/28</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Customer URL Ticketing System  マカフィー社</h5>
+                                    <p class="card-text text-muted"><a href="https://www.trustedsource.org/?p=mcafee">https://www.trustedsource.org/?p=mcafee</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：リンク確認：2026/10/29</div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><span style="font-variant: normal"><span style="text-decoration: none"><span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">確認君＋</span></font></font></span></span></span></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://env.b4iine.net/"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><u><span style="font-weight: normal"><span style="background: transparent">https://env.b4iine.net/</span></span></u></span></font></font></span></span></a></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseI01_List4" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Virus Total</h5>
+                                    <p class="card-text text-muted">調査はファイルの公開前提です。個人情報などが含まれる可能性のあるファイルのアップロードはやめましょう</p>
+                                    <p class="card-text text-muted"><a href="https://www.virustotal.com/gui/home/upload">https://www.virustotal.com/gui/home/upload</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/30</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">aguse.jp</h5>
+                                    <p class="card-text text-muted">メールのヘッダーの調査やサイトへの代理アクセス。かなり多機能。</p>
+                                    <p class="card-text text-muted"><a href="https://www.aguse.jp/">https://www.aguse.jp/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：リンク確認：2026/10/29（現在使用不可。回復を待ちます。）</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p style="text-decoration: none"><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">&lt;</span></span></span></font></font></span></span></font><span style="font-variant: normal"><span style="background: transparent"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-style: normal"><span style="font-weight: normal">ポート開放確認</span></span></font></font></span></span><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">&gt;</span></span></span></font></font></span></span></font></p>
-<h1 style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
-<span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt">ポート開放の確認（ルータの設定などで重宝しています。）</font></font></span></h1>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.akakagemaru.info/port/tcpport.php"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><u><span style="font-weight: normal"><span style="background: transparent">https://www.akakagemaru.info/port/tcpport.php</span></span></u></span></font></font></span></span></a></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseI01_List5" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">確認君</h5>
+                                    <p class="card-text text-muted"><a href="https://www.ugtop.com/spill.shtml">https://www.ugtop.com/spill.shtml</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/29</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">確認君＋</h5>
+                                    <p class="card-text text-muted"><a href="https://env.b4iine.net/">https://env.b4iine.net/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/10/29</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span lang="en-US"><span style="font-variant: normal"><span style="text-decoration: none"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">CMAN</span></span></span></font></font><font size="4" style="font-size: 15pt"><font face="IPAゴシック, sans-serif"><span style="font-style: normal">　</span></font></span></span></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.cman.jp/network/support/port.html"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><u><span style="font-weight: normal"><span style="background: transparent">https://www.cman.jp/network/support/port.html</span></span></u></span></font></font></span></span></a></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseI01_List6" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">KAGEMARU-info</h5>
+                                    <p class="card-text text-muted">ポート開放の確認<a href="https://www.akakagemaru.info/port/tcpport.php">https://www.akakagemaru.info/port/tcpport.php</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/05</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">CMAN</h5>
+                                    <p class="card-text text-muted">Portチェックテスト<a href="https://www.cman.jp/network/support/port.html">https://www.cman.jp/network/support/port.html</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/06</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><a href="https://ippeus.ninja-mania.jp/index.html"><span style="font-variant: normal"><u><span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">トップページに戻る</span></font></font></span></u></span></a></p>
-<p><!-- admax --><script src="https://adm.shinobi.jp/s/2166789698af39e77bd36cb724e8b230"></script></p>
+                <div id="wikiCollapseI01_List7" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">UIC</h5>
+                                    <p class="card-text text-muted"><a href="https://uic.jp/mac/">https://uic.jp/mac/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/07</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">MACベンダー 検索くん</h5>
+                                    <p class="card-text text-muted"><a href="http://mobile.shinsv.mydns.jp/tech/mac_address/">http://mobile.shinsv.mydns.jp/tech/mac_address/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/09</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List8" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_15</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/10</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_16</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/11</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List9" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_17</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/12</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_18</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/13</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseI01_List10" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_19</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/14</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_20</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">リンク確認：2026/11/15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-light border-top border-secondary py-4 mt-5">
+            <div class="container">
+
+            </div>
+        </footer>    
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
