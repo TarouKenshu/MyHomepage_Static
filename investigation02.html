@@ -1,66 +1,439 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 5.1.6.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2021-08-04T23:05:35.042858437"/>
-	<meta name="created" content="00:00:00">
-	<meta name="changed" content="2021-07-23T23:29:06.915444767">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agentic Wiki 用のホームページ（テンプレート）">
+    <meta name="keywords" content="Wiki, Agentic, ホームページ">
+    <title>脆弱性や攻撃手法</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* リストと本文の視認性のための最小限のカスタム調整 */
+        .wiki-content .card {
+            transition: box-shadow 0.15s ease-in-out;
+        }
+        .wiki-content .card:hover {
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ITのツボというか経絡秘孔図的な何か</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">ホーム</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./investigation01.html">サイト・ドメイン調査</a></li>
+                                <li><a class="dropdown-item" href="./investigation02.html">セキュリティ・ネットワーク調査</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_windows1.html">Windowsコマンド</a></li>
+                                <li><a class="dropdown-item" href="./cui/command_linux1.html">linuxコマンド</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><h6 class="dropdown-header">外部サイト</h6></li>
+                                <li><a class="dropdown-item" href="https://heiho.kai-seki.net/">IT関連知識の備忘録</a></li>
+                                <li><a class="dropdown-item" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a></li>
+                                <li><a class="dropdown-item" href="#">セキュリティマニア（動画）</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
 </head>
-<body lang="ja-JP" dir="ltr">
-<p><span style="font-variant: normal"><span style="text-decoration: none"><span style="background: transparent"><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">　　　　　　　　　　　　　　　　　　　　　　　　<a href="https://ippeus.ninja-mania.jp/index.html">トップページに戻る</a></span></font></font></span></span></span></p>
-<p><u><span style="background: transparent"><meta name="created" content="00:00:00"><meta name="changed" content="2021-07-08T18:41:42.862966241"><meta name="created" content="00:00:00"><meta name="changed" content="2021-05-31T22:26:49.759826358"><meta name="created" content="2021-05-30T18:56:18.511414362"><meta name="changed" content="2021-05-30T19:07:45.397206311"><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><b>IT</b></span></font></font></span></font><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><b>のつぼ　リンク集　調査関連（よく利用させてもらっているサイトです）</b></font></font></span></u></p>
-<p><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><b>セキュリティインシデントや脆弱性に関する情報収集</b></font></font></p>
-<p><font color="#000000"><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US">&lt;</span></font></font></span></font><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: 0.8pt"><font size="4" style="font-size: 15pt">国内の情報源</font></span></font></span><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US">&gt;</span></font></font></span></font></font></p>
-<p><font size="4" style="font-size: 14pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><span style="font-variant: normal"><font color="#333333"><font face="Liberation Serif, serif"><font size="4" style="font-size: 16pt"><span style="letter-spacing: 0.8pt"><span lang="en-US"><span style="font-style: normal"><b>JVN
-iPedia</b></span></span></span></font></font></font></span></span></font><span style="font-variant: normal"><font face="Liberation Serif, serif"><font size="4" style="font-size: 14pt"><span lang="en-US">　</span></font></font></span><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: 0.8pt"><font face="VL PGothic"><font size="4" style="font-size: 14pt"><span style="font-style: normal"><b>国内外問わず日々公開される脆弱性対策情報のデータベース</b></span></font></font></span></font></span></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://jvndb.jvn.jp/index.html"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US">https://jvndb.jvn.jp/index.html</span></font></font></a></span></font></p>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US"><b>JPCERT/CC</b></span></font></font></span></font><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><b>　</b></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.jpcert.or.jp/"><font face="ＭＳ ゴシック, sans-serif"><span lang="en-US">https://www.jpcert.or.jp/</span></font></a></span></font></p>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US"><b>IPA</b></span></font></font></span></font><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><b>　情報処理推進機構</b></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.ipa.go.jp/index.html"><font face="ＭＳ ゴシック, sans-serif"><span lang="en-US">https://www.ipa.go.jp/index.html</span></font></a></span></font></p>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span lang="en-US"><b>@IT
-</b></span></font></font></span></font><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><b>セキュリティ関連記事</b></font></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://www.atmarkit.co.jp/ait/subtop/security.html"><font face="ＭＳ ゴシック, sans-serif"><span lang="en-US">https://www.atmarkit.co.jp/ait/subtop/security.html</span></font></a></span></font></p>
-<p><strong><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal"><font size="4" style="font-size: 16pt">・</font></span></font></span></strong><font face="Liberation Serif, serif"><span lang="en-US"><strong><span style="font-variant: normal"><font color="#333333"><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span style="letter-spacing: normal"><span lang="en-US"><span style="font-style: normal"><b>@piyolog</b></span></span></span></font></font></font></span></strong></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://piyolog.hatenadiary.jp/"><font face="ＭＳ ゴシック, sans-serif"><span lang="en-US">https://piyolog.hatenadiary.jp/</span></font></a></span></font></p>
-<p><br/>
-<br/>
+<body class="bg-light text-dark">
+    <header class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="h3 mb-1">脆弱性や攻撃手法に関する情報収集</h1>
+            <p class="mb-0">脆弱性・攻撃手法・各種ツール
+            </p>
+        </div>
+    </header>
 
-</p>
-<h1><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&lt;CVE&gt;</span></span></font></font></span></font></font>　</h1>
-<p>・非営利団体の<font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">Mitre
-Corporation (</span></span></font></font></span></font>マイターコーポレーション<font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">)</span></span></font></font></span></font>が、
-<font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">1999</span></span></font></font></span></font>年に脆弱性を一意に特定できるよう<font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">CVE</span></span></font></font></span></font>を提案・実装。</p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://cve.mitre.org/"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">https://cve.mitre.org/</span></span></font></font></a></span></font></p>
-<h1><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&lt;</span></span></font></font></span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">セキュリティベンダー</span></font></font><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&gt;</span></span></font></font></span></font></font></h1>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b>Sophos
-Home Security News</b></span></font></font></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://home.sophos.com/ja-jp/security-news.aspx"><font face="ＭＳ ゴシック, sans-serif"><font size="4" style="font-size: 14pt"><span lang="en-US"><span style="font-weight: normal">https://home.sophos.com/ja-jp/security-news.aspx</span></span></font></font></a></span></font></p>
-<h1><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&lt;</span></span></font></font></span></font></font><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span style="font-weight: normal">その他</span></font></font><font face="Thorndale, serif"><font size="6" style="font-size: 24pt"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">&gt;</span></span></font></font></span></font></font></h1>
-<p><font size="4" style="font-size: 16pt">・</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b>DDOS</b></span></font></font></span></font><font size="4" style="font-size: 16pt">攻撃可視化しているサイト　</font><font face="Liberation Serif, serif"><span lang="en-US"><strong><span style="font-variant: normal"><font color="#333333"><font face="apple-system, Segoe UI, Helvetica Neue, Hiragino Kaku Gothic ProN, meiryo, sans-serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal"><span lang="en-US"><span style="font-style: normal"><b>digitalattackmap</b></span></span></span></font></font></font></span></strong></span></font></p>
-<p><font face="Liberation Serif, serif"><span lang="en-US"><a href="http://www.digitalattackmap.com/"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal">http://www.digitalattackmap.com/</span></span></font></font></a></span></font></p>
-<p><br/>
-<br/>
+    <main class="container my-4">
+        <div class="row g-4" id="wikiAccordion">
+            <!-- 左側：目次リスト（項目は自由に追加できる） -->
+            <div class="col-12 col-lg-3">
+                <!-- <h2 class="h5 text-secondary mb-3">目次</h2> -->
+                <div class="list-group" id="wikiList">
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy1" aria-expanded="false" aria-controls="wikiCollapseDummy1">
+                        国内の情報源
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy2" aria-expanded="false" aria-controls="wikiCollapseDummy2">
+                        海外の情報源
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy3" aria-expanded="false" aria-controls="wikiCollapseDummy3">
+                        Threat Maps サイバー攻撃の視覚化
+                    </button>
+                    <button class="d-none list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy4" aria-expanded="false" aria-controls="wikiCollapseDummy4">
+                        [悪用厳禁] ExploitコードなどHacking手法に関する情報
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy5" aria-expanded="false" aria-controls="wikiCollapseDummy5">
+                        CTFなどで役立つWEBツール
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy6" aria-expanded="false" aria-controls="wikiCollapseDummy6">
+                        dummy6
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy7" aria-expanded="false" aria-controls="wikiCollapseDummy7">
+                        dummy7
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy8" aria-expanded="false" aria-controls="wikiCollapseDummy8">
+                        dummy8
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy9" aria-expanded="false" aria-controls="wikiCollapseDummy9">
+                        dummy9
+                    </button>
+                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy10" aria-expanded="false" aria-controls="wikiCollapseDummy10">
+                        dummy10
+                    </button>
+                </div>
+            </div>
 
-</p>
-<p style="text-decoration: none"><font face="IPAゴシック, sans-serif"><span style="font-variant: normal"><span style="text-decoration: none"><span style="background: transparent"><font size="4" style="font-size: 15pt"><span style="font-style: normal">・</span></font></span></span></span></font><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b><span style="background: transparent">MAC</b></span></font></font></span></font><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">アドレス調査　</span></font></font><font face="IPAゴシック, sans-serif"><span lang="en-US"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><b>UIC</span></b></span></font></font></span></span></span></font></p>
-<p style="text-decoration: none"><font face="IPAゴシック, sans-serif"><span lang="en-US"><a href="https://uic.jp/mac/"><span style="font-variant: normal"><span style="text-decoration: none"><font face="ＭＳ Ｐ明朝"><font size="4" style="font-size: 16pt"><span lang="en-US"><span style="font-weight: normal"><span style="background: transparent">https://uic.jp/mac/</span></span></span></font></font></span></span></a></span></font></p>
-<p style="text-decoration: none"><br/>
-<br/>
+            <!-- 右側：本文（選択された項目に対応するカードを表示） -->
+            <div class="col-12 col-lg-9 wiki-content">
+                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">JVN iPedia</h5>
+                                    <p class="card-text text-muted">脆弱性対策情報のデータベース<a href="https://jvndb.jvn.jp/index.html">https://jvndb.jvn.jp/index.html</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">JPCERT/CC</h5>
+                                    <p class="card-text text-muted">日本のインシデント等の受付・支援・助言を行う<a href="https://www.jpcert.or.jp/">https://www.jpcert.or.jp/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">IPA 情報処理推進機構</h5>
+                                    <p class="card-text text-muted"><a href="https://www.ipa.go.jp/index.html">https://www.ipa.go.jp/index.html</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">@IT セキュリティ関連記事</h5>
+                                    <p class="card-text text-muted"><a href="https://www.atmarkit.co.jp/ait/subtop/security.html">https://www.atmarkit.co.jp/ait/subtop/security.html</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p style="text-decoration: none"><font face="IPAゴシック, sans-serif"><span style="font-variant: normal"><span style="text-decoration: none"><span style="background: transparent"><font size="4" style="font-size: 16pt"><span style="font-style: normal">　</span></font></span></span></span></font></p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">@piyolog</h5>
+                                    <p class="card-text text-muted"><a href="https://piyolog.hatenadiary.jp/">https://piyolog.hatenadiary.jp/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/25</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_06</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/27</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><br/>
-<br/>
+                <div id="wikiCollapseDummy2" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">CVEデータベース</h5>
+                                    <p class="card-text text-muted">Mitre（マイター）Corporation<br><a href="https://cve.mitre.org/">https://cve.mitre.org/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/25</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">National Vulnerability Database</h5>
+                                    <p class="card-text text-muted">NIST 米国国立標準技術研究所<br><a href="https://nvd.nist.gov/">https://nvd.nist.gov/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/27</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</p>
-<p><span style="font-variant: normal"><span style="text-decoration: none"><u><span style="background: transparent"><!-- admax --><script src="https://adm.shinobi.jp/s/2166789698af39e77bd36cb724e8b230"></script><font face="IPAゴシック, sans-serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal"><a href="https://ippeus.ninja-mania.jp/index.html">トップページに戻る</a><!-- admax --></span></font></font></span></u></span></span></p>
+                <div id="wikiCollapseDummy3" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cyberthreat Real-Time Map</h5>
+                                    <p class="card-text text-muted">Bitdefender <a href="https://threatmap.bitdefender.com/">https://threatmap.bitdefender.com/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/28</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">LiVE CYBER THREAT MAP</h5>
+                                    <p class="card-text text-muted">Check Point  <a href="https://threatmap.checkpoint.com/">https://threatmap.checkpoint.com/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/29</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy3" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">NETSCOUT Cyber Threat Horizon</h5>
+                                    <p class="card-text text-muted">NETSCOUT<a href="https://horizon.netscout.com/">https://horizon.netscout.com/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cyber Attack Map</h5>
+                                    <p class="card-text text-muted">cisco talos<a href="https://talosintelligence.com/ebc_spam">https://talosintelligence.com/ebc_spam</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy4" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Exploit DB</h5>
+                                    <p class="card-text text-muted"><a href="https://www.exploit-db.com/">https://www.exploit-db.com/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/30</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Linuxの権限昇格・脱獄ツール</h5>
+                                    <p class="card-text text-muted"><a href="https://gtfobins.org/">https://gtfobins.org/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy5" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">CyberChef</h5>
+                                    <p class="card-text text-muted"><a href="https://www.gchq.gov.uk/">GCHQ（英国政府通信本部）</a>が公開<br><a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/02</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">CrackStation</h5>
+                                    <p class="card-text text-muted">Free Password Hash Cracker<br><a href="https://crackstation.net/">https://crackstation.net/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/04</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy5" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">quipqiup - cryptoquip and cryptogram solver</h5>
+                                    <p class="card-text text-muted">置換式暗号を勝手に解いてくれるツール<br><a href="https://quipqiup.com/">https://quipqiup.com/</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/21</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">dCode</h5>
+                                    <p class="card-text text-muted">オンライン暗号、ソルバー、デコーダー<br><a href="https://www.dcode.fr/en">https://www.dcode.fr/en</a></p>
+                                </div>
+                                <div class="card-footer text-muted">2026/10/23</div>
+                            </div>
+                        </div>
+                    </div>                
+
+                <div id="wikiCollapseDummy6" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_11</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/05</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_12</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/06</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy7" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_13</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/07</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_14</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/09</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy8" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_15</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/10</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_16</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/11</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy9" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_17</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/12</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_18</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/13</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wikiCollapseDummy10" class="collapse" data-bs-parent="#wikiAccordion">
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_19</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/14</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">title_20</h5>
+                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
+                                </div>
+                                <div class="card-footer text-muted">2026/11/15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-light border-top border-secondary py-4 mt-5">
+            <div class="container">
+
+            
+            </div>
+        </footer>    
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
