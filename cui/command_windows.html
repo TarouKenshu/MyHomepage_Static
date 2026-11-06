@@ -1,393 +1,789 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agentic Wiki 用のホームページ（テンプレート）">
-    <meta name="keywords" content="Wiki, Agentic, ホームページ">
-    <title>Wiki_Agentic</title>
-    <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* リストと本文の視認性のための最小限のカスタム調整 */
-        .wiki-content .card {
-            transition: box-shadow 0.15s ease-in-out;
-        }
-        .wiki-content .card:hover {
-            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
-        }
-    </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">ITのツボというか経絡秘孔図的な何か</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="./investigation01.html">サイト・ドメイン調査</a></li>
-                                <li><a class="dropdown-item" href="./investigation02.html">セキュリティ・ネットワーク調査</a></li>
-                                <li><a class="dropdown-item" href="./cui/command_windows1.html">Windowsコマンド</a></li>
-                                <li><a class="dropdown-item" href="./cui/command_linux1.html">linuxコマンド</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><h6 class="dropdown-header">外部サイト</h6></li>
-                                <li><a class="dropdown-item" href="https://heiho.kai-seki.net/">IT関連知識の備忘録</a></li>
-                                <li><a class="dropdown-item" href="https://www.youtube.com/@user-gp6tl1mx1j">検証マニア（動画）</a></li>
-                                <li><a class="dropdown-item" href="#">セキュリティマニア（動画）</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="3カラムレイアウト">
+  <title>Windowsコマンド | ITのツボというか経絡秘孔図的な何か</title>
+  <!-- CSSファイルを参照） -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/doc_style.css" rel="stylesheet">
 </head>
-<body class="bg-light text-dark">
-    <header class="bg-info text-white py-4">
-        <div class="container">
-            <h1 class="h3 mb-1">Windowsコマンド</h1>
-            <p class="mb-0">コマンドプロンプトとWindows PowerShell</p>
+<body class="bg-dark text-light">
+
+  <!-- ===== ヘッダー（既存 index.html の navbar と同じ書式） ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">ITのツボというか経絡秘孔図的な何か</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">ホーム</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./command_windows.html">Windowsコマンド</a>
+            </li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main class="container my-4">
-        <div class="row g-4" id="wikiAccordion">
-            <!-- 左側：目次リスト（項目は自由に追加できる） -->
-            <div class="col-12 col-lg-3">
-                <h2 class="h5 text-secondary mb-3">目次</h2>
-                <div class="list-group" id="wikiList">
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy1" aria-expanded="false" aria-controls="wikiCollapseDummy1">
-                        ネットワーク
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy2" aria-expanded="false" aria-controls="wikiCollapseDummy2">
-                        Wi-Fiの設定
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy3" aria-expanded="false" aria-controls="wikiCollapseDummy3">
-                        dummy3
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy4" aria-expanded="false" aria-controls="wikiCollapseDummy4">
-                        dummy4
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy5" aria-expanded="false" aria-controls="wikiCollapseDummy5">
-                        dummy5
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy6" aria-expanded="false" aria-controls="wikiCollapseDummy6">
-                        dummy6
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy7" aria-expanded="false" aria-controls="wikiCollapseDummy7">
-                        dummy7
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy8" aria-expanded="false" aria-controls="wikiCollapseDummy8">
-                        dummy8
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy9" aria-expanded="false" aria-controls="wikiCollapseDummy9">
-                        dummy9
-                    </button>
-                    <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy10" aria-expanded="false" aria-controls="wikiCollapseDummy10">
-                        dummy10
-                    </button>
-                </div>
-            </div>
+  <div class="docs-layout container-fluid px-0">
 
-            <!-- 右側：本文（選択された項目に対応するカードを表示） -->
-            <div class="col-12 col-lg-9 wiki-content">
-                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_01</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/21</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_02</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/23</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ============================================================
+         左：項目リスト
+         ★ data-doc="xxx" の xxx と、中央の <article data-doc="xxx"> が対応しています。
+         ★ 新しい項目を増やす場合は、左ナビと中央記事の両方に同じ値を追加してください。
+    ============================================================= -->
+    <nav id="docNav" aria-label="項目リスト">
+      <div class="p-3 pb-0">
+        <label class="visually-hidden" for="docSearch">項目を絞り込む</label>
+        <input type="search" id="docSearch" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="項目を絞り込む…">
+      </div>
 
-                <div id="wikiCollapseDummy1" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_03</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/21</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_04</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/23</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-                
-                <div id="wikiCollapseDummy2" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_05</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/25</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_06</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/27</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
-                <div id="wikiCollapseDummy2" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_07</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/21</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_08</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/23</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="wikiCollapseDummy3" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_05</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/28</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_06</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/29</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div id="docNavList">
+        <div class="doc-group-title">Windowsコマンド</div>
+        <a href="#getting-started" class="doc-link active" data-doc="getting-started">top</a>
+        <div hidden><a href="#item0t" class="doc-link" data-doc="item0">item0</a></div>
 
-                <div id="wikiCollapseDummy4" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_07</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/30</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_08</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/10/31</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="doc-group-title">コマンドプロンプト</div>
+        <a href="#item1" class="doc-link" data-doc="item1A">LAN調査・設定</a>
+        <a href="#item2" class="doc-link" data-doc="item2A">インターネットの調査</a>
+        <a href="#item3" class="doc-link" data-doc="item3A">tracert</a>
+        <a href="#item4" class="doc-link" data-doc="item4A">netsh</a>
+        <a href="#item5" class="doc-link" data-doc="item5A"></a>
+        <a href="#item6" class="doc-link" data-doc="item6A"></a>
+        <a href="#item7" class="doc-link" data-doc="item7A">item7</a>
+        <a href="#item8" class="doc-link" data-doc="item8A">item8</a>
 
-                <div id="wikiCollapseDummy5" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_09</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/02</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_10</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/04</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="doc-group-title">Windows PowerShell</div>
+        <a href="#item1" class="doc-link" data-doc="item1B">item1</a>
+        <a href="#item2" class="doc-link" data-doc="item2B">item2</a>
+        <a href="#item3" class="doc-link" data-doc="item3B">item3</a>
+        <a href="#item4" class="doc-link" data-doc="item4B">item4</a>
+        <a href="#item5" class="doc-link" data-doc="item5B">item5</a>
+        <a href="#item6" class="doc-link" data-doc="item6B">item6</a>
+        <a href="#item7" class="doc-link" data-doc="item7B">item7</a>
+        <a href="#item8" class="doc-link" data-doc="item8B">item8</a>
+        
+        <div hidden>
+            <div class="doc-group-title">draft</div>
+            <a href="#item" class="doc-link" data-doc="item">長いコンテンツ（スクロール確認用）</a>
+        </div> 
+      </div>
+    </nav>
 
-                <div id="wikiCollapseDummy6" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_11</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/05</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_12</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/06</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ============================================================
+         中央：選択結果のコンテンツ
+         ★ 1項目 = 1つの <article class="doc-panel" data-doc="xxx">
+         ★ 記事内の h2 / h3 が右側アウトラインに自動表示されます。
+         ★ アウトラインをクリックすると、この中央領域だけが該当見出し位置にスクロールします。
+    ============================================================= -->
+    <main id="docMain" tabindex="0" aria-label="コンテンツ">
+      <div class="p-4 p-lg-5">
+        <!-- ===== 項目：top ===== -->
+        <article class="doc-panel" data-doc="getting-started">
+          <h1 class="display-6 fw-bold">Windowsコマンド</h1>
+          <p class="lead">このページは、左側の項目リストから記事を選ぶと中央にコンテンツが切り替わります。右側にはページ内の目次があります。</p>
 
-                <div id="wikiCollapseDummy7" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_13</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/07</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_14</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/09</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h2 id="getting-started-overview">概要</h2>
+          <p>Windowsコマンドの活用方法を掲載しています。WindowsにはコマンドプロンプトとWindows PowerShellの2種類のシェルがあります。両方で使えるコマンド、片方しか使用できないコマンドがあります。そのため2つに大区分しています。両方で使えても片方にしか載せていませんので注意願います。</p>
+          <p>一つのウィンドウで複数のコマンドプロンプトやPowerShellをタブで切り替えて使用できるWindowsターミナルが便利です。Microsoft Storeで入手できます。</p>
 
-                <div id="wikiCollapseDummy8" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_15</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/10</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_16</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/11</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h2 id="getting-started-howto">使い方</h2>
+          <h3 id="getting-started-howto-left">左の項目リストから選ぶ</h3>
+          <p>左側のリンクをクリックすると、中央の記事が差し替わります。選択中の項目は緑色でハイライトされます。</p>
 
-                <div id="wikiCollapseDummy9" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_17</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/12</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_18</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/13</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h3 id="getting-started-howto-outline">右のアウトラインから移動する</h3>
+          <p>右側には、現在表示中の記事の <code>h2</code> / <code>h3</code> が自動で一覧表示されます。クリックすると中央のコンテンツだけが滑らかにスクロールして該当見出しが表示されます。中央をスクロールすると、現在位置に合わせた見出しがアウトライン側でハイライトされます（Scrollspy 相当）。</p>
 
-                <div id="wikiCollapseDummy10" class="collapse" data-bs-parent="#wikiAccordion">
-                    <div class="row row-cols-1 row-cols-md-2 g-3">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_19</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/14</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">title_20</h5>
-                                    <p class="card-text text-muted">本文は後から追記する予定です。</p>
-                                </div>
-                                <div class="card-footer text-muted">2026/11/15</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <h2 id="getting-started-edit">ネットワークの仮定条件</h2>
+          <p>ここではローカルのネットワークを以下のように仮定して、コマンドの実例を記載しています。実際にお使いのLAN環境に合わせてIPアドレスやSSIDなどは読み替えてご利用ください。</p>
+          <p>※端末のIP構成を次のように仮定します。お使いの環境に合わせて、読み替えてください。
+
+IPv4アドレス：192.168.0.12
+
+サブネットマスク：255.255.255.0
+
+IPv4デフォルトゲートウェイ：192.168.0.1
+※デフォルトゲートウェイは端末の存在するネットワークの外部との接点。通常はルータのLAN側IPアドレスといわれます。
+
+また、IPアドレスを192.168.0.150に固定したネットワーク上のプリンタが存在するとします。</p>
+        </article>
+
+        <!-- ===== item0 ===== -->
+        <article class="doc-panel" data-doc="item0" hidden>
+          <h1 class="display-6 fw-bold">item0</h1>
+          <p class="lead">グリッドやコンテナなど、ページの骨格を作るための基本です。</p>
+
+          <h2 id="layout-container">コンテナ</h2>
+          <p><code>.container</code> は最大幅が決まった中央寄せの箱、<code>.container-fluid</code> は幅いっぱいの箱です。このひな形では 3カラム全体に <code>container-fluid</code> を使っています。</p>
+
+          <h2 id="layout-grid">グリッドシステム</h2>
+          <h3 id="layout-grid-breakpoint">ブレイクポイント</h3>
+          <p>画面幅に応じてカラム数を変えたい場合は <code>col-md-*</code> などを使います。狭い画面では左ナビとアウトラインが上下に回り込みます（このページの CSS の <code>@media (max-width: 991.98px)</code> 参照）。</p>
+
+          <h3 id="layout-grid-flex">Flex で 3カラムにする場合</h3>
+          <p>このひな形の 3カラムは Bootstrap のグリッドではなく Flex（<code>display: flex</code>）で組んでいます。各カラムに <code>overflow-y: auto</code> を指定することで独立スクロールを実現しています。</p>
+
+          <h2 id="layout-scroll">独立スクロール</h2>
+          <p>ページ全体を止めて各区画だけをスクロールさせるには、親の高さを <code>calc(100vh - ヘッダー高さ)</code> に固定し、子に <code>overflow-y: auto</code> と <code>min-height: 0</code> を付けます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item1 ===== -->
+        <article class="doc-panel" data-doc="item1A" hidden>
+          <h1 class="display-6 fw-bold">item1A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item1-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item1-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item1-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item1-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item2 ===== -->
+        <article class="doc-panel" data-doc="item2A" hidden>
+          <h1 class="display-6 fw-bold">item2A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item2-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item2-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item2-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item2-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item3 ===== -->
+        <article class="doc-panel" data-doc="item3A" hidden>
+          <h1 class="display-6 fw-bold">item3A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item4 ===== -->
+        <article class="doc-panel" data-doc="item4A" hidden>
+          <h1 class="display-6 fw-bold">item4A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item5A ===== -->
+        <article class="doc-panel" data-doc="item5A" hidden>
+          <h1 class="display-6 fw-bold">item4A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item4 ===== -->
+        <article class="doc-panel" data-doc="item6A" hidden>
+          <h1 class="display-6 fw-bold">item6A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        <!-- ===== CHAP A：item4 ===== -->
+        <article class="doc-panel" data-doc="item7A" hidden>
+          <h1 class="display-6 fw-bold">item7A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        <!-- ===== CHAP A：item4 ===== -->
+        <article class="doc-panel" data-doc="item8A" hidden>
+          <h1 class="display-6 fw-bold">item8A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        
+        <!-- ===== CHAP B：item1 ===== -->
+        <article class="doc-panel" data-doc="item1B" hidden>
+          <h1 class="display-6 fw-bold">item1B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        <!-- ===== CHAP B：item2 ===== -->
+        <article class="doc-panel" data-doc="item2B" hidden>
+          <h1 class="display-6 fw-bold">item2B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>        
+
+        <!-- ===== CHAP B：item3 ===== -->
+        <article class="doc-panel" data-doc="item3B" hidden>
+          <h1 class="display-6 fw-bold">item3B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>         
+
+        <!-- ===== CHAP B：item2 ===== -->
+        <article class="doc-panel" data-doc="item4B" hidden>
+          <h1 class="display-6 fw-bold">item4B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article> 
+        
+        <!-- ===== CHAP B：item5 ===== -->
+        <article class="doc-panel" data-doc="item5B" hidden>
+          <h1 class="display-6 fw-bold">item5B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        <!-- ===== CHAP B：item6 ===== -->
+        <article class="doc-panel" data-doc="item6B" hidden>
+          <h1 class="display-6 fw-bold">item6B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        <!-- ===== CHAP B：item7 ===== -->
+        <article class="doc-panel" data-doc="item7B" hidden>
+          <h1 class="display-6 fw-bold">item7B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article> 
+
+        <!-- ===== CHAP B：item8 ===== -->
+        <article class="doc-panel" data-doc="item8B" hidden>
+          <h1 class="display-6 fw-bold">item8B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>         
+
+
+        <!-- ===== 項目：長いコンテンツ（スクロール確認用） ===== -->
+        <article class="doc-panel" data-doc="item" hidden>
+          <h1 class="display-6 fw-bold">長いコンテンツ（スクロール確認用）</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+      </div>
     </main>
-    <footer class="bg-dark text-light border-top border-secondary py-4 mt-5">
-            <div class="container">
 
-            
-            </div>
-        </footer>    
+    <!-- ============================================================
+         右：アウトライン（現在の記事の h2 / h3 を JS で自動生成）
+         ★ 見出しの増減に合わせて手で作り替える必要はありません。
+    ============================================================= -->
+    <aside id="docOutline" aria-label="このページのアウトライン">
+      <div class="outline-title">このページの目次</div>
+      <nav>
+        <ul id="outlineList"></ul>
+      </nav>
+    </aside>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="../js/bootstrap.bundle.min.js"></script>
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/doc_script.js"></script>
 </body>
 </html>

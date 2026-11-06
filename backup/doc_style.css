@@ -1,0 +1,172 @@
+  @charset "utf-8";
+    /*
+      Bootstrap Docs 風 3カラムレイアウト
+      ┌──────────┬────────────────────────┬──────────┐
+      │ 左: 項目リスト │ 中央: 選択中のコンテンツ │ 右: アウトライン │
+      └──────────┴────────────────────────┴──────────┘
+      3カラムそれぞれが独立に縦スクロールします。
+      行数が足りない間はスクロールバーが出ず、
+      溢れた分だけ自動で縦スクロールバーが表示されます（overflow-y: auto）。
+    */
+    html, body { height: 100%; }
+
+    body {
+      /* ページ全体ではなく、各カラムがスクロールする方式 */
+      overflow: hidden;
+    }
+
+    .docs-layout {
+      display: flex;
+      align-items: stretch;
+      /* ヘッダー（navbar）の高さ分を差し引いた残りを 3カラムに割り当てる */
+      height: calc(100vh - 57px);
+      height: calc(100dvh - 57px);
+      min-height: 0;
+    }
+
+    /* ===== 3カラム共通：行数に応じて自動でスクロールバーを出す設定 ===== */
+    #docNav,
+    #docMain,
+    #docOutline {
+      overflow-y: auto;   /* 溢れたときだけ縦スクロールバー表示 */
+      overflow-x: hidden;
+      min-height: 0;
+      scrollbar-width: thin;
+      overscroll-behavior: contain;
+    }
+
+    /* スクロールバーを見やすくする（対応ブラウザのみ） */
+    #docNav::-webkit-scrollbar,
+    #docMain::-webkit-scrollbar,
+    #docOutline::-webkit-scrollbar { width: 10px; height: 10px; }
+    #docNav::-webkit-scrollbar-thumb,
+    #docMain::-webkit-scrollbar-thumb,
+    #docOutline::-webkit-scrollbar-thumb {
+      background: rgba(127,127,127,.45);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    #docNav::-webkit-scrollbar-track,
+    #docMain::-webkit-scrollbar-track,
+    #docOutline::-webkit-scrollbar-track { background: transparent; }
+
+    /* ===== 左：項目リスト ===== */
+    #docNav {
+      flex: 0 0 280px;
+      width: 280px;
+      border-right: 1px solid #2b2b2b;
+    }
+
+    .doc-group-title {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: #adb5bd;
+      text-transform: uppercase;
+      padding: 1.25rem 1rem .35rem;
+    }
+
+    .doc-link {
+      display: block;
+      padding: .35rem 1rem;
+      margin: .1rem .5rem;
+      color: #dee2e6;
+      text-decoration: none;
+      border-radius: .5rem;
+      font-size: .95rem;
+      line-height: 1.4;
+    }
+    .doc-link:hover { color: #fff; background: #212529; }
+    .doc-link.active { color: #fff; background: #198754; } /* Bootstrap success */
+
+    /* ===== 中央：コンテンツ ===== */
+    #docMain {
+      flex: 1 1 auto;
+      min-width: 0;
+      background: #fff;
+      color: #212529;
+    }
+
+    .doc-panel[hidden] { display: none; }
+
+    /* クリックしたアナウンス先がヘッダーに隠れないようにする */
+    .doc-panel h2,
+    .doc-panel h3,
+    .doc-panel h4 { scroll-margin-top: 16px; }
+
+    .doc-panel h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .doc-panel h2:first-of-type { margin-top: 0; }
+    .doc-panel h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.75rem; }
+    .doc-panel h4 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; }
+    .doc-panel p { line-height: 1.8; }
+    .doc-panel pre, .doc-panel code { font-size: .9rem; }
+    .doc-panel pre {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: .5rem;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    /* ===== 右：アウトライン ===== */
+    #docOutline {
+      flex: 0 0 280px;
+      width: 280px;
+      border-left: 1px solid #2b2b2b;
+    }
+
+    .outline-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #fff;
+      padding: 1.25rem 1rem .5rem;
+    }
+
+    #outlineList { list-style: none; margin: 0; padding: 0 0 1.5rem; }
+    #outlineList a {
+      display: block;
+      padding: .25rem .75rem .25rem 1rem;
+      margin-left: 1rem;
+      color: #adb5bd;
+      text-decoration: none;
+      font-size: .88rem;
+      line-height: 1.45;
+      border-left: 2px solid #343a40;
+    }
+    #outlineList a:hover { color: #fff; }
+    #outlineList a.active {
+      color: #75b798;
+      border-left-color: #198754;
+      font-weight: 600;
+    }
+
+    /* ===== 狭い画面（タブレット/スマホ）：縦に積み上げる ===== */
+    @media (max-width: 991.98px) {
+      .docs-layout { flex-direction: column; }
+      #docNav {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: 32%;
+        border-right: none;
+        border-bottom: 1px solid #2b2b2b;
+      }
+      #docMain { flex: 1 1 auto; min-height: 0; }
+      #docOutline {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: 28%;
+        border-left: none;
+        border-top: 1px solid #2b2b2b;
+      }
+      #outlineList { display: flex; flex-wrap: wrap; }
+      #outlineList a { border-left: none; border-bottom: 2px solid #343a40; margin-left: .5rem; }
+      #outlineList a.active { border-bottom-color: #198754; }
+    }
+ 
