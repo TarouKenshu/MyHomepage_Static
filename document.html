@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bootstrap のドキュメント風 3カラムレイアウトのひな形">
+  <title>ドキュメント | ITのツボというか経絡秘孔図的な何か</title>
+  <!-- Bootstrap CSS（既存のファイルを参照） -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /*
+      Bootstrap Docs 風 3カラムレイアウト
+      ┌──────────┬────────────────────────┬──────────┐
+      │ 左: 項目リスト │ 中央: 選択中のコンテンツ │ 右: アウトライン │
+      └──────────┴────────────────────────┴──────────┘
+      3カラムそれぞれが独立に縦スクロールします。
+      行数が足りない間はスクロールバーが出ず、
+      溢れた分だけ自動で縦スクロールバーが表示されます（overflow-y: auto）。
+    */
+    html, body { height: 100%; }
+
+    body {
+      /* ページ全体ではなく、各カラムがスクロールする方式 */
+      overflow: hidden;
+    }
+
+    .docs-layout {
+      display: flex;
+      align-items: stretch;
+      /* ヘッダー（navbar）の高さ分を差し引いた残りを 3カラムに割り当てる */
+      height: calc(100vh - 57px);
+      height: calc(100dvh - 57px);
+      min-height: 0;
+    }
+
+    /* ===== 3カラム共通：行数に応じて自動でスクロールバーを出す設定 ===== */
+    #docNav,
+    #docMain,
+    #docOutline {
+      overflow-y: auto;   /* 溢れたときだけ縦スクロールバー表示 */
+      overflow-x: hidden;
+      min-height: 0;
+      scrollbar-width: thin;
+      overscroll-behavior: contain;
+    }
+
+    /* スクロールバーを見やすくする（対応ブラウザのみ） */
+    #docNav::-webkit-scrollbar,
+    #docMain::-webkit-scrollbar,
+    #docOutline::-webkit-scrollbar { width: 10px; height: 10px; }
+    #docNav::-webkit-scrollbar-thumb,
+    #docMain::-webkit-scrollbar-thumb,
+    #docOutline::-webkit-scrollbar-thumb {
+      background: rgba(127,127,127,.45);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    #docNav::-webkit-scrollbar-track,
+    #docMain::-webkit-scrollbar-track,
+    #docOutline::-webkit-scrollbar-track { background: transparent; }
+
+    /* ===== 左：項目リスト ===== */
+    #docNav {
+      flex: 0 0 280px;
+      width: 280px;
+      border-right: 1px solid #2b2b2b;
+    }
+
+    .doc-group-title {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: #adb5bd;
+      text-transform: uppercase;
+      padding: 1.25rem 1rem .35rem;
+    }
+
+    .doc-link {
+      display: block;
+      padding: .35rem 1rem;
+      margin: .1rem .5rem;
+      color: #dee2e6;
+      text-decoration: none;
+      border-radius: .5rem;
+      font-size: .95rem;
+      line-height: 1.4;
+    }
+    .doc-link:hover { color: #fff; background: #212529; }
+    .doc-link.active { color: #fff; background: #198754; } /* Bootstrap success */
+
+    /* ===== 中央：コンテンツ ===== */
+    #docMain {
+      flex: 1 1 auto;
+      min-width: 0;
+      background: #fff;
+      color: #212529;
+    }
+
+    .doc-panel[hidden] { display: none; }
+
+    /* クリックしたアナウンス先がヘッダーに隠れないようにする */
+    .doc-panel h2,
+    .doc-panel h3,
+    .doc-panel h4 { scroll-margin-top: 16px; }
+
+    .doc-panel h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .doc-panel h2:first-of-type { margin-top: 0; }
+    .doc-panel h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.75rem; }
+    .doc-panel h4 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; }
+    .doc-panel p { line-height: 1.8; }
+    .doc-panel pre, .doc-panel code { font-size: .9rem; }
+    .doc-panel pre {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: .5rem;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    /* ===== 右：アウトライン ===== */
+    #docOutline {
+      flex: 0 0 280px;
+      width: 280px;
+      border-left: 1px solid #2b2b2b;
+    }
+
+    .outline-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #fff;
+      padding: 1.25rem 1rem .5rem;
+    }
+
+    #outlineList { list-style: none; margin: 0; padding: 0 0 1.5rem; }
+    #outlineList a {
+      display: block;
+      padding: .25rem .75rem .25rem 1rem;
+      margin-left: 1rem;
+      color: #adb5bd;
+      text-decoration: none;
+      font-size: .88rem;
+      line-height: 1.45;
+      border-left: 2px solid #343a40;
+    }
+    #outlineList a:hover { color: #fff; }
+    #outlineList a.active {
+      color: #75b798;
+      border-left-color: #198754;
+      font-weight: 600;
+    }
+
+    /* ===== 狭い画面（タブレット/スマホ）：縦に積み上げる ===== */
+    @media (max-width: 991.98px) {
+      .docs-layout { flex-direction: column; }
+      #docNav {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: 32%;
+        border-right: none;
+        border-bottom: 1px solid #2b2b2b;
+      }
+      #docMain { flex: 1 1 auto; min-height: 0; }
+      #docOutline {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: 28%;
+        border-left: none;
+        border-top: 1px solid #2b2b2b;
+      }
+      #outlineList { display: flex; flex-wrap: wrap; }
+      #outlineList a { border-left: none; border-bottom: 2px solid #343a40; margin-left: .5rem; }
+      #outlineList a.active { border-bottom-color: #198754; }
+    }
+  </style>
+</head>
+<body class="bg-dark text-light">
+
+  <!-- ===== ヘッダー（既存 index.html の navbar と同じ書式） ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">ITのツボというか経絡秘孔図的な何か</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">ホーム</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./document.html">ドキュメント</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="docs-layout container-fluid px-0">
+
+    <!-- ============================================================
+         左：項目リスト
+         ★ data-doc="xxx" の xxx と、中央の <article data-doc="xxx"> が対応しています。
+         ★ 新しい項目を増やす場合は、左ナビと中央記事の両方に同じ値を追加してください。
+    ============================================================= -->
+    <nav id="docNav" aria-label="項目リスト">
+      <div class="p-3 pb-0">
+        <label class="visually-hidden" for="docSearch">項目を絞り込む</label>
+        <input type="search" id="docSearch" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="項目を絞り込む…">
+      </div>
+
+      <div id="docNavList">
+        <div class="doc-group-title">はじめに</div>
+        <a href="#getting-started" class="doc-link active" data-doc="getting-started">はじめに</a>
+        <a href="#layout" class="doc-link" data-doc="layout">レイアウト</a>
+
+        <div class="doc-group-title">コンポーネント</div>
+        <a href="#buttons" class="doc-link" data-doc="buttons">ボタン</a>
+        <a href="#cards" class="doc-link" data-doc="cards">カード</a>
+        <a href="#navs" class="doc-link" data-doc="navs">ナブ</a>
+
+        <div class="doc-group-title">サンプル</div>
+        <a href="#long-scroll" class="doc-link" data-doc="long-scroll">長いコンテンツ（スクロール確認用）</a>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         中央：選択結果のコンテンツ
+         ★ 1項目 = 1つの <article class="doc-panel" data-doc="xxx">
+         ★ 記事内の h2 / h3 が右側アウトラインに自動表示されます。
+         ★ アウトラインをクリックすると、この中央領域だけが該当見出し位置にスクロールします。
+    ============================================================= -->
+    <main id="docMain" tabindex="0" aria-label="コンテンツ">
+      <div class="p-4 p-lg-5">
+
+        <!-- ===== 項目：はじめに ===== -->
+        <article class="doc-panel" data-doc="getting-started">
+          <h1 class="display-6 fw-bold">はじめに</h1>
+          <p class="lead">このページは、左側の項目リストから記事を選ぶと中央にコンテンツが切り替わり、右側のアウトラインから見出しへジャンプできるひな形です。</p>
+
+          <h2 id="getting-started-overview">概要</h2>
+          <p>ここは概要の説明です。本文を編集して自分のドキュメントに置き換えてください。Bootstrap のドキュメントページ（getbootstrap.com/docs）のように、左で章を選び、右でその章の中の節へ移動する操作を想定しています。</p>
+          <p>各カラムは独立にスクロールします。左の項目が多くても、中央の文章が長くても、右のアウトラインが長くても、必要なカラムだけに縦スクロールバーが自動で出ます。行数が収まる間はスクロールバーは表示されません。</p>
+
+          <h2 id="getting-started-howto">使い方</h2>
+          <h3 id="getting-started-howto-left">左の項目リストから選ぶ</h3>
+          <p>左側のリンクをクリックすると、中央の記事が差し替わります。選択中の項目は緑色でハイライトされます。</p>
+
+          <h3 id="getting-started-howto-outline">右のアウトラインから移動する</h3>
+          <p>右側には、現在表示中の記事の <code>h2</code> / <code>h3</code> が自動で一覧表示されます。クリックすると中央のコンテンツだけが滑らかにスクロールして該当見出しが表示されます。中央をスクロールすると、現在位置に合わせた見出しがアウトライン側でハイライトされます（Scrollspy 相当）。</p>
+
+          <h2 id="getting-started-edit">編集する場所</h2>
+          <p>追加・削除・文面変更はこのファイルだけを編集すれば終わります。左ナビの <code>&lt;a class="doc-link" data-doc="..."&gt;</code> と、中央の <code>&lt;article class="doc-panel" data-doc="..."&gt;</code> の <code>data-doc</code> を同じ値で揃えてください。</p>
+          <pre><code>&lt;!-- 左ナビ --&gt;
+&lt;a href="#my-topic" class="doc-link" data-doc="my-topic"&gt;新しい項目&lt;/a&gt;
+
+&lt;!-- 中央記事 --&gt;
+&lt;article class="doc-panel" data-doc="my-topic"&gt;
+  &lt;h1&gt;新しい項目&lt;/h1&gt;
+  &lt;h2 id="my-topic-1"&gt;見出し1&lt;/h2&gt;
+  &lt;p&gt;本文…&lt;/p&gt;
+  &lt;h2 id="my-topic-2"&gt;見出し2&lt;/h2&gt;
+  &lt;p&gt;本文…&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+        </article>
+
+        <!-- ===== 項目：レイアウト ===== -->
+        <article class="doc-panel" data-doc="layout" hidden>
+          <h1 class="display-6 fw-bold">レイアウト</h1>
+          <p class="lead">グリッドやコンテナなど、ページの骨格を作るための基本です。</p>
+
+          <h2 id="layout-container">コンテナ</h2>
+          <p><code>.container</code> は最大幅が決まった中央寄せの箱、<code>.container-fluid</code> は幅いっぱいの箱です。このひな形では 3カラム全体に <code>container-fluid</code> を使っています。</p>
+
+          <h2 id="layout-grid">グリッドシステム</h2>
+          <h3 id="layout-grid-breakpoint">ブレイクポイント</h3>
+          <p>画面幅に応じてカラム数を変えたい場合は <code>col-md-*</code> などを使います。狭い画面では左ナビとアウトラインが上下に回り込みます（このページの CSS の <code>@media (max-width: 991.98px)</code> 参照）。</p>
+
+          <h3 id="layout-grid-flex">Flex で 3カラムにする場合</h3>
+          <p>このひな形の 3カラムは Bootstrap のグリッドではなく Flex（<code>display: flex</code>）で組んでいます。各カラムに <code>overflow-y: auto</code> を指定することで独立スクロールを実現しています。</p>
+
+          <h2 id="layout-scroll">独立スクロール</h2>
+          <p>ページ全体を止めて各区画だけをスクロールさせるには、親の高さを <code>calc(100vh - ヘッダー高さ)</code> に固定し、子に <code>overflow-y: auto</code> と <code>min-height: 0</code> を付けます。</p>
+        </article>
+
+        <!-- ===== 項目：ボタン ===== -->
+        <article class="doc-panel" data-doc="buttons" hidden>
+          <h1 class="display-6 fw-bold">ボタン</h1>
+          <p class="lead">Bootstrap のボタンは <code>.btn</code> と色クラスを組み合わせて使います。</p>
+
+          <h2 id="buttons-basic">基本</h2>
+          <p><button type="button" class="btn btn-primary">Primary</button>
+          <button type="button" class="btn btn-success">Success</button>
+          <button type="button" class="btn btn-outline-secondary">Outline</button></p>
+
+          <h2 id="buttons-size">サイズ</h2>
+          <h3 id="buttons-size-large">大きい / 小さい</h3>
+          <p><code>.btn-lg</code> / <code>.btn-sm</code> でサイズを変えられます。</p>
+        </article>
+
+        <!-- ===== 項目：カード ===== -->
+        <article class="doc-panel" data-doc="cards" hidden>
+          <h1 class="display-6 fw-bold">カード</h1>
+          <p class="lead"><code>.card</code> はコンテンツを箱にまとめる部品です。</p>
+
+          <h2 id="cards-basic">基本のカード</h2>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">カードのタイトル</h5>
+              <p class="card-text">ここに本文を書きます。</p>
+            </div>
+          </div>
+
+          <h2 id="cards-grid">カードを並べる</h2>
+          <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col"><div class="card h-100"><div class="card-body">カード 1</div></div></div>
+            <div class="col"><div class="card h-100"><div class="card-body">カード 2</div></div></div>
+          </div>
+        </article>
+
+        <!-- ===== 項目：ナブ ===== -->
+        <article class="doc-panel" data-doc="navs" hidden>
+          <h1 class="display-6 fw-bold">ナブ</h1>
+          <p class="lead">ナビゲーションの基本です。</p>
+
+          <h2 id="navs-basic">基本</h2>
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+            <li class="nav-item"><a class="nav-link disabled">Disabled</a></li>
+          </ul>
+
+          <h2 id="navs-pills">ピル型</h2>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+          </ul>
+        </article>
+
+        <!-- ===== 項目：長いコンテンツ（スクロール確認用） ===== -->
+        <article class="doc-panel" data-doc="long-scroll" hidden>
+          <h1 class="display-6 fw-bold">長いコンテンツ（スクロール確認用）</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="long-scroll-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="long-scroll-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="long-scroll-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="long-scroll-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="long-scroll-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ============================================================
+         右：アウトライン（現在の記事の h2 / h3 を JS で自動生成）
+         ★ 見出しの増減に合わせて手で作り替える必要はありません。
+    ============================================================= -->
+    <aside id="docOutline" aria-label="このページのアウトライン">
+      <div class="outline-title">このページの目次</div>
+      <nav>
+        <ul id="outlineList"></ul>
+      </nav>
+    </aside>
+
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var docMain = document.getElementById('docMain');
+      var docNavList = document.getElementById('docNavList');
+      var outlineList = document.getElementById('outlineList');
+      var docSearch = document.getElementById('docSearch');
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.doc-panel'));
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('#docNavList .doc-link'));
+
+      /* ---------- 左ナビ：項目切り替え ---------- */
+      function activateDoc(docId, opts) {
+        opts = opts || {};
+        var panel = null;
+        panels.forEach(function (p) {
+          var isTarget = p.getAttribute('data-doc') === docId;
+          if (isTarget) { panel = p; }
+          if (opts.pushHash === false) {
+            p.hidden = !isTarget;
+          } else {
+            p.hidden = !isTarget;
+          }
+        });
+        if (!panel) { return; }
+
+        navLinks.forEach(function (link) {
+          var isActive = link.getAttribute('data-doc') === docId;
+          link.classList.toggle('active', isActive);
+          if (isActive) { link.setAttribute('aria-current', 'page'); }
+          else { link.removeAttribute('aria-current'); }
+        });
+
+        if (opts.pushHash !== false) {
+          // 直リンク可能にする（例: document.html#cards）
+          if (history.replaceState) {
+            history.replaceState(null, '', '#' + docId);
+          } else {
+            location.hash = docId;
+          }
+        }
+
+        buildOutline(panel);
+        docMain.scrollTop = 0;
+        document.title = (panel.querySelector('h1') || {}).textContent + ' | ドキュメント';
+      }
+
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          activateDoc(link.getAttribute('data-doc'));
+        });
+      });
+
+      /* ---------- 右アウトライン：現在の記事から自動生成 ---------- */
+      function buildOutline(panel) {
+        outlineList.innerHTML = '';
+        var headings = panel.querySelectorAll('h2, h3');
+        if (!headings.length) {
+          outlineList.innerHTML = '<li><a href="#" aria-disabled="true">見出しがありません</a></li>';
+          return;
+        }
+        headings.forEach(function (heading, index) {
+          // id が無い見出しにも一意な id を付ける（ひな形として便利）
+          if (!heading.id) {
+            heading.id = 'heading-' + index;
+          }
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + heading.id;
+          a.textContent = heading.textContent.trim();
+          a.dataset.targetId = heading.id;
+          a.style.paddingLeft = heading.tagName === 'H3' ? '2rem' : '1rem';
+          a.addEventListener('click', function (event) {
+            event.preventDefault();
+            scrollToHeading(heading);
+          });
+          li.appendChild(a);
+          outlineList.appendChild(li);
+        });
+        updateActiveOutline();
+      }
+
+      /* ---------- アウトラインクリック：中央だけをその見出し位置に移動 ---------- */
+      function scrollToHeading(heading) {
+        // ページ全体ではなく中央カラム(#docMain)の scrollTop を計算する
+        var mainRect = docMain.getBoundingClientRect();
+        var headingRect = heading.getBoundingClientRect();
+        var offset = 16; // 上部の余白
+        var top = docMain.scrollTop + (headingRect.top - mainRect.top) - offset;
+
+        docMain.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        heading.setAttribute('tabindex', '-1');
+        // フォーカスはスクロール完了後に軽く合わせる（キーボード操作補助）
+        // 表示がずれる環境のため preventScroll で二重スクロールを防ぐ
+        heading.focus({ preventScroll: true });
+      }
+
+      /* ---------- Scrollspy：中央のスクロール位置でアウトラインをハイライト ---------- */
+      var ticking = false;
+      function updateActiveOutline() {
+        var links = outlineList.querySelectorAll('a[data-target-id]');
+        if (!links.length) { return; }
+
+        var mainRect = docMain.getBoundingClientRect();
+        var currentId = null;
+        links.forEach(function (link) {
+          var target = document.getElementById(link.dataset.targetId);
+          if (!target) { return; }
+          var rect = target.getBoundingClientRect();
+          // 見出しが中央カラムの上端を過ぎたものを「現在位置」とみなす
+          if (rect.top - mainRect.top <= 24) {
+            currentId = link.dataset.targetId;
+          }
+        });
+        links.forEach(function (link) {
+          var isActive = link.dataset.targetId === currentId;
+          link.classList.toggle('active', isActive);
+          if (isActive) { link.setAttribute('aria-current', 'true'); }
+          else { link.removeAttribute('aria-current'); }
+        });
+      }
+
+      docMain.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            updateActiveOutline();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      /* ---------- 左ナビの絞り込み（任意） ---------- */
+      if (docSearch) {
+        docSearch.addEventListener('input', function () {
+          var query = docSearch.value.trim().toLowerCase();
+          navLinks.forEach(function (link) {
+            var text = link.textContent.trim().toLowerCase();
+            link.style.display = (!query || text.indexOf(query) !== -1) ? '' : 'none';
+          });
+        });
+      }
+
+      /* ---------- 初期表示：URL のハッシュに対応する項目を開く ---------- */
+      var initial = (location.hash || '').replace(/^#/, '');
+      var initialPanel = panels.some(function (p) { return p.getAttribute('data-doc') === initial; })
+        ? initial
+        : (panels[0] && panels[0].getAttribute('data-doc'));
+
+      if (initialPanel) {
+        activateDoc(initialPanel, { pushHash: false });
+      }
+
+      window.addEventListener('hashchange', function () {
+        var id = (location.hash || '').replace(/^#/, '');
+        var matched = panels.some(function (p) { return p.getAttribute('data-doc') === id; });
+        var target = matched ? id : (panels[0] && panels[0].getAttribute('data-doc'));
+        if (target) { activateDoc(target, { pushHash: false }); }
+      });
+    })();
+  </script>
+</body>
+</html>
