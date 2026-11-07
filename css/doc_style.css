@@ -59,10 +59,10 @@
     }
 
     .doc-group-title {
-      font-size: .8rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: .04em;
-      color: #adb5bd;
+      color: #e7d598;
       text-transform: uppercase;
       padding: 1.25rem 1rem .35rem;
     }
