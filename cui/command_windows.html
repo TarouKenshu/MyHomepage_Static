@@ -52,9 +52,9 @@
         <div hidden><a href="#item0t" class="doc-link" data-doc="item0">item0</a></div>
 
         <div class="doc-group-title">コマンドプロンプト</div>
-        <a href="#item1" class="doc-link" data-doc="item1A">LAN調査・設定</a>
-        <a href="#item2" class="doc-link" data-doc="item2A">インターネットの調査</a>
-        <a href="#item3" class="doc-link" data-doc="item3A">tracert</a>
+        <a href="#item1" class="doc-link" data-doc="item1A">ネットワークの調査</a>
+        <a href="#item2" class="doc-link" data-doc="item2A">ネットワークの設定</a>
+        <a href="#item3" class="doc-link" data-doc="item3A"></a>
         <a href="#item4" class="doc-link" data-doc="item4A">netsh</a>
         <a href="#item5" class="doc-link" data-doc="item5A"></a>
         <a href="#item6" class="doc-link" data-doc="item6A"></a>
@@ -137,7 +137,7 @@ IPv4デフォルトゲートウェイ：192.168.0.1
 
         <!-- ===== CHAP A：item1 ===== -->
         <article class="doc-panel" data-doc="item1A" hidden>
-          <h1 class="display-6 fw-bold">LAN調査・設定</h1>
+          <h1 class="display-6 fw-bold">ネットワークの調査</h1>
           <p class="lead">※ ネットワークの仮定条件：
             端末のIP構成を次のように仮定します。お使いの環境に合わせて、読み替えてください。 IPv4アドレス：192.168.0.12 サブネットマスク：255.255.255.0 IPv4デフォルトゲートウェイ：192.168.0.1 ※デフォルトゲートウェイは端末の存在するネットワークの外部との接点。通常はルータのLAN側IPアドレスといわれます。 また、IPアドレスを192.168.0.150に固定したネットワーク上のプリンタが存在するとします。
           </p>
@@ -177,7 +177,7 @@ IPv4デフォルトゲートウェイ：192.168.0.1
 
 
           <h2 id="item1-4">４．LAN内の端末の確認方法</h2>
-          <h3 id="item1-5-1">ARPテーブル（LAN内端末のIPアドレスとMACアドレスの対照表）の確認</h3>
+          <h3 id="item1-4-1">ARPテーブル（LAN内端末のIPアドレスとMACアドレスの対照表）の確認</h3>
           <p>ここで、問題となる端末が所属するLANのネットワークアドレスが192.168.0.1/24であるという仮定を入れておきます。<br>
           ます、端末がすでに持っているARPテーブルが完全でない（情報が古い、網羅できていない）を仮定して、ARPテーブルを作りなおさせるコマンドを打ちます。
           。<br>現状で一度ARPテーブルを確認したいときは、pingを打つ前にarpコマンドを実施しても構いません。変化が見られたら面白いです。<br>
@@ -191,9 +191,32 @@ IPv4デフォルトゲートウェイ：192.168.0.1
             192.168.0.2 34-76-**-**-**-** dynamic <br>
             192.168.0.4 00-c0-**-**-**-** dynamic <br>
             192.168.0.8 00-a0-**-**-**-** dynamic</p>
+            <p>MACアドレスは Physical Addressと表記されます。上位24バイトの部分（例：10-**-**）はベンダーコードと言われ、製造メーカを判別できる固有の値が入っています。これだけでも、各IPアドレスを取得している端末の予想はつきますが、もう一歩進めましょう。</p>
 
-          <h3 id="item1-5-1">セクション 4-1</h3>
+          <h3 id="item1-4-2">IPアドレスからデバイス名（NETBIOS名やPC名といったりする）を確認する。</h3>
+          <p>192.168.0.4はどうもPCらしいので、次のコマンドを打って見ましょう</p>
+          <p>nbtstat -a 192.168.0.4</p>
+          
+          <p>結果のサンプル</p>
+          <p>インターフェース名（イーサネットやWi-Fi等）</p>
+          <p>Node IpAddress: [192.168.0.6] Scope Id: <br>
+             NetBIOS Remote Machine Name Table<br>
+             Name Type Status <br>
+             --------------------------------------------- <br>
+             DESKTOP-******* <00> UNIQUE Registered <br>
+             DESKTOP-******* <03> UNIQUE Registered <br>
+             DESKTOP-******* <20> UNIQUE Registered <br>
+             ..__MSBROWSE__.<01> GROUP Registered <br>
+             WORKGROUP <00> GROUP Registered <br>
+             WORKGROUP <1D> UNIQUE Registered <br>
+             WORKGROUP <1E> GROUP Registered</p>
 
+          <p>DESKTOP-*******が192.168.0.4を取得しているのがわかりました。</p> 
+
+          <h3 id="item1-4-3">逆にNetBIOS名（デバイス名）からそのIPアドレスを調べる。</h3>
+          <p>ping -4 DESKTOP-******* デバイス名（NetBIOS名）をIPv4アドレスに変換してPINGしてくれるので、PINGの宛先のIPv4アドレスがわかる。-4はIPv4という意味。</p>
+          <p>ping DESKTOP-*******（デバイス名、Netbios名） Vista以降は宛先のデバイス名をIPv6アドレスに変換してPINGする。したがって、宛先のデバイスのIPv6アドレスが判明する。<br>
+           xp以前ではIPv6を使ったpingはできないので、ping -4と同じ意味になる。</p>
           <h2 id="item1-5">セクション 5</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
           <h3 id="item1-5-1">セクション 5-1</h3>
