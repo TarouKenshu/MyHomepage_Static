@@ -54,9 +54,9 @@
         <div class="doc-group-title">コマンドプロンプト</div>
         <a href="#item1" class="doc-link" data-doc="item1A">ネットワークの調査</a>
         <a href="#item2" class="doc-link" data-doc="item2A">ネットワークの設定</a>
-        <a href="#item3" class="doc-link" data-doc="item3A"></a>
-        <a href="#item4" class="doc-link" data-doc="item4A">netsh</a>
-        <a href="#item5" class="doc-link" data-doc="item5A"></a>
+        <a href="#item3" class="doc-link" data-doc="item3A">DNS情報の調査</a>
+        <a href="#item4" class="doc-link" data-doc="item4A">証明書管理および暗号化操作</a>
+        <a href="#item5" class="doc-link" data-doc="item5A">データの送受信</a>
         <a href="#item6" class="doc-link" data-doc="item6A"></a>
         <a href="#item7" class="doc-link" data-doc="item7A">item7</a>
         <a href="#item8" class="doc-link" data-doc="item8A">item8</a>
@@ -217,11 +217,111 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <p>ping -4 DESKTOP-******* デバイス名（NetBIOS名）をIPv4アドレスに変換してPINGしてくれるので、PINGの宛先のIPv4アドレスがわかる。-4はIPv4という意味。</p>
           <p>ping DESKTOP-*******（デバイス名、Netbios名） Vista以降は宛先のデバイス名をIPv6アドレスに変換してPINGする。したがって、宛先のデバイスのIPv6アドレスが判明する。<br>
            xp以前ではIPv6を使ったpingはできないので、ping -4と同じ意味になる。</p>
-          <h2 id="item1-5">セクション 5</h2>
+          <h2 id="item1-5">5.pingやtracert､arpを使ったネットワークの切り分け</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item1-5-1">セクション 5-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="・pingの実行結果の詳細な見方">ping試験</h3>
+          <p>Windowsでping （IPアドレス）を実施した場合　４回のping送信が行われ、その回答（戻りパケット）があった場合は受信とカウントし、パケットがロスして、回答がなかった場合は損失としてカウントし、その結果を表示します。<br>
+          重要なことは、回答があった場合でも、様々な種類のものがあるということです。192.168.0.1は試験端末のデフォルトゲートウェイとなっているルータのIPアドレスです。このルータに異常なければ、通常は、次のような結果です。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（正常なPingの結果の例）</p></h5>
+                    <p class="card-text">
+                        192.168.0.1 に ping を送信しています 32 バイトのデータ: <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        <br>
+                        192.168.0.1 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、ラウンド トリップの概算時間 (ミリ秒):<br>
+                        最小 = 0ms、最大 = 0ms、平均 = 0ms<br>
+                    </p>
+                </div>
+              </div> 
+              <br>         
 
+          <p>ping 192.168.0.21をコマンドプロンプトで実行します。<br>
+            前の例と異なり、pingの対象からは応答ではありません。pingを送信している対象端末が見つからなかった（ARP要求に応答しなかった）という返答を192.168.0.5が代返しています。
+            損失が0でもping対象との疎通が取れているわけではありません。<br></p> 
+            
+          <p>（補足説明）IPアドレスが192.168.0.21という機器が常に実在しますが、中継のHUBの急な不具合で疎通が取れていません。192.168.0.5は試験端末のIPアドレスです。<br>
+              </p> 
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（異常なpingの例-1）</p></h5>
+                    <p class="card-text">
+                        192.168.0.21 に ping を送信しています 32 バイトのデータ: <br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        <br>
+                        192.168.0.21 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、<br>
+                        最小 = 0ms、最大 = 0ms、平均 = 0ms<br>
+                    </p>
+                </div>
+              </div>                             
+
+          <p>・今度は検証環境では存在しないネットワークセグメントに対して、pingを打ちます。</p>
+            
+          <p>Ping 192.168.1.1を実行します。
+              </p> 
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（異常なpingの例-2）</p></h5>
+                    <p class="card-text">
+                        192.168.1.1 に ping を送信しています 32 バイトのデータ:<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        <br>
+                        192.168.1.1 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 0、損失 = 4 (100% の損失)、<br>            
+                    </p>
+                </div>
+              </div>
+            <br>
+            <p>192.168.1.1も192.168.0.21もpingに応答できなかったわけですが前者は損失0で後者は損失4です。この違いはどこになるのか、tracertコマンドの結果を比較して見ます。</p>
+            <br>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>tracert 192.168.0.21（異常なpingの例-1）</p></h5>
+                    <p class="card-text">
+                        192.168.0.21 へのルートをトレースしています。経由するホップ数は最大 30 です<br>
+                        1  DESKTOP-****** [192.168.0.5]  レポート: 宛先ホストに到達できません。<br>
+                        トレースを完了しました。 <br>      
+                    </p>
+                </div>
+              </div>
+              <br> 
+              
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>tracert 192.168.1.1（異常なpingの例-2）</p></h5>
+                    <p class="card-text">
+                       192.168.11.1 へのルートをトレースしています。経由するホップ数は最大 30 です<br>
+                       1    &lt;1 ms    &lt;1 ms    &lt;1 ms  192.168.0.1<br>
+                       2     2 ms     2 ms     2 ms  xx.xxx.xxx.37<br>
+                       3     3 ms     2 ms     2 ms  xxx.xxx.xx.1<br>
+                       4     4 ms     3 ms     3 ms  xx.xx.xxx.81<br>
+                       5     *        *        *     要求がタイムアウトしました。<br>
+                       6     *        *        *     要求がタイムアウトしました。<br>
+                       7     *        *        *     要求がタイムアウトしました。<br>
+                       8     *        *        *     要求がタイムアウトしました。<br>
+                       9     *        *        *     要求がタイムアウトしました。<br>
+                       (省略)<br>
+                       29     *        *        *     要求がタイムアウトしました。<br>
+                       30     *        *        *     要求がタイムアウトしました。<br>
+                       トレースを完了しました。 <br>    
+                    </p>
+                </div>
+              </div> 
+              <p>このtracertコマンドの2つの結果の違いは、（異常なpingの例-1）では、探索対象が同一セグメント内のIPの為、デフォルトルートである192.168.0.1すら経由することなく、ホップ数1で探索対象に到達できないという結果がでている。<br>
+              対して（異常なpingの例-2）では探索対処が同一セグメントではないので、まずデフォルトルートの192.168.0.1を経由。この192.168.0.1は192.168.11.1を知らないので、自分のデフォルトルートであるxx.xxx.xxx.37にホップしている。これはISPから払い出されているIPであり、以降は最大ホップ数30まで探索の範囲を広げているが、結局192.168.11.1というホストのその有無の確認はできないまま終わっている。</p>
+              <p>以上のように「要求がタイムアウトしました」というのは、ICMPパケットが探索経路の途中で破棄され（損失がカウントされる）、pingの宛先ホストがその先に存在するか否かもわからないということであり、「宛先ホストに到達できません。」というのは探索対象と疎通が取れていないことを確認できているという違いがある</p> 
+              <p>※正常なping応答と異常なping結果が混在する場合は、宛先ホストまでの経路もしくは宛先ホストが不安定であるという診断が可能である。</p>            
           <h2 id="item1-6">セクション 6</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
@@ -261,8 +361,42 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <p>上記コマンドを実行すると、インターフェース名（ワイヤレスネットワーク接続とかWi-Fi、もしくはそれらに数字がついたもの）についての保存されたプロファイル（通常SSIDと同じ）が表示される。PSK（事前共有キー）などは表示されない。</p>
           <h3 id="item2-2-2">・設定（接続するSSIDとそのパスワードや暗号化の方式など）をバックアップする。</h3>
           <p>※以降は必ず「管理者コマンドプロンプト」で実行します。上記で確認したプロファイルの設定ファイル（xml）をCフォルダ直下に保存するというのが、以下のコマンドの意味</p>
-          <h2 id="item2-3">セクション 3</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>netsh wlan export profile name=プロファイル名 folder=C:\ </p>
+          <p>実際に検証すると、インターフェース名-プロファイル名.xmlというファイルが作成される。エラーが表示される場合は、余分なスペースが入っていないか等を確認します。</p>
+          <h3 id="item2-2-3">・バックアップした設定を復元する</h3>
+          <p>カレントディレクトリからCドライブ直下に移動。 <br>cd C:\</p>
+          <p>netsh wlan add profile filename=インターフェース名-プロファイル名.xml</p>
+          <p>※インターフェース名-プロファイル名.xmlは実際に出力（エクスポート）されたファイル名を指定すること。</p>
+          <h3 id="item2-2-4">インターフェース名-プロファイル名.xmlの内容は以下のようなもの（一部省略）</h3>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;SSIDConfig&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;SSID&gt;</span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;hex&gt;SSID</span></span></font></span></font><font face="IPAゴシック, sans-serif">の</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">16</span></span></font></span></font><font face="IPAゴシック, sans-serif">進数表現</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/hex&gt;</span></span></font></span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;name&gt;SSID</span></span></font></span></font><font face="IPAゴシック, sans-serif">そのもの</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/name&gt;</span></span></font></span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/SSID&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/SSIDConfig&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;connectionType&gt;ESS&lt;/connectionType&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;connectionMode&gt;auto&lt;/connectionMode&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;MSM&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;security&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;authEncryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;authentication&gt;WPA2PSK&lt;/authentication&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;encryption&gt;TKIP&lt;/encryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;useOneX&gt;false&lt;/useOneX&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/authEncryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;sharedKey&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;keyType&gt;passPhrase&lt;/keyType&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;protected&gt;true&lt;/protected&gt;</span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;keyMaterial&gt;</span></span></font></span></font><font face="IPAゴシック, sans-serif">事前共有キーを暗号化したもの</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/keyMaterial&gt;</span></span></font></span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/sharedKey&gt;</span></font></p>
+          <p>※<font face="IPAゴシック, sans-serif">事前共有キーを暗号化したものを</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">Wi-Fi</span></font></span></font><font face="IPAゴシック, sans-serif">接続時に入力してもつながりません。</font></p>
+          <p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">プロファイルのバックアップ（保存時）にオプションで　</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">key=clear</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">を付加すると、
+          </span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">keyMaterial</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">には</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Wi-Fi</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">接続設定で直接入力できる事前共有キーが表示されます。</span></font></p>
+       
+
+  
+          
+          <h2 id=""></h2>
+          
           <h3 id="item2-3-1">セクション 3-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
@@ -283,16 +417,68 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item2-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-
+        
+        
         <!-- ===== CHAP A：item3 ===== -->
-        <article class="doc-panel" data-doc="item3A" hidden>
-          <h1 class="display-6 fw-bold">item3A</h1>
-          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+        
+        <article class="doc-panel" data-doc="item3A">
+          <h1 class="display-6 fw-bold">DNS情報の調査</h1>
+          <br>
 
-          <h2 id="item3-1">セクション 1</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h2 id="item3-1">nslookupコマンド</h2>
+          <h3 id="item3-1-1">基本構文</h3>
+          <p><b>nslookup -type=（レコード名）（ホスト名またはIPアドレス）（問い合わせるDNSサーバー名またはIPアドレス）</b></p>
+          <p></p>
+          <p></p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h6 class="card-title"><p></p></h5>
+                    <p class="card-text">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
 
+                    </p>
+                </div>
+              </div>
+          <p>
+          </p>
+          <h3 id="item3-1-2"></h3>
+          <p></p>
+          <p></p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h6 class="card-title"><p></p></h5>
+                    <p class="card-text">
+                    </p>
+                </div>
+              </div>
+          <p></p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p></p></h5>
+                    <p class="card-text">
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                      <p></p>
+                    </p>
+                </div>
+              </div>              
+
+
+
+
+          <p></p>
           <h2 id="item3-2">セクション 2</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
           <h3 id="item3-2-1">セクション 2-1</h3>
@@ -320,45 +506,47 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-
+       
         <!-- ===== CHAP A：item4 ===== -->
-        <article class="doc-panel" data-doc="item4A" hidden>
-          <h1 class="display-6 fw-bold">item4A</h1>
+        
+        <article class="doc-panel" data-doc="item4A">
+          <h1 class="display-6 fw-bold">証明書管理および暗号化操作</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
 
-          <h2 id="item3-1">セクション 1</h2>
+          <h2 id="item4-1">セクション 1</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-2">セクション 2</h2>
+          <h2 id="item4-2">セクション 2</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-2-1">セクション 2-1</h3>
+          <h3 id="item4-2-1">セクション 2-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-3">セクション 3</h2>
+          <h2 id="item4-3">セクション 3</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-3-1">セクション 3-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-4">セクション 4</h2>
+          <h3 id="item4-3-1">セクション 3-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-5">セクション 5</h2>
+          <h2 id="item4-4">セクション 4</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-5-1">セクション 5-1</h3>
+
+          <h2 id="item4-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item4-5-1">セクション 5-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-6">セクション 6</h2>
+          <h2 id="item4-6">セクション 6</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-7">セクション 7</h2>
+          <h2 id="item4-7">セクション 7</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item3-8">セクション 8</h2>
+          <h2 id="item4-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-
+       
         <!-- ===== CHAP A：item5A ===== -->
+        <!--
         <article class="doc-panel" data-doc="item5A" hidden>
           <h1 class="display-6 fw-bold">item4A</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -394,8 +582,8 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-
-        <!-- ===== CHAP A：item4 ===== -->
+        -->
+        <!-- ===== CHAP A：item4 ===== 
         <article class="doc-panel" data-doc="item6A" hidden>
           <h1 class="display-6 fw-bold">item6A</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -431,8 +619,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
+        -->
         <!-- ===== CHAP A：item4 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item7A" hidden>
           <h1 class="display-6 fw-bold">item7A</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -468,8 +657,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
+        -->
         <!-- ===== CHAP A：item4 ===== -->
+         <!--  
         <article class="doc-panel" data-doc="item8A" hidden>
           <h1 class="display-6 fw-bold">item8A</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -505,9 +695,10 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
+        -->
         
         <!-- ===== CHAP B：item1 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item1B" hidden>
           <h1 class="display-6 fw-bold">item1B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -543,8 +734,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
+        -->
         <!-- ===== CHAP B：item2 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item2B" hidden>
           <h1 class="display-6 fw-bold">item2B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -580,8 +772,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>        
-
+        -->
         <!-- ===== CHAP B：item3 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item3B" hidden>
           <h1 class="display-6 fw-bold">item3B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -617,8 +810,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>         
-
+        -->
         <!-- ===== CHAP B：item2 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item4B" hidden>
           <h1 class="display-6 fw-bold">item4B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -654,8 +848,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article> 
-        
+        -->
         <!-- ===== CHAP B：item5 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item5B" hidden>
           <h1 class="display-6 fw-bold">item5B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -691,8 +886,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
+        -->
         <!-- ===== CHAP B：item6 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item6B" hidden>
           <h1 class="display-6 fw-bold">item6B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -728,8 +924,8 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>
-        
-        <!-- ===== CHAP B：item7 ===== -->
+        -->
+        <!-- ===== CHAP B：item7 ===== 
         <article class="doc-panel" data-doc="item7B" hidden>
           <h1 class="display-6 fw-bold">item7B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -765,8 +961,9 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article> 
-
+        -->
         <!-- ===== CHAP B：item8 ===== -->
+        <!--
         <article class="doc-panel" data-doc="item8B" hidden>
           <h1 class="display-6 fw-bold">item8B</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -802,9 +999,10 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <h2 id="item3-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
         </article>         
-
+        -->
 
         <!-- ===== 項目：長いコンテンツ（スクロール確認用） ===== -->
+        <!--
         <article class="doc-panel" data-doc="item" hidden>
           <h1 class="display-6 fw-bold">長いコンテンツ（スクロール確認用）</h1>
           <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
@@ -839,7 +1037,7 @@ IPv4デフォルトゲートウェイ：192.168.0.1
 
           <h2 id="item-8">セクション 8</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-        </article>
+        </article> -->
 
       </div>
     </main>

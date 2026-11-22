@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="3カラムレイアウト">
+  <title>Windowsコマンド | ITのツボというか経絡秘孔図的な何か</title>
+  <!-- CSSファイルを参照） -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/doc_style.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+  <!-- ===== ヘッダー（既存 index.html の navbar と同じ書式） ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">ITのツボというか経絡秘孔図的な何か</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">ホーム</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./command_windows.html">Windowsコマンド</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="docs-layout container-fluid px-0">
+
+    <!-- ============================================================
+         左：項目リスト
+         ★ data-doc="xxx" の xxx と、中央の <article data-doc="xxx"> が対応しています。
+         ★ 新しい項目を増やす場合は、左ナビと中央記事の両方に同じ値を追加してください。
+    ============================================================= -->
+    <nav id="docNav" aria-label="項目リスト">
+      <div class="p-3 pb-0">
+        <label class="visually-hidden" for="docSearch">項目を絞り込む</label>
+        <input type="search" id="docSearch" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="項目を絞り込む…">
+      </div>
+
+      <div id="docNavList">
+        <div class="doc-group-title">Windowsコマンド</div>
+        <a href="#getting-started" class="doc-link active" data-doc="getting-started">top</a>
+        <div hidden><a href="#item0t" class="doc-link" data-doc="item0">item0</a></div>
+
+        <div class="doc-group-title">コマンドプロンプト</div>
+        <a href="#item1" class="doc-link" data-doc="item1A">ネットワークの調査</a>
+        <a href="#item2" class="doc-link" data-doc="item2A">ネットワークの設定</a>
+        <a href="#item3" class="doc-link" data-doc="item3A">DNS情報の調査</a>
+        <a href="#item4" class="doc-link" data-doc="item4A">証明書管理および暗号化操作</a>
+        <a href="#item5" class="doc-link" data-doc="item5A">データの送受信</a>
+        <a href="#item6" class="doc-link" data-doc="item6A"></a>
+        <a href="#item7" class="doc-link" data-doc="item7A">item7</a>
+        <a href="#item8" class="doc-link" data-doc="item8A">item8</a>
+
+        <div class="doc-group-title">Windows PowerShell</div>
+        <a href="#item1" class="doc-link" data-doc="item1B">item1</a>
+        <a href="#item2" class="doc-link" data-doc="item2B">item2</a>
+        <a href="#item3" class="doc-link" data-doc="item3B">item3</a>
+        <a href="#item4" class="doc-link" data-doc="item4B">item4</a>
+        <a href="#item5" class="doc-link" data-doc="item5B">item5</a>
+        <a href="#item6" class="doc-link" data-doc="item6B">item6</a>
+        <a href="#item7" class="doc-link" data-doc="item7B">item7</a>
+        <a href="#item8" class="doc-link" data-doc="item8B">item8</a>
+        
+        <div hidden>
+            <div class="doc-group-title">draft</div>
+            <a href="#item" class="doc-link" data-doc="item">長いコンテンツ（スクロール確認用）</a>
+        </div> 
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         中央：選択結果のコンテンツ
+         ★ 1項目 = 1つの <article class="doc-panel" data-doc="xxx">
+         ★ 記事内の h2 / h3 が右側アウトラインに自動表示されます。
+         ★ アウトラインをクリックすると、この中央領域だけが該当見出し位置にスクロールします。
+    ============================================================= -->
+    <main id="docMain" tabindex="0" aria-label="コンテンツ">
+      <div class="p-4 p-lg-5">
+        <!-- ===== 項目：top ===== -->
+        <article class="doc-panel" data-doc="getting-started">
+          <h1 class="display-6 fw-bold">Windowsコマンド</h1>
+          <p class="lead">このページは、左側の項目リストから記事を選ぶと中央にコンテンツが切り替わります。右側にはページ内の目次があります。</p>
+
+          <h2 id="getting-started-overview">概要</h2>
+          <p>Windowsコマンドの活用方法を掲載しています。WindowsにはコマンドプロンプトとWindows PowerShellの2種類のシェルがあります。両方で使えるコマンド、片方しか使用できないコマンドがあります。そのため2つに大区分しています。両方で使えても片方にしか載せていませんので注意願います。</p>
+          <p>一つのウィンドウで複数のコマンドプロンプトやPowerShellをタブで切り替えて使用できるWindowsターミナルが便利です。Microsoft Storeで入手できます。</p>
+
+          <h2 id="getting-started-howto">使い方</h2>
+          <h3 id="getting-started-howto-left">左の項目リストから選ぶ</h3>
+          <p>左側のリンクをクリックすると、中央の記事が差し替わります。選択中の項目は緑色でハイライトされます。</p>
+
+          <h3 id="getting-started-howto-outline">右のアウトラインから移動する</h3>
+          <p>右側には、現在表示中の記事の <code>h2</code> / <code>h3</code> が自動で一覧表示されます。クリックすると中央のコンテンツだけが滑らかにスクロールして該当見出しが表示されます。中央をスクロールすると、現在位置に合わせた見出しがアウトライン側でハイライトされます（Scrollspy 相当）。</p>
+
+          <h2 id="getting-started-edit">ネットワークの仮定条件</h2>
+          <p>ここではローカルのネットワークを以下のように仮定して、コマンドの実例を記載しています。実際にお使いのLAN環境に合わせてIPアドレスやSSIDなどは読み替えてご利用ください。</p>
+          <p>※端末のIP構成を次のように仮定します。お使いの環境に合わせて、読み替えてください。
+
+IPv4アドレス：192.168.0.12
+
+サブネットマスク：255.255.255.0
+
+IPv4デフォルトゲートウェイ：192.168.0.1
+※デフォルトゲートウェイは端末の存在するネットワークの外部との接点。通常はルータのLAN側IPアドレスといわれます。
+
+また、IPアドレスを192.168.0.150に固定したネットワーク上のプリンタが存在するとします。</p>
+        </article>
+
+        <!-- ===== item0 ===== -->
+        <article class="doc-panel" data-doc="item0" hidden>
+          <h1 class="display-6 fw-bold">item0</h1>
+          <p class="lead">グリッドやコンテナなど、ページの骨格を作るための基本です。</p>
+
+          <h2 id="layout-container">コンテナ</h2>
+          <p><code>.container</code> は最大幅が決まった中央寄せの箱、<code>.container-fluid</code> は幅いっぱいの箱です。このひな形では 3カラム全体に <code>container-fluid</code> を使っています。</p>
+
+          <h2 id="layout-grid">グリッドシステム</h2>
+          <h3 id="layout-grid-breakpoint">ブレイクポイント</h3>
+          <p>画面幅に応じてカラム数を変えたい場合は <code>col-md-*</code> などを使います。狭い画面では左ナビとアウトラインが上下に回り込みます（このページの CSS の <code>@media (max-width: 991.98px)</code> 参照）。</p>
+
+          <h3 id="layout-grid-flex">Flex で 3カラムにする場合</h3>
+          <p>このひな形の 3カラムは Bootstrap のグリッドではなく Flex（<code>display: flex</code>）で組んでいます。各カラムに <code>overflow-y: auto</code> を指定することで独立スクロールを実現しています。</p>
+
+          <h2 id="layout-scroll">独立スクロール</h2>
+          <p>ページ全体を止めて各区画だけをスクロールさせるには、親の高さを <code>calc(100vh - ヘッダー高さ)</code> に固定し、子に <code>overflow-y: auto</code> と <code>min-height: 0</code> を付けます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item1 ===== -->
+        <article class="doc-panel" data-doc="item1A" hidden>
+          <h1 class="display-6 fw-bold">ネットワークの調査</h1>
+          <p class="lead">※ ネットワークの仮定条件：
+            端末のIP構成を次のように仮定します。お使いの環境に合わせて、読み替えてください。 IPv4アドレス：192.168.0.12 サブネットマスク：255.255.255.0 IPv4デフォルトゲートウェイ：192.168.0.1 ※デフォルトゲートウェイは端末の存在するネットワークの外部との接点。通常はルータのLAN側IPアドレスといわれます。 また、IPアドレスを192.168.0.150に固定したネットワーク上のプリンタが存在するとします。
+          </p>
+
+          <h2 id="item1-1">１．端末のIP構成を確認する。</h2>
+          <p>コマンドプロンプトで、ipconfig /allを実行します。実際のIP構成がわかったら、上記の仮定を修正してください。
+
+          </p>
+          <p>すべてのネットワークアダプタのIP構成が表示されます。ネットワークアダプタの名称に注意して、設定値を確認してください。</p>
+
+          <h2 id="item1-2">２．ネットワーク上の各要素（ノード）との疎通や経路を確認する</h2>
+          <h3 id="item1-2-1">pingで疎通を確認する。</h3>
+          <p>ping 127.0.0.1（ループバック、端末のネットワークアダプタの正常性を確認する）</p>
+          <p>ping 192.168.0.1（デフォルトゲートウェイまでの疎通を確認する）</p>
+          <p>ping 192.168.0.150（ネットワーク上のプリンタとの疎通を確認する）</p>
+          <p>ping 8.8.8.8 （インターネット上にあるGoogleのDNSキャシュサーバまでの疎通を確認する）</p>
+          <p>ping www.google.com （googleのトップページを表示するWEBサーバまでの疎通を確認する）</p>
+          <p>※このようなドメイン名を含むホスト名に対してのpingは宛先ホストの死活状態だけでなく、DNSサービス（ドメイン名をグローバルIPアドレスに変換する）の利用可能可否も確認していることになる。<br>
+             ※外部からのICMP通信を拒否する設定しているルータやホスト等に対してpingした場合はパケットはロスします。また、送信4に対して受信2のように一部パケットロスする場合は、宛先や自身の端末を含め経路の機器等再起動で回復する場合があります。</p>
+          <h3 id="item1-2-2">tracertでターゲットまでの経路を確認する。</h3>
+          <p>tracert 8.8.8.8 (GoogleのDNSサーバまでの経路を確認できます。)</p>
+          <p>tracert [IPアドレスまたはホスト名]という構文です。  ※Linuxその他のOSだと　tracerouteというスペルです。<br>
+             pingと同じICMPというプロトコルを使います。ICMP応答が禁止されている区間は***というふうに表現されます。<br>
+             tracert -d 名前解決をしない。グローバルIPのみを使う。オプションをつけない場合、経路上のホストがDNS逆引きで名前解決可能であればドメイン名表示となる。<br>
+             ※その他オプションを確認するには、tracertに限らないがWindowsの場合は、コマンドの後に半角スペースと/?をつける（例：tracert /?）。<br>
+             コマンドの実行を停止したい場合は、Ctrl+CでOK。</p>
+            <p>pingやtracertは応答時間も表示されるので、ネットワークやインターネットのどの部分で遅延が発生しているか調べるときにも使います。</p>
+
+
+          <h2 id="item1-3">３．プロトコルの統計情報と現在のTCP/IPネットワーク接続状況を表示する。</h2>
+            <p>netstat -a (端末の使用している通信ポートの一覧が表示されます。)</p>
+            <p>ポート番号とプロトコルおよび接続状況（確立や待機）を調査する。サーバなどの場合は、各サービスの稼働状況を確認できる。複数アプリケーションのポートの競合などを確認することもある。<br>
+            接続の状況はESTABLISH（確立）やLISTENING（待機）、CLOSE-WAITやFIN-WAIT（切断へ移行中）、TIME-WAIT（タイムアウト待ち）などがある。</p>          
+            <p>ネットワーク間の通信はパケットという単位で行われます。パケットには送り主と宛先の住所が必要です。<br>
+             それがIPアドレスやドメイン名を含むホスト名です。それ以外にポート番号というものがあります。通信が確立しているポートが知りたい場合が
+            あります。そのときに使うコマンドです。</p>
+
+
+          <h2 id="item1-4">４．LAN内の端末の確認方法</h2>
+          <h3 id="item1-4-1">ARPテーブル（LAN内端末のIPアドレスとMACアドレスの対照表）の確認</h3>
+          <p>ここで、問題となる端末が所属するLANのネットワークアドレスが192.168.0.1/24であるという仮定を入れておきます。<br>
+          ます、端末がすでに持っているARPテーブルが完全でない（情報が古い、網羅できていない）を仮定して、ARPテーブルを作りなおさせるコマンドを打ちます。
+          。<br>現状で一度ARPテーブルを確認したいときは、pingを打つ前にarpコマンドを実施しても構いません。変化が見られたら面白いです。<br>
+          ping 192.168.0.255 （操作端末からブロードキャストへpingを打つ）<br>
+          <p>※ブロードキャストへのパケットはルータを超えることはできないこと。電源が入っていないかネットワークに接続できていない端末の情報は得ることはできない。無線接続で使っている端末でARPを取得すると、完全なものは取得できない時もあります。プライバシーセパレータ機能以外にも、APの制限や不具合でLAN内端末の全ての情報を取得できない場合もあります。有線接続した端末で行うのが望ましい。</p>
+          <p>arp -a （操作端末が持つARPテーブルを取得します）</p>
+          <p>結果のサンプル**には0から9までの数字とaからfまでの英字を組み合わせた2文字。00〜ffまでの2桁の16進数が入っています。</p>
+          <p>Interface: 192.168.0.12-- 0x2　コマンド操作している端末のIPです。<br>
+            Internet Address Physical Address Type <br>
+            192.168.0.1 10-**-**-**-**-** dynamic <br>
+            192.168.0.2 34-76-**-**-**-** dynamic <br>
+            192.168.0.4 00-c0-**-**-**-** dynamic <br>
+            192.168.0.8 00-a0-**-**-**-** dynamic</p>
+            <p>MACアドレスは Physical Addressと表記されます。上位24バイトの部分（例：10-**-**）はベンダーコードと言われ、製造メーカを判別できる固有の値が入っています。これだけでも、各IPアドレスを取得している端末の予想はつきますが、もう一歩進めましょう。</p>
+
+          <h3 id="item1-4-2">IPアドレスからデバイス名（NETBIOS名やPC名といったりする）を確認する。</h3>
+          <p>192.168.0.4はどうもPCらしいので、次のコマンドを打って見ましょう</p>
+          <p>nbtstat -a 192.168.0.4</p>
+          
+          <p>結果のサンプル</p>
+          <p>インターフェース名（イーサネットやWi-Fi等）</p>
+          <p>Node IpAddress: [192.168.0.6] Scope Id: <br>
+             NetBIOS Remote Machine Name Table<br>
+             Name Type Status <br>
+             --------------------------------------------- <br>
+             DESKTOP-******* <00> UNIQUE Registered <br>
+             DESKTOP-******* <03> UNIQUE Registered <br>
+             DESKTOP-******* <20> UNIQUE Registered <br>
+             ..__MSBROWSE__.<01> GROUP Registered <br>
+             WORKGROUP <00> GROUP Registered <br>
+             WORKGROUP <1D> UNIQUE Registered <br>
+             WORKGROUP <1E> GROUP Registered</p>
+
+          <p>DESKTOP-*******が192.168.0.4を取得しているのがわかりました。</p> 
+
+          <h3 id="item1-4-3">逆にNetBIOS名（デバイス名）からそのIPアドレスを調べる。</h3>
+          <p>ping -4 DESKTOP-******* デバイス名（NetBIOS名）をIPv4アドレスに変換してPINGしてくれるので、PINGの宛先のIPv4アドレスがわかる。-4はIPv4という意味。</p>
+          <p>ping DESKTOP-*******（デバイス名、Netbios名） Vista以降は宛先のデバイス名をIPv6アドレスに変換してPINGする。したがって、宛先のデバイスのIPv6アドレスが判明する。<br>
+           xp以前ではIPv6を使ったpingはできないので、ping -4と同じ意味になる。</p>
+          <h2 id="item1-5">5.pingやtracert､arpを使ったネットワークの切り分け</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="・pingの実行結果の詳細な見方">ping試験</h3>
+          <p>Windowsでping （IPアドレス）を実施した場合　４回のping送信が行われ、その回答（戻りパケット）があった場合は受信とカウントし、パケットがロスして、回答がなかった場合は損失としてカウントし、その結果を表示します。<br>
+          重要なことは、回答があった場合でも、様々な種類のものがあるということです。192.168.0.1は試験端末のデフォルトゲートウェイとなっているルータのIPアドレスです。このルータに異常なければ、通常は、次のような結果です。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（正常なPingの結果の例）</p></h5>
+                    <p class="card-text">
+                        192.168.0.1 に ping を送信しています 32 バイトのデータ: <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        192.168.0.1 からの応答: バイト数 =32 時間 &lt;1ms TTL=64 <br>
+                        <br>
+                        192.168.0.1 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、ラウンド トリップの概算時間 (ミリ秒):<br>
+                        最小 = 0ms、最大 = 0ms、平均 = 0ms<br>
+                    </p>
+                </div>
+              </div> 
+              <br>         
+
+          <p>ping 192.168.0.21をコマンドプロンプトで実行します。<br>
+            前の例と異なり、pingの対象からは応答ではありません。pingを送信している対象端末が見つからなかった（ARP要求に応答しなかった）という返答を192.168.0.5が代返しています。
+            損失が0でもping対象との疎通が取れているわけではありません。<br></p> 
+            
+          <p>（補足説明）IPアドレスが192.168.0.21という機器が常に実在しますが、中継のHUBの急な不具合で疎通が取れていません。192.168.0.5は試験端末のIPアドレスです。<br>
+              </p> 
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（異常なpingの例-1）</p></h5>
+                    <p class="card-text">
+                        192.168.0.21 に ping を送信しています 32 バイトのデータ: <br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        192.168.0.5 からの応答: 宛先ホストに到達できません。<br>
+                        <br>
+                        192.168.0.21 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、<br>
+                        最小 = 0ms、最大 = 0ms、平均 = 0ms<br>
+                    </p>
+                </div>
+              </div>                             
+
+          <p>・今度は検証環境では存在しないネットワークセグメントに対して、pingを打ちます。</p>
+            
+          <p>Ping 192.168.1.1を実行します。
+              </p> 
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>（異常なpingの例-2）</p></h5>
+                    <p class="card-text">
+                        192.168.1.1 に ping を送信しています 32 バイトのデータ:<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        要求がタイムアウトしました。<br>
+                        <br>
+                        192.168.1.1 の ping 統計:<br>
+                        パケット数: 送信 = 4、受信 = 0、損失 = 4 (100% の損失)、<br>            
+                    </p>
+                </div>
+              </div>
+            <br>
+            <p>192.168.1.1も192.168.0.21もpingに応答できなかったわけですが前者は損失0で後者は損失4です。この違いはどこになるのか、tracertコマンドの結果を比較して見ます。</p>
+            <br>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>tracert 192.168.0.21（異常なpingの例-1）</p></h5>
+                    <p class="card-text">
+                        192.168.0.21 へのルートをトレースしています。経由するホップ数は最大 30 です<br>
+                        1  DESKTOP-****** [192.168.0.5]  レポート: 宛先ホストに到達できません。<br>
+                        トレースを完了しました。 <br>      
+                    </p>
+                </div>
+              </div>
+              <br> 
+              
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>tracert 192.168.1.1（異常なpingの例-2）</p></h5>
+                    <p class="card-text">
+                       192.168.11.1 へのルートをトレースしています。経由するホップ数は最大 30 です<br>
+                       1    &lt;1 ms    &lt;1 ms    &lt;1 ms  192.168.0.1<br>
+                       2     2 ms     2 ms     2 ms  xx.xxx.xxx.37<br>
+                       3     3 ms     2 ms     2 ms  xxx.xxx.xx.1<br>
+                       4     4 ms     3 ms     3 ms  xx.xx.xxx.81<br>
+                       5     *        *        *     要求がタイムアウトしました。<br>
+                       6     *        *        *     要求がタイムアウトしました。<br>
+                       7     *        *        *     要求がタイムアウトしました。<br>
+                       8     *        *        *     要求がタイムアウトしました。<br>
+                       9     *        *        *     要求がタイムアウトしました。<br>
+                       (省略)<br>
+                       29     *        *        *     要求がタイムアウトしました。<br>
+                       30     *        *        *     要求がタイムアウトしました。<br>
+                       トレースを完了しました。 <br>    
+                    </p>
+                </div>
+              </div> 
+              <p>このtracertコマンドの2つの結果の違いは、（異常なpingの例-1）では、探索対象が同一セグメント内のIPの為、デフォルトルートである192.168.0.1すら経由することなく、ホップ数1で探索対象に到達できないという結果がでている。<br>
+              対して（異常なpingの例-2）では探索対処が同一セグメントではないので、まずデフォルトルートの192.168.0.1を経由。この192.168.0.1は192.168.11.1を知らないので、自分のデフォルトルートであるxx.xxx.xxx.37にホップしている。これはISPから払い出されているIPであり、以降は最大ホップ数30まで探索の範囲を広げているが、結局192.168.11.1というホストのその有無の確認はできないまま終わっている。</p>
+              <p>以上のように「要求がタイムアウトしました」というのは、ICMPパケットが探索経路の途中で破棄され（損失がカウントされる）、pingの宛先ホストがその先に存在するか否かもわからないということであり、「宛先ホストに到達できません。」というのは探索対象と疎通が取れていないことを確認できているという違いがある</p> 
+              <p>※正常なping応答と異常なping結果が混在する場合は、宛先ホストまでの経路もしくは宛先ホストが不安定であるという診断が可能である。</p>            
+          <h2 id="item1-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item1-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+
+        <!-- ===== CHAP A：item2 ===== -->
+        <article class="doc-panel" data-doc="item2A" hidden>
+          <h1 class="display-6 fw-bold">ネットワークの設定</h1>
+          <p class="lead"></p>
+
+          <h2 id="item2-1">1. ネットワークのIP構成（IPアドレス、サブネットマスク、デフォルトゲートウェイ、DNSサーバーのアドレス）をコマンドで行う。</h2>
+          <p>・ネットワークのIP構成を確認する。端末で使用するIPアドレスとサブネットマスク、デフォルトゲートウェイ（直近のルータのLAN側IPアドレスです）を確認する。DNSサーバは到達可能であれば、同じセグメント（サブネット）になくてもいいですし、インターネット上のDNSサーバでも構いません。</p>
+          <p>（例）A社はブロードバンドルータ（IP:192.168.0.1）でインターネット接続をしており、自分の端末（Windows10）にはIP:192.168.0.123を割り当てたい。クラスレスではなく、サブネットによるネットワークの分割は行っていない。したがってサブネットマスクは255.255.255.0、インターネット上の名前解決には上記ルータが代理応答可能であるが、8.8.8.8などインターネット上のDNSサーバを利用しても社内規定上問題ないと仮定しています。</p>
+          <p>Windowsのネットワーク接続の画面で見られる、イーサネットやWi-Fi（後に数字が付いていることもある）というのは、インターフェース名と呼ばれる。下記コマンドでは、「イーサネット」のことで、正確に入力する必要がある。</p>
+          <p><b>以下のコマンド（あるいはバッチファイル）はコマンドプロンプトを管理者として起動し、実行しないとエラーになるので注意。</b></p>
+          <p><b>設定→ネットワークとインターネット→アダプタのオプションの変更で「イーサネット」というインターフェース名でなければ、実在するインターフェース名に変えてください。</b></p>
+          <h3 id="item2-1-1">IPアドレスを固定</h3>
+          <p>netsh interface ipv4 set address "イーサネット" static 192.168.0.123 255.255.255.0 192.168.0.1</p>
+          <p>netsh interface ipv4 set dns "イーサネット" static 192.168.0.1 primary</p>
+          <p>netsh interface ipv4 add dns "イーサネット" 8.8.8.8</p>
+          <h3 id="item2-1-2">LAN内のみのアクセス（IPアドレスは固定）</h3>
+          <p>netsh interface ipv4 set address "イーサネット" static 192.168.0.123 255.255.255.0 none</p>
+          <p>netsh interface ipv4 set dns "イーサネット" static none primary</p>
+          <p>netsh interface ipv4 add dns "イーサネット" none</p>
+          <h3 id="item2-1-3">DHCP自動取得にリセット</h3>
+          <p>netsh interface ipv4 set address "イーサネット" dhcp</p>
+          <p>netsh interface ipv4 set dns "イーサネット" dhcp</p>
+          
+          <h2 id="item2-2">2. Wi-Fiの設定を保存・復元する</h2>
+          <h3 id="item2-2-1">・Wi-Fiのプロファイルの確認</h3>
+          <p>netsh wlan show profile  メモ帳(notepad)などに内容をコピーしておく。</p>
+          <p>上記コマンドを実行すると、インターフェース名（ワイヤレスネットワーク接続とかWi-Fi、もしくはそれらに数字がついたもの）についての保存されたプロファイル（通常SSIDと同じ）が表示される。PSK（事前共有キー）などは表示されない。</p>
+          <h3 id="item2-2-2">・設定（接続するSSIDとそのパスワードや暗号化の方式など）をバックアップする。</h3>
+          <p>※以降は必ず「管理者コマンドプロンプト」で実行します。上記で確認したプロファイルの設定ファイル（xml）をCフォルダ直下に保存するというのが、以下のコマンドの意味</p>
+          <p>netsh wlan export profile name=プロファイル名 folder=C:\ </p>
+          <p>実際に検証すると、インターフェース名-プロファイル名.xmlというファイルが作成される。エラーが表示される場合は、余分なスペースが入っていないか等を確認します。</p>
+          <h3 id="item2-2-3">・バックアップした設定を復元する</h3>
+          <p>カレントディレクトリからCドライブ直下に移動。 <br>cd C:\</p>
+          <p>netsh wlan add profile filename=インターフェース名-プロファイル名.xml</p>
+          <p>※インターフェース名-プロファイル名.xmlは実際に出力（エクスポート）されたファイル名を指定すること。</p>
+          <h3 id="item2-2-4">インターフェース名-プロファイル名.xmlの内容は以下のようなもの（一部省略）</h3>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;SSIDConfig&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;SSID&gt;</span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;hex&gt;SSID</span></span></font></span></font><font face="IPAゴシック, sans-serif">の</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">16</span></span></font></span></font><font face="IPAゴシック, sans-serif">進数表現</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/hex&gt;</span></span></font></span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;name&gt;SSID</span></span></font></span></font><font face="IPAゴシック, sans-serif">そのもの</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/name&gt;</span></span></font></span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/SSID&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/SSIDConfig&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;connectionType&gt;ESS&lt;/connectionType&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;connectionMode&gt;auto&lt;/connectionMode&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;MSM&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;security&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;authEncryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;authentication&gt;WPA2PSK&lt;/authentication&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;encryption&gt;TKIP&lt;/encryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;useOneX&gt;false&lt;/useOneX&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/authEncryption&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;sharedKey&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;keyType&gt;passPhrase&lt;/keyType&gt;</span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;protected&gt;true&lt;/protected&gt;</span></font></p>
+          <p><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;keyMaterial&gt;</span></span></font></span></font><font face="IPAゴシック, sans-serif">事前共有キーを暗号化したもの</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">&lt;/keyMaterial&gt;</span></span></font></span></font></p>
+          <p><font face="IPAゴシック, sans-serif"><span lang="en-US">&lt;/sharedKey&gt;</span></font></p>
+          <p>※<font face="IPAゴシック, sans-serif">事前共有キーを暗号化したものを</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US">Wi-Fi</span></font></span></font><font face="IPAゴシック, sans-serif">接続時に入力してもつながりません。</font></p>
+          <p><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">プロファイルのバックアップ（保存時）にオプションで　</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">key=clear</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">を付加すると、
+          </span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">keyMaterial</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">には</span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="IPAゴシック, sans-serif"><span lang="en-US"><span style="font-weight: normal">Wi-Fi</span></span></font></span></font><font face="IPAゴシック, sans-serif"><span style="font-weight: normal">接続設定で直接入力できる事前共有キーが表示されます。</span></font></p>
+       
+
+  
+          
+          <h2 id=""></h2>
+          
+          <h3 id="item2-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item2-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item2-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        
+        
+        <!-- ===== CHAP A：item3 ===== -->
+        
+        <article class="doc-panel" data-doc="item3A">
+          <h1 class="display-6 fw-bold">DNS情報の調査</h1>
+          <br>
+
+          <h2 id="item3-1">nslookupコマンドの活用</h2>
+          <h3 id="item3-1-1">なりすましメール対策の確認方法 1 （Sender Policy Framework）</h3>
+          <p>自分たちの会社のメールアドレスを詐称したなりすましメールが取引先などに送られると信用にかかわります。その対策として、自社ドメインのコンテンツサーバ（権威DNSサーバ）のTXTレコードに正規のメールサーバのIPアドレスを記述します。<br>
+             その上で受信側サーバになりすましメールか否かの判定を行わせ、判定の結果がspf=passとなっているメールだけが自社の送ったメールであると主張できるという仕組みが送信者ドメイン認証です。メールサーバはメールを受信するときに、送信元と3ウェイ・ハンドシェイクを行うので、送信元（クライアント）のIPアドレスを検知できます。このIPアドレスと送信者ドメイン（メールヘッダのエンベロープFROMに記載されている@以下）の権威DNSサーバのSPF（TXT）レコードに記載されたIPアドレスを比較し、一致する場合はspf=pass.
+             一致しない場合はspf=failと判定してメールヘッダに追記します。</p>
+          <p>送信者が自社のDNSサーバに送信者ドメイン認証に必要な設定をおこない、受信者側のメールサーバが送信者ドメイン認証（SPF）に対応していれば、受信者もメールヘッダを確認することで、メールが偽物か本物か区別できることになります。</p>
+          <p>実際にあるカード会社になりすまして送られてきたメールのヘッダー情報をもとにした内容で説明します。ヘッダーのReceived-SPFの部分を見ると、判定はsoftfailで、client-ip=116.**.**.***（送信元IPアドレス）があり、envelope-from=&lt;pbi@r******-card.co.jp&lt;となっています。実際に、nslookupで r******-card.co.jpのtxtレコード（SPFレコードが記載されている）を調べてみよう。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h6 class="card-title"><p>データを公開するのが目的ではないので文字を部分的に*に置き換えています。</p></h5>
+                    <p class="card-text">
+                      nslookup -type=txt r******-card.co.jp <br>
+                      以上のコマンド実行結果の中の次の部分に注目してください。<br>
+                      text = "v=spf1 include:spf-***.mpme.jp include:spf01.r******-card.co.jp include:spf02.r******-card.co.jp include:spf03.r******-card.co.jp ~all"<br>
+                      さらにincludeで指定されているドメイン名を4つについて、以下のようにコマンドを打ちます。<br>
+                      nslookup -type=txt spf-***.mpme.jp <br>
+                      nslookup -type=txt spf01.r******-card.co.jp <br>
+                      nslookup -type=txt spf02.r******-card.co.jp <br>
+                      nslookup -type=txt spf03.r******-card.co.jp <br>
+                      結果は以下のようになります。<br>
+                      spf-***.mpme.jp text = "v=spf1 " "ip4:106.***.**.0/24 ip4:106.***.**.192/26 ip4:125.**.**.64/26 ip4:106.**.**.0/23 ip4:106.***.**.0/23 ip4:106..**.**/22 ip4:106.**.***.0/23 ip4:18.***.**.0/24 ip4:106.***.**.0/26 ip4:165.***.***.1/32 ip4:52.***.***.***/32 ip4:3.***.**.0/32 " "~all" <br>
+                      spf01.r******-card.co.jp text = "v=spf1 ip4:202.**.**.0/20 ip4:203.***.**.0/21 ip4:133.***.0.0/16 ip4:202.*.***.**/27 -all" <br>
+                      spf02.r******-card.co.jp text = "v=spf1 ip4:61.**.***.**/28 ip4:***.***.***.***/28 ip4:210.***.***.96/27 ip4:211.*.***.***/27 ip4:210.***.***.0/26 ip4:210.***.**.64/26 ip4:203.***.***.0/25 ip4:180.***.163.128/25 ip4:210.***.**.224/27 ip4:210.***.***.64/27 ip4:133.***.**.0/28 -all" <br>
+                      spf03.r******-card.co.jp text = "v=spf1 ip4:218.**.**.142 ip4:218.**.**.*** ip4:218.**.**.144 ip4:218.**.**.145 ip4:218.**.**.146 ip4:124.***.***.8 ip4:124.***.***.9 -all" <br>
+                      以上のIPv4アドレスが r******-card.co.jpの権威DNSサーバに記載のある送信元IPアドレスであり、実際のメールの送信元IPアドレス（116.**.**.***）は該当しないことがわかります。
+                      </p>
+                </div>
+              </div>
+          <p>以上のようなメールヘッダを確認されたい場合は、gmailなどのWEBメール内の「ソースの表示」を利用されるのをお勧めします。
+          </p>
+          <h3 id="item3-1-2">なりすましメール対策の確認方法2 DKIM（DomainKeys Identified Mail）</h3>
+          <p>・前提として送信者側で行う公開鍵登録：対応する公開鍵を自ドメインのDNSのTXTレコードに登録（<selector>._domainkey.<domain>形式）。</p>
+          <p>・送信者メールサーバでの処理：送信メールサーバがDNSに公開した公開鍵の対になる秘密鍵でメール本文や一部ヘッダーのハッシュ値を暗号化し、DKIM-Signatureヘッダーとして付与</p>
+          <p>・受信者メールサーバでの処理-1：受信サーバはメールヘッダーからd=（署名ドメイン）とs=（セレクタ）を取得し、DNSから送信者メールサーバの公開鍵を取得。</p>
+          <p>・受信者メールサーバでの処理-2：公開鍵で署名を復号し、再計算したハッシュと一致した場合はDKIM=PASS、一致しない場合はDKIM=FAILとしてメールヘッダーに追記。
+          </p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h6 class="card-title"><p>自身のyahooメールアカウントからoutlookにテストメールを送信したときのメールヘッダーの一部DKIM-Signatureを示します。</p></h5>
+                    <p class="card-text">
+                      DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1795181681;
+                      s=yahoocojp-202506; d=yahoo.co.jp;h=References:Content-Type:MIME-Version:Subject:Message-ID:To:Reply-To:From:Date;
+                      bh=gj8WWUB6G8YniR1LPhpzWpUWvs4ns/LiuG5r96LBf8I=;
+                      b=qSYeSmP3bzSNoKWuPxF0Hl5rO02S7YMYsyuYK4Yl0zx2Na3mfgLB3+tvuhow+GFgxdh16wbe0dUSXkeU0J0Acu4mM9No29cOrNPhfg8MadrYw11QcxkdVtFLBouyVDhbIb/SzdOCY/2foKSTtC5gFx12xERb99oMgkrvf4aHfs8/LW24c836weQ6DgyIRyZ5MoovA+k+OwzGa2yeyWnRJrVeFZh7gBrVkiTcGifdj/5XKqyvh6kMu9+lQTFe1Qyy9ag/cyieD0gyks5WGoeiA4/a85QX3rvIydTpmQEaHSutfKAp7cOzqwuRcM+18/cEjKPd5nfSswvGR4IZJ8PuUw==
+                    </p>
+                </div>
+              </div>
+          <p>次に送信側のYahooメールのサーバの公開鍵を取得します。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h6 class="card-title"><p>DKIM-Signatureからセレクタ（s=yahoocojp-202506）と署名ドメイン（d=yahoo.co.jp）を確認。  </p></h5>
+                    <p class="card-text">
+                       nslookup -type=txt yahoocojp-202506._domainkey.yahoo.co.jp 1.1.1.1 <br>
+                       <br>
+                       サーバー:  one.one.one.one <br>
+                       Address:  1.1.1.1 <br>
+                       権限のない回答: <br>
+                       yahoocojp-202506._domainkey.yahoo.co.jp text = <br>
+                       "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsuaDB0RX5kek8K3s/0HV7mQf5XYjZFjVSDaY7nHWqlQ9nMMbCfsrobjV9+azS8+5fGTd/k2AYIv/b9oQGzfgntuIDbX47NaZkSNWEJ8A6tBNL3QzepGVPl0GyROFGtQn5FxRrZH3J2bKco1FIOftKs6YjLPMXzWjlYD9l7cmcvfxgjVgjDwvJ2lE0/adfQ" <br>
+                       "GVzJ2Pxvmu9VArnU0jYtMRVYTSdka1wtOmqgsjevpxAT6AoZ9F9uxuy3TUC5Xi+wN8VJw2Qqp3wP4JUKsflm1htirP5FrDGVLEsFz+JS5h/m5H+r+l8Cz47wZax/7QRtGuDNH8vDaEOhmbdGRGqkeMhQIDAQAB" <br>
+                       <br>
+                       SPFと異なりDKIMのtxtレコードを取得するにはセレクタ._domainkey.署名ドメインに対してnslookupを行います。1.1.1.1（8.8.8.8でもよい）はパブリックDNSサーバのIPですが、お使いのPCの名前解決用のDNSの設定によっては不要な場合もあります。 p=以下が公開鍵です。<br>
+                    </p>
+                </div>
+              </div>              
+
+
+
+
+          <p>以上のようなメールヘッダを確認されたい場合は、gmailなどのWEBメール内の「ソースの表示」を利用されるのをお勧めします。
+          </p>
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+       
+        <!-- ===== CHAP A：item4 ===== -->
+        
+        <article class="doc-panel" data-doc="item4A">
+          <h1 class="display-6 fw-bold">証明書管理および暗号化操作</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item4-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item4-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item4-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item4-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item4-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+       
+        <!-- ===== CHAP A：item5A ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item5A" hidden>
+          <h1 class="display-6 fw-bold">item4A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP A：item4 ===== 
+        <article class="doc-panel" data-doc="item6A" hidden>
+          <h1 class="display-6 fw-bold">item6A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP A：item4 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item7A" hidden>
+          <h1 class="display-6 fw-bold">item7A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP A：item4 ===== -->
+         <!--  
+        <article class="doc-panel" data-doc="item8A" hidden>
+          <h1 class="display-6 fw-bold">item8A</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        
+        <!-- ===== CHAP B：item1 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item1B" hidden>
+          <h1 class="display-6 fw-bold">item1B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP B：item2 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item2B" hidden>
+          <h1 class="display-6 fw-bold">item2B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>        
+        -->
+        <!-- ===== CHAP B：item3 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item3B" hidden>
+          <h1 class="display-6 fw-bold">item3B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>         
+        -->
+        <!-- ===== CHAP B：item2 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item4B" hidden>
+          <h1 class="display-6 fw-bold">item4B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article> 
+        -->
+        <!-- ===== CHAP B：item5 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item5B" hidden>
+          <h1 class="display-6 fw-bold">item5B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP B：item6 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item6B" hidden>
+          <h1 class="display-6 fw-bold">item6B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>
+        -->
+        <!-- ===== CHAP B：item7 ===== 
+        <article class="doc-panel" data-doc="item7B" hidden>
+          <h1 class="display-6 fw-bold">item7B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article> 
+        -->
+        <!-- ===== CHAP B：item8 ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item8B" hidden>
+          <h1 class="display-6 fw-bold">item8B</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item3-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item3-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article>         
+        -->
+
+        <!-- ===== 項目：長いコンテンツ（スクロール確認用） ===== -->
+        <!--
+        <article class="doc-panel" data-doc="item" hidden>
+          <h1 class="display-6 fw-bold">長いコンテンツ（スクロール確認用）</h1>
+          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+
+          <h2 id="item-1">セクション 1</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-2">セクション 2</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-2-1">セクション 2-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-3">セクション 3</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-3-1">セクション 3-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-4">セクション 4</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-5">セクション 5</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item-5-1">セクション 5-1</h3>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-6">セクション 6</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-7">セクション 7</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+
+          <h2 id="item-8">セクション 8</h2>
+          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+        </article> -->
+
+      </div>
+    </main>
+
+    <!-- ============================================================
+         右：アウトライン（現在の記事の h2 / h3 を JS で自動生成）
+         ★ 見出しの増減に合わせて手で作り替える必要はありません。
+    ============================================================= -->
+    <aside id="docOutline" aria-label="このページのアウトライン">
+      <div class="outline-title">このページの目次</div>
+      <nav>
+        <ul id="outlineList"></ul>
+      </nav>
+    </aside>
+
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/doc_script.js"></script>
+</body>
+</html>
