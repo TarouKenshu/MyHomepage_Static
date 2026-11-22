@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="管理者の紹介">
+    <meta name="keywords" content="">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 縦の楕円（縦長）に切り抜いて表示するプロフィール画像 */
+        .author-avatar {
+            width: 180px;
+            max-width: 100%;
+            height: 280px;
+            object-fit: cover;
+            clip-path: ellipse(50% 60% at 50% 50%);
+        }
+        /* はとのアイコンボタン（64x64、円形） */
+        .pigeon-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pigeon-icon {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+        }
+    </style>
+    <title>管理者の紹介</title>
+</head>
+<body class="bg-dark text-light">
+    <header>
+        <nav class="sticky-top navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">ITのツボというか経絡秘孔図的な何か</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../index.html">ホーム</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./author.html">管理者の紹介</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        <section class="mb-4">
+            <div class="card h-100 bg-secondary text-light">
+                <div class="card-body d-flex flex-column text-center">
+                    <img src="../images/profile.jpg" class="author-avatar" alt="プロフィール画像">
+                    <h5 class="card-title mt-3">管理者名</h5>
+                    <p class="card-text flex-grow-1">（自己紹介）通信機器やPC関連の仕事に従事。情報処理安全確保支援士試験合格、ドットコムマスター★★2009
+                        ITパスポート、ビジネス実務法務検定2級、エコ検定など取得。</p>
+                    <a href="../index.html" class="btn btn-success mt-auto">ホームへ戻る</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4 text-center">
+            <button type="button" id="contact-toggle" class="pigeon-btn" aria-label="連絡先を表示・非表示">
+                <img src="../images/carrier pigeon.jpg" class="pigeon-icon" alt="はと">
+            </button>
+        </section>
+
+        <section id="contact-info" class="d-none mb-4">
+            <div class="card h-100 bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title">連絡先</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-secondary text-light">メールアドレス：xxx@xxx.xxx</li>
+                        <li class="list-group-item bg-secondary text-light">連絡先番号：xxx-xxx-xxxx</li>
+                        <li class="list-group-item bg-secondary text-light">SNS：（未設定）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-success text-light border-top border-secondary py-4 mt-5">
+        <div class="container">
+            <div class='mx-auto text-white'>
+                <p>Copyright © H.S. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        // トップページの鳩ボタンから#contactでここに来たとき、連絡先を表示する
+        // 鳩のアイコンボタンで連絡先の表示を切り替える
+        document.addEventListener('DOMContentLoaded', function () {
+            var contact = document.getElementById('contact-info');
+            if (location.hash === '#contact') {
+                contact.classList.remove('d-none');
+            }
+            var toggle = document.getElementById('contact-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    contact.classList.toggle('d-none');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
