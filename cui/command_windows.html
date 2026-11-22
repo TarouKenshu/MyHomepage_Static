@@ -427,24 +427,29 @@ IPv4デフォルトゲートウェイ：192.168.0.1
 
           <h2 id="item3-1">nslookupコマンド</h2>
           <h3 id="item3-1-1">基本構文</h3>
-          <p><b>nslookup -type=（レコード名）（ホスト名またはIPアドレス）（問い合わせるDNSサーバー名またはIPアドレス）</b></p>
-          <p></p>
-          <p></p>
+          <p><b>nslookup -type=（レコード名）（ドメインまたはIPアドレス）（問い合わせ先のDNSサーバー名またはIPアドレスの指定）</b></p>
+          <p>・DNSサーバの種類：1.コンテンツサーバ（権威DNSサーバともいう。ホストのドメインを直接管轄する専用DNSサーバでホストの運用者が設置する）</br>
+          2.キャッシュDNSサーバ（他のDNSサーバに再帰的なクエリを行い、その問い合わせ結果を一定期間保存し、次回同じドメイン名の問い合わせに迅速に応答する。 ）<br></p>
+          <p>・PCに設定されているDNSサーバ ：ネットワーク構成をDHCPで自動取得している場合、ブロードバンドルータのこと。接続しているISPのDNSサーバの代理として働く。<br>
+          キャッシュDNSサーバは、ISPやGoogle、CloudFlareなどが設置・運用するパブリックDNSサーバ、法人や個人がLAN内に設置・運用するプライベートDNSサーバがある。<br>
+          オープンリゾルバは攻撃に悪用されやすいので、プライベートDNSサーバやルータはLAN内のみから問い合わせ要求を受け付けるように設定しなければならない。</p>
+          <p>・レコード名はDNSサーバに記述された項目の区分といったもの。メールサーバに関するものはMXレコード、コンテンツサーバについてはNSレコード、送信者ドメイン認証に関する記述はTXTレコードに記載がある。</p>
+          <p>・問い合わせ先のDNSサーバー名またはIPアドレスの指定は省略可能だが、PCが使用しているDNSサーバがnslookupを拒否している場合は、1.1.1.1や8.8.8.8といったパブリックDNSサーバを指定する。</p>
+
+
+
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h6 class="card-title"><p></p></h5>
+                    <h6 class="card-title"><p>実例1.WEBサーバのIPアドレス知りたい。</p></h5>
                     <p class="card-text">
+                      nslookup www.yahoo.co.jp<br>
+                      サーバー:  UnKnown<br>
+                      Address:  192.168.0.1    ← ISPルータ（デフォルトゲートウェイ）のIPアドレス<br>
                       <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-
+                      権限のない回答:<br>
+                      名前:    edge12.g.yimg.jp<br>
+                      Address:  182.22.24.252    ← これが知りたかった。<br>
+                      Aliases:  www.yahoo.co.jp  ← edge12.g.yimg.jpが本名で、www.yahoo.co.jpが別名。<br>
                     </p>
                 </div>
               </div>
@@ -455,8 +460,31 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <p></p>
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h6 class="card-title"><p></p></h5>
+                    <h6 class="card-title"><p>実例2.～@yahoo.co.jpのMailサーバのIPアドレスを知りたい。</p></h5>
                     <p class="card-text">
+                      nslookup -type=MX yahoo.co.jp<br>
+                      サーバー:  UnKnown<br>
+                      Address:  192.168.0.1<br>
+                      <br>
+                      権限のない回答:<br>
+                      yahoo.co.jp     MX preference = 10, mail exchanger = mx1.mail.yahoo.co.jp<br>
+                      yahoo.co.jp     MX preference = 10, mail exchanger = mx3.mail.yahoo.co.jp<br>
+                      yahoo.co.jp     MX preference = 10, mail exchanger = mx2.mail.yahoo.co.jp<br>
+                      yahoo.co.jp     MX preference = 10, mail exchanger = mx5.mail.yahoo.co.jp<br>
+                      <br>
+                      4つのメールサーバの一つ、mx1.mail.yahoo.co.jpのIPアドレスを調べる。<br>
+                      <br>
+                      nslookup mx1.mail.yahoo.co.jp<br>
+                      サーバー:  UnKnown<br>
+                      Address:  192.168.0.1<br>
+                      <br>
+                      権限のない回答:<br>
+                      名前:    mx1.mail.yahoo.co.jp<br>
+                      Addresses:  203.216.254.91   ← ４つのIPアドレスが解答。ほかのmx3,mx2,mx5の３つは同じ方法で求められるので省略。<br>
+                      203.216.254.90<br>
+                      183.79.221.219<br>
+                      183.79.221.218<br>
+
                     </p>
                 </div>
               </div>
