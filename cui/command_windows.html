@@ -394,28 +394,10 @@ IPv4デフォルトゲートウェイ：192.168.0.1
        
 
   
-          
+          <div d-none hidden>         
           <h2 id=""></h2>
-          
-          <h3 id="item2-3-1">セクション 3-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item2-4">セクション 4</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item2-5">セクション 5</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item2-5-1">セクション 5-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item2-6">セクション 6</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item2-7">セクション 7</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item2-8">セクション 8</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item2-3-1"></h3>
+         </div> 
         </article>
         
         
@@ -435,118 +417,213 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           オープンリゾルバは攻撃に悪用されやすいので、プライベートDNSサーバやルータはLAN内のみから問い合わせ要求を受け付けるように設定しなければならない。</p>
           <p>・レコード名はDNSサーバに記述された項目の区分といったもの。メールサーバに関するものはMXレコード、コンテンツサーバについてはNSレコード、送信者ドメイン認証に関する記述はTXTレコードに記載がある。</p>
           <p>・問い合わせ先のDNSサーバー名またはIPアドレスの指定は省略可能だが、PCが使用しているDNSサーバがnslookupを拒否している場合は、1.1.1.1や8.8.8.8といったパブリックDNSサーバを指定する。</p>
-
-
-
+          <p><b>以下は架空のドメインであるexample.comに対してのnslookupの実行例です。実際は実在するドメインに対して実行します。</b></p>
+          <h3 id="item3-1-2">実例1.WEBサーバのIPアドレス知りたい。</h3>
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h6 class="card-title"><p>実例1.WEBサーバのIPアドレス知りたい。</p></h5>
+                    <h5 class="card-title"><p>nslookup www.example.co.jp</p></h5>
                     <p class="card-text">
-                      nslookup www.yahoo.co.jp<br>
+
                       サーバー:  UnKnown<br>
                       Address:  192.168.0.1    ← ISPルータ（デフォルトゲートウェイ）のIPアドレス<br>
                       <br>
                       権限のない回答:<br>
-                      名前:    edge12.g.yimg.jp<br>
-                      Address:  182.22.24.252    ← これが知りたかった。<br>
-                      Aliases:  www.yahoo.co.jp  ← edge12.g.yimg.jpが本名で、www.yahoo.co.jpが別名。<br>
+                      名前:    example.com<br>
+                      Address: aaa.bbb.ccc.ddd    ← これが知りたい値<br>
+                      <br>
                     </p>
                 </div>
               </div>
           <p>
           </p>
-          <h3 id="item3-1-2"></h3>
+          <h3 id="item3-1-2">実例2.～@example.co.jpのMailサーバのIPアドレスを知りたい。</h3>
           <p></p>
           <p></p>
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h6 class="card-title"><p>実例2.～@yahoo.co.jpのMailサーバのIPアドレスを知りたい。</p></h5>
+                    <h5 class="card-title"><p>nslookup -type=mx example.co.jp</p></h5>
                     <p class="card-text">
-                      nslookup -type=MX yahoo.co.jp<br>
                       サーバー:  UnKnown<br>
                       Address:  192.168.0.1<br>
                       <br>
                       権限のない回答:<br>
-                      yahoo.co.jp     MX preference = 10, mail exchanger = mx1.mail.yahoo.co.jp<br>
-                      yahoo.co.jp     MX preference = 10, mail exchanger = mx3.mail.yahoo.co.jp<br>
-                      yahoo.co.jp     MX preference = 10, mail exchanger = mx2.mail.yahoo.co.jp<br>
-                      yahoo.co.jp     MX preference = 10, mail exchanger = mx5.mail.yahoo.co.jp<br>
+                      example.co.jp     MX preference = 10, mail exchanger = mx1.mail.example.co.jp<br>
+                      example.co.jp     MX preference = 10, mail exchanger = mx3.mail.example.co.jp<br>
+                      example.co.jp     MX preference = 10, mail exchanger = mx2.mail.example.co.jp<br>
+                      example.co.jp     MX preference = 10, mail exchanger = mx5.mail.example.co.jp<br>
                       <br>
-                      4つのメールサーバの一つ、mx1.mail.yahoo.co.jpのIPアドレスを調べる。<br>
+                      4つのメールサーバの一つ、mx1.mail.example.co.jpのIPアドレスを調べる。<br>
                       <br>
-                      nslookup mx1.mail.yahoo.co.jp<br>
+                      nslookup mx1.mail.example.co.jp<br>
                       サーバー:  UnKnown<br>
                       Address:  192.168.0.1<br>
                       <br>
                       権限のない回答:<br>
-                      名前:    mx1.mail.yahoo.co.jp<br>
-                      Addresses:  203.216.254.91   ← ４つのIPアドレスが解答。ほかのmx3,mx2,mx5の３つは同じ方法で求められるので省略。<br>
-                      203.216.254.90<br>
-                      183.79.221.219<br>
-                      183.79.221.218<br>
+                      名前:    mx1.mail.example.co.jp<br>
+                      Addresses:  eee.fff.ggg.hhh  ← これが知りたい値。ほかの３つのメールサーバのホストについても対応するIPアドレスの調査方法は同じ。<br>
+
 
                     </p>
                 </div>
               </div>
           <p></p>
+          <h3 id="item3-1-2">実例3.example.co.jpのレコードを一括表示</h3>
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h5 class="card-title"><p></p></h5>
+                    <h5 class="card-title"><p>nslookup -type=any example.co.jp 8.8.8.8</p></h5>
                     <p class="card-text">
+                       サーバー:  dns.google<br>
+                       Address:  8.8.8.8 ←  今回は、googleのパブリックDNSを使用したことにします。<br>
                        <br>
+                       権限のない回答:<br>
+                       example.co.jp<br>
+                       primary name server = example.co.jp<br>
+                       responsible mail addr = postmaster.example.co.jp<br>
+                       serial  = 2611200001<br>
+                       refresh = 1800 (30 mins)<br>
+                       retry   = 900 (15 mins)<br>
+                       expire  = 86400 (1 day)<br>
+                       default TTL = 900 (15 mins)<br>
+                       example.co.jp     nameserver = ns01.example.co.jp <br>
+                       （省略）<br>
+                       example.co.jp     internet address = aaa.bbb.ccc.ddd <br>
+                       （省略）<br>
+                       example.co.jp     MX preference = 10, mail exchanger = mx1.mail.example.co.jp<br>
+                       （省略）<br>
+                       example.co.jp     text =<br>
+                        "google-site-verification=（省略）<br>
                        <br>
+                       example.co.jp     text =<br>
                        <br>
-                       <br>
-                       <br>
-                      <p></p>
+                       "v=spf1 include:spf.example.co.jp ~all" <br>
+                       省略<br> 
                     </p>
                 </div>
               </div>              
-
-
-
-
           <p></p>
-          <h2 id="item3-2">セクション 2</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-2-1">セクション 2-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h2 id="item3-2">特殊な構文</h2>
+          <p>ドメインを詐称したメールを判定する仕組みを検証するときに使用される。</p>
+          <h3 id="item3-2-1">SPF（Sender Policy Framework）レコードの確認</h3>
+          <p><b>nslookup -type=txt example.co.jp</b></p>
+          <p>上記の例では、IPv4アドレスが表示されず、まだホスト名：spf.example.co.jpになっている場合はさらにnslookupを行う</p>
+          <p><b>nslookup -type=txt spf.example.co.jp</b></p>
+          <h3 id="item3-2-2">DKIM（DomainKeys Identified Mail）のレコード、公開鍵の確認</h3>
+          <p>ここでは、本物の材料をださないと説明が難しいので、マスキングで保護しながら説明します。</p>
+                  <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>nslookup -type=txt （セレクタ）._domainkey.（署名ドメイン） </p></h5>
+                    <p class="card-text">
+                      <p>自身のyahooメールアカウントからgmailアカウントにテストメールを送信したときのメールヘッダーの一部、DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1627742907; s=yj2011****; d=yahoo.co.jp; h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:References; bh=+xq*W/3*****6VT****eK/2*****ZJW******f87XtU=; b=****CRMC/********lE3v****gqe****Ox2vK****uRnhINbJ****QyDNi7**** I2Sgfsd22****vNIzyZ****sNU****48DDN****Z1UF****at*Rfc****qAHw+vlpot****dOYG****TDge0P****nOAEaB0Op****=</p>
+                       <br>
+                       署名の検証に必要な公開鍵を取得する。上記の中の s=yj2011****（セレクタ）,d=yahoo.co.jp（署名ドメイン）という値から、コマンドを組み立てる。<br>
+                       <br>
+                       nslookup -type=txt yj2011****._domainkey.yahoo.co.jp <br>
+                       結果以下のようなDKIMレコードを取得できる。<br>
+                       yj2011****._domainkey.yahoo.co.jp text = "v=DKIM1; g=*; k=rsa; p=****MA0GCSqGSIb3D****QUAA4GNADCBiQKBgQC/YNUcGXl****eYVQ1O/I0/****cG3FsjYCp4j1UW8TxOxQGpdLPr3MYL2gngH82LA/****cl2rU3msd****NemYxrtNpNfs+IvqYsLJv3vItz****/0Yt0caVFF9ab4W51c8PJv8aclR****Ai3trHG****rA4/8iUvSoIhGP6wID****" <br>
+                       正式なメールサーバから送信されたことを認証するためのDKIMの公開鍵がp=で表紙される部分となる。 <br>
+                       p=****MA0GCSqGSIb3D****QUAA4GNADCBiQKBgQC/YNUcGXl****eYVQ1O/I0/****cG3FsjYCp4j1UW8TxOxQGpdLPr3MYL2gngH82LA/****cl2rU3msd****NemYxrtNpNfs+IvqYsLJv3vItz****/0Yt0caVFF9ab4W51c8PJv8aclR****Ai3trHG****rA4/8iUvSoIhGP6wID****" <br>
+                    </p>
+                </div>
+              </div>
+          <h3 id="item3-2-2">DMARC（DomainKeys Identified Mail）のレコードの確認</h3>
+          <p>DMARCとは、受信側サーバでSPFおよびDKIMによる送信者ドメイン認証いずれにも失敗（DMARC=FAIL）した場合の取り扱いを示している。 <br>
+             下の例で行くと、～@sample.co.jpが差出人のメールがSPFとDKIMが失敗したときはp=noneに従い、何もしないが、sp=quarantineに従い、～@*.example.comというサブドメインからの詐称メールは隔離してくださいという意味。<br>
+             rua=mailto:********-******@sample.co,jpは、そのような処理の集計レポートの宛先を示している。
+          </p>
+                  <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>nslookup -type=txt  _dmarc.（メールドメイン名） </p></h5>
+                    <p class="card-text">
+                      <p>nslookup -type=txt _dmarc.sample.co.jp</p>
+                       権限のない回答：
+                       _dmarc.sample.co.jp       text =<br>
+                       "v=DMARC1; p=none; sp=quarantine; rua=mailto:********-******@sample.co,jp"<br>
+                       <br>
+                       p=quarantineもしくはrejectにすればいいと思うが、SPFは転送の場合もFAILかSOFTFAILになるので、DKIMが何かの間違いでFAILになる可能性を考慮していると思われる。<br>
+                       いずれにせよ、受信側サーバがDMARCまでは対応していないことが多い。その場合は処理が行われないのでnoneと同じ。<br>
+                       <br>
+                       ※dmarcの設定については、実際に運用してみて、誤って自社のメールが相手に届かないという事象がなければ、p=rejectにしているところが多い。
+                    </p>
+                </div>
+              </div>              
+          <h2 id="item3-3">DNSサーバから得られる情報について</h2>
+          <p>nslookupによってDNSサーバから得られる情報は、公開情報となるので、権威DNSサーバおよびDNSキャッシュサーバの管理者がどのような情報を表示させるかあるいは表示させないかを決めることができます。<br>
+             したがって、問い合わせ先サーバを変更すれば、見れなかったのが見れるというのもありますので、工夫してみてください。nslookupでNXレコードを見れば、管轄の権威DNSサーバのホスト名がわかるので、それを問い合わせ先のサーバにすれば、詳しい内容が見れることがあります。<br>
+          
+          </p>
 
-          <h2 id="item3-3">セクション 3</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-3-1">セクション 3-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-4">セクション 4</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-5">セクション 5</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <h3 id="item3-5-1">セクション 5-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-6">セクション 6</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-7">セクション 7</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
-
-          <h2 id="item3-8">セクション 8</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item3-4">pingで表示されるDNS情報について</h3>
+          <p><b>ping ドメイン名（ホスト名）</b>を実行すると、PCが実際に宛先のIPアドレスの名前解決を行った結果が見れます。 <br>
+          ここでは実行結果は記載しませんが、pingで表示されたIPアドレスが、nslookupで出てこない場合。PCで設定されているDNSサーバがDNSキャッシュポイゾニングを受けている可能性があるとかないとか。<br>
+          通常、outlook.comやgoogle.comは複数のIPアドレスを使ってホストされているので、pingの実行結果で表示されているIPアドレスがそのうちの一つであれば問題ない。あなたの運営するサイトがそれほど大規模でなければ、nslookupで複数のDNSサーバに問い合わせて、pingの結果と比較することは有益な気付きを与えることがある。<br>
+          </p>
         </article>
        
         <!-- ===== CHAP A：item4 ===== -->
         
         <article class="doc-panel" data-doc="item4A">
           <h1 class="display-6 fw-bold">証明書管理および暗号化操作</h1>
-          <p class="lead">中央カラムに縦スクロールバーが出ること、アウトラインのクリックで位置が移動することの確認用サンプルです。</p>
+          <p class="lead"><b>Certutilコマンド</b></p>
 
-          <h2 id="item4-1">セクション 1</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h2 id="item4-1">1.ハッシュ値の計算</h2>
+          <p>ウィルスに感染した異なるファイル名の同一ファイルの存在を確認したり、ファイルが改ざんされていないことを示すために、ファイルとそのハッシュ値を合わせて開示する場合が多い。その検証時、ハッシュ値の計算が必要となる。<br>
+          今回は「本日は晴天なり」という1文だけのテキストファイルを「テスト.txt」というファイル名で作成した。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>certutil -hashfile   ファイル名  アルゴリズム名</p></h5>
+                    <p>アルゴリズム名：MD2,MD4,MD5,SHA1,SHA256,SHA384,SHA512</p>
+                    <p class="card-text">
+                        <b>certutil -hashfile "テスト.txt" SHA256</b> <br>
+                        <br>
+                        SHA256 ハッシュ (対象 テスト.txt): <br>
+                        f84671b48267afd0c7f512ba15ad30f1a4f01c1be769237f71b46ab239bcecb2 <br>
+                        CertUtil: -hashfile コマンドは正常に完了しました。<br>
+                        <br>
+                        「本日は曇天なり」と書き換えると <br>
+                        SHA256 ハッシュ (対象 テスト.txt): <br>
+                        7ba89110b0639e030bcdb68085393f1bd8fc7a4a5efd5493abf64c106f7a2b63 <br>
+                        CertUtil: -hashfile コマンドは正常に完了しました。<br>
+                        大きくハッシュ値が書き換わった。<br>
+                        <br>
+                        また、さらにファイル名を「本番.xlsx」と変更。<br>
+                        <b>certutil -hashfile "本番.xlsx" SHA256</b> <br>
+                        SHA256 ハッシュ (対象 本番.xlsx): <br>
+                        7ba89110b0639e030bcdb68085393f1bd8fc7a4a5efd5493abf64c106f7a2b63 <br>
+                        CertUtil: -hashfile コマンドは正常に完了しました。
+                        ハッシュ値は全く変化していない。<br>
+                        このようなハッシュ値の性質を利用することがセキュリティ上の問題解決に役立つことがある。
 
-          <h2 id="item4-2">セクション 2</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
+                    </p>
+                </div>
+              </div> 
+
+          <h2 id="item4-2">2.文字列をBASE64で変換</h2>
+                    <p>BASE64形式は、64進数で、すべてのデータをアルファベット(a~z, A~z)と数字(0~9)、一部の記号(+,/)の64文字で表すエンコード方式です。 <br>
+                       ただ、データ長を揃えるためにパディングとして末尾に記号の=を使用するので、厳密にはbase64は、65文字の英数字から表現されます。したがって、メールの送受信で文字以外の画像や音声も使えるようになりました。 <br>
+                      本来はバイナリデータを文字列でやり取りできるようにするためのものです。しかし、文字列も含めデータを整形できるので、暗号化の下処理、WEBサーバーへのリクエストなどメールの送受信以外にも広く使われています。
+                    </p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>変換 certutil -encode 入力ファイル名　出力ファイル名</p> <br>
+                    戻す certutil -decode 入力ファイル名　出力ファイル名</h5>
+                    <p>BASE64でエンコード/デコードする。</p>
+                    <p class="card-text">
+                        <b>（例）'user:12345'をbase64でエンコードする。</b><br>
+                        <b>echo user:12345 > source.txt && certutil -encode source.txt destination.txt && type destination.txt</b> <br>
+                        <br>
+                        （結果） destination.txtを表示すると<br>
+                       -----BEGIN CERTIFICATE----- <br>
+                       dXNlcjoxMjM0NSAgDQo=<br>
+                       -----END CERTIFICATE-----3EldEll6VTtMQHeK<br>
+                        <b>（例）'dXNlcjoxMjM0NSAgDQo='をbase64でデコードする。</b><br>
+                        <b>echo dXNlcjoxMjM0NSAgDQo= >from.txt && certutil -decode from.txt to.txt && type to.txt</b> <br>
+                        <br>
+                        （結果）user:12345<br>
+                        ※Linux等、Unix系のBase64コマンドを使うと、エンコード後の値がdXNlcjoxMjM0NQo= 又は dXNlcjoxMjM0NQ== になったりするが、デコードするとuser:12345になるので、特に問題はないと思われる。
+                    </p>
+                </div>
+              </div>
+            <p>（この演習を行う際の注意）Windowsではファイルの上書きができず同じファイル名を使ったコマンドを２回打つとエラー（上書きできない）になります。繰り返し試すときはすでにあるファイルを削除してください。</p>  
           <h3 id="item4-2-1">セクション 2-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
