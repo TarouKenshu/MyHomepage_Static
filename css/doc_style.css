@@ -196,6 +196,16 @@
             height: 48px;
             object-fit: cover;
         }
+        /* ハイパーリンクの色 */
+        .hyper-extra {
+          a {
+                color: white; /* リンクの文字色を白に */
+            }
+           a:visited {
+                color: yellow;  /*  クリック後のリンクの色を黄色に */
+            }
+        }
+
 
 
  
