@@ -91,6 +91,7 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
+                  
         // トップページの鳩ボタンから#contactでここに来たとき、連絡先を表示する
         // 鳩のアイコンボタンで連絡先の表示を切り替える
         document.addEventListener('DOMContentLoaded', function () {
@@ -104,10 +105,6 @@
                     contact.classList.toggle('d-none');
                 });
             }
-        });
-                // トップページの鳩ボタンから#contactでここに来たとき、連絡先を表示する
-        // 鳩のアイコンボタンで連絡先の表示を切り替える
-        document.addEventListener('DOMContentLoaded', function () {
             var prize = document.getElementById('prize-info');
             if (location.hash === '#contact') {
                 prize.classList.remove('d-none');
@@ -119,6 +116,12 @@
                 });
             }
         });
+        document.querySelectorAll('*').forEach(function(el){
+            if (getComputedStyle(el).overflow === 'hidden') {
+                el.style.overflow = 'auto';
+            }
+        });
+
     </script>
 </body>
 </html>

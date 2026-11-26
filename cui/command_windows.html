@@ -509,7 +509,7 @@ IPv4デフォルトゲートウェイ：192.168.0.1
           <p><b>nslookup -type=txt spf.example.co.jp</b></p>
           <h3 id="item3-2-2">DKIM（DomainKeys Identified Mail）のレコード、公開鍵の確認</h3>
           <p>ここでは、本物の材料をださないと説明が難しいので、マスキングで保護しながら説明します。</p>
-                  <div class="card bg-secondary text-light">
+              <div class="card bg-secondary text-light">
                 <div class="card-body">
                     <h5 class="card-title"><p>nslookup -type=txt （セレクタ）._domainkey.（署名ドメイン） </p></h5>
                     <p class="card-text">
@@ -624,16 +624,64 @@ IPv4デフォルトゲートウェイ：192.168.0.1
                 </div>
               </div>
             <p>（この演習を行う際の注意）Windowsではファイルの上書きができず同じファイル名を使ったコマンドを２回打つとエラー（上書きできない）になります。繰り返し試すときはすでにあるファイルを削除してください。</p>  
-          <h3 id="item4-2-1">セクション 2-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。ダミー本文です。実際の記事ではここに説明を書きます。</p>
 
-          <h2 id="item4-3">セクション 3</h2>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h2 id="item4-3">証明書の一覧表示</h2>
+          <p>インターネットオプション>コンテンツ>証明書で、個人、ほかの人、中間証明機関、信頼されたルート証明機関、信頼された発行元、信頼されない発行元という区分で表示できる。certutilコマンドでもこの内容をCLIで表示できる。<br>
+          </p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>certutil -store （ストア名）</p></h5>
+                    <p class="card-text">
+                      
+                      <p>代表的な証明書ストア名</p>
+                      <ul>
+                        <li>My（個人）：クライアント証明書やサーバー証明書など、自分の証明書を格納します。</li>
+                        <li>Root（信頼されたルート証明機関）：信頼するルートCA証明書を格納します。</li>
+                        <li>CA（中間証明機関）：中間CA証明書を格納します。</li>
+                        <li>TrustedPublisher（信頼された発行元）：信頼するコード署名などの発行元証明書を格納します。</li>
+                        <li>Disallowed（信頼されていない証明書）：失効・ブロック対象の証明書を格納します。</li>
+                        <li>AddressBook（その他のユーザー）：他のユーザーの証明書を格納します。</li>
+                      </ul> 
+                       （例）信頼されたルート証明機関を確認 <br>
+                           <b>certutil -store Root</b>
+                    </p>
+                </div>
+              </div>          
           <h3 id="item4-3-1">セクション 3-1</h3>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p></p></h5>
+                    <p class="card-text">
+                      <p></p>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                    </p>
+                </div>
+              </div>          
 
           <h2 id="item4-4">セクション 4</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p></p></h5>
+                    <p class="card-text">
+                      <p></p>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                       <br>
+                    </p>
+                </div>
+              </div>          
 
           <h2 id="item4-5">セクション 5</h2>
           <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
