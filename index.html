@@ -10,7 +10,7 @@
     <link href="../css/doc_style.css" rel="stylesheet">
     <title>ITの経絡秘孔図的なもの（備忘録）</title>
 </head>
-<body class="bg-dark text-light" overflow: auto>
+<body class="bg-dark text-light">
     <header>
         <nav class="sticky-top navbar navbar-expand-lg navbar-dark bg-success">
             <div class="container-fluid">
@@ -167,5 +167,12 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('*').forEach(function(el){
+            if (getComputedStyle(el).overflow === 'hidden') {
+                el.style.overflow = 'auto';
+            }
+        });        
+    </script>
 </body>
 </html>
