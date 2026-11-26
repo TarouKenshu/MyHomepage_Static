@@ -372,6 +372,13 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('*').forEach(function(el){
+            if (getComputedStyle(el).overflow === 'hidden') {
+                el.style.overflow = 'auto';
+            }
+        });        
+    </script>
     
 </body>
 </html>
