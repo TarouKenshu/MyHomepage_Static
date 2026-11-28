@@ -625,7 +625,12 @@ IPv4デフォルトゲートウェイ：192.168.0.1
               </div>
             <p>（この演習を行う際の注意）Windowsではファイルの上書きができず同じファイル名を使ったコマンドを２回打つとエラー（上書きできない）になります。繰り返し試すときはすでにあるファイルを削除してください。</p>  
 
-          <h2 id="item4-3">証明書の一覧表示</h2>
+          <h2 id="item4-3">3.証明書の操作（標準ユーザーと管理者での実行結果が異なる。）</h2>
+          <p>通常はGUIで行う。コマンドを使う場合は、Microsoftの<a href="https://learn.microsoft.com/ja-jp/windows-server/administration/windows-commands/certutil">詳細情報</a> を確認してください。</p>
+          <p>（注意点）LocalMachine ストア操作には管理者権限が必要。 <br>
+          誤った証明書追加・削除は通信障害の原因になる。 <br>
+          PFX の秘密鍵は安全に管理する必要がある。</p>
+          <h3 id="item4-3-1">証明書の一覧表示</h3>
           <p>インターネットオプション>コンテンツ>証明書で、個人、ほかの人、中間証明機関、信頼されたルート証明機関、信頼された発行元、信頼されない発行元という区分で表示できる。certutilコマンドでもこの内容をCLIで表示できる。<br>
           </p>
               <div class="card bg-secondary text-light">
@@ -635,32 +640,56 @@ IPv4デフォルトゲートウェイ：192.168.0.1
                       
                       <p>代表的な証明書ストア名</p>
                       <ul>
-                        <li>My（個人）：クライアント証明書やサーバー証明書など、自分の証明書を格納します。</li>
+                        <li>My（個人）：クライアント証明書を格納します。</li>
                         <li>Root（信頼されたルート証明機関）：信頼するルートCA証明書を格納します。</li>
                         <li>CA（中間証明機関）：中間CA証明書を格納します。</li>
                         <li>TrustedPublisher（信頼された発行元）：信頼するコード署名などの発行元証明書を格納します。</li>
                         <li>Disallowed（信頼されていない証明書）：失効・ブロック対象の証明書を格納します。</li>
                         <li>AddressBook（その他のユーザー）：他のユーザーの証明書を格納します。</li>
                       </ul> 
-                       （例）信頼されたルート証明機関を確認 <br>
-                           <b>certutil -store Root</b>
+                       （例 1）信頼されたルート証明機関を確認 <br>
+                           <b>certutil -store Root</b><br>
+                       （例 2）ユーザーの自己証明書を表示 <br>
+                           <b>certutil -store -user My</b>
+
+
                     </p>
                 </div>
               </div>          
-          <h3 id="item4-3-1">セクション 3-1</h3>
-          <p>ダミー本文です。実際の記事ではここに説明を書きます。</p>
+          <h3 id="item4-3-2">証明書のインストール</h3>
+          <p></p>
               <div class="card bg-secondary text-light">
                 <div class="card-body">
-                    <h5 class="card-title"><p></p></h5>
+                    <h5 class="card-title"><p>certutil -addstore （ストア名） （証明書ファイル名）</p></h5>
                     <p class="card-text">
-                      <p></p>
-                       <br>
-                       <br>
-                       <br>
-                       <br>
-                       <br>
-                       <br>
-                       <br>
+                      <p>（注意点）LocalMachine ストア操作には管理者権限が必要。 <br>
+                        誤った証明書追加・削除は通信障害の原因になる。 <br>
+                        PFX の秘密鍵は安全に管理する必要がある。</p>
+                        
+                       ・プライベートCA証明書を信頼されたルート証明機関のストアにインポートする。<br>
+                       certutil -addstore root private_ca_cert.cer<br>
+                       ・クライアント証明書（個人あるいは自己証明書）をユーザーの個人ストアにインポートする。<br>
+                       certutil -addstore -user my certfile.cer<br>
+                       ・PFX（秘密鍵付き）証明書のインストール<br>
+                       certutil -importpfx My certfile.pfx<br>
+                       ※端末認証で使う証明書はnoExportを指定して、端末の盗難や紛失に備える。
+                    </p>
+                </div>
+              </div>          
+          <h3 id="item4-3-3">証明書のアンインストール</h3>
+          <p></p>
+              <div class="card bg-secondary text-light">
+                <div class="card-body">
+                    <h5 class="card-title"><p>certutil -delstore （ストア名） （証明書のシリアル番号）</p></h5>
+                    <p class="card-text">
+                       ・使用しなくなったユーザーレベル（ローカルコンピュータではなく）で信頼されたルート証明機関でインストールされた証明書を確認<br>
+                       certutil -store -user Root<br>
+                       ・シリアル番号を確認。ここではシリアル番号: 5c7e7c2xxxだったとする。実際はもっと長い。<br>
+                       ・使用しなくなったプライベートCA証明書を削除する。<br>
+                       certutil -delstore -user Root  5c7e7c2xxx  <br>
+                       ・証明書の詳細が別ウィンドウで表示されるので、「はい」をクリック。<br>
+                      certutil -store -user Root<br>
+                       削除されたかを確認する。
                     </p>
                 </div>
               </div>          

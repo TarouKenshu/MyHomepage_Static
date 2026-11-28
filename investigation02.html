@@ -78,8 +78,8 @@
                     <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy3" aria-expanded="false" aria-controls="wikiCollapseDummy3">
                         Threat Maps サイバー攻撃の視覚化
                     </button>
-                    <button class="d-none list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy4" aria-expanded="false" aria-controls="wikiCollapseDummy4">
-                        [悪用厳禁] ExploitコードなどHacking手法に関する情報
+                    <button id="hacker-info" class="d-none list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy4" aria-expanded="false" aria-controls="wikiCollapseDummy4">
+                        <b>[悪用厳禁] ExploitコードなどHacking手法に関する情報</b>
                     </button>
                     <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseDummy5" aria-expanded="false" aria-controls="wikiCollapseDummy5">
                         CTFなどで役立つWEBツール
@@ -443,6 +443,12 @@
                 </div>
             </div>
         </div>
+        <br>
+        <section class="mb-4 text-center">
+            <button type="button" id="hacker-toggle" class="char-btn" aria-label="連絡先を表示・非表示">
+                <img src="../images/hacker.png" class="char-icon" alt="はと">
+            </button>
+        </section>        
     </main>
     <footer class="bg-success text-light border-top border-secondary py-4 mt-5">
         <div class="container">
@@ -455,6 +461,20 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
+         // トップページの鳩ボタンから#hackerでここに来たとき、連絡先を表示する
+        // 鳩のアイコンボタンで連絡先の表示を切り替える
+        document.addEventListener('DOMContentLoaded', function () {
+            var hacker = document.getElementById('hacker-info');
+            if (location.hash === '#contact') {
+                hacker.classList.remove('d-none');
+            }
+            var toggle = document.getElementById('hacker-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    hacker.classList.toggle('d-none');
+                });
+            } 
+        });        
         document.querySelectorAll('*').forEach(function(el){
             if (getComputedStyle(el).overflow === 'hidden') {
                 el.style.overflow = 'auto';

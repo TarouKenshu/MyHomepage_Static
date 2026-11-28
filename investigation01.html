@@ -92,8 +92,8 @@
                     <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List8" aria-expanded="false" aria-controls="wikiCollapseI01_List8">
                         脅威インテリジェンス
                     </button>
-                    <button class="d-none list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List9" aria-expanded="false" aria-controls="wikiCollapseI01_List9">
-                        ネットワーク管理・調査ツール（悪用厳禁!!）
+                    <button id="hacker-info" class="d-none list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List9" aria-expanded="false" aria-controls="wikiCollapseI01_List9">
+                        <p><b>ネットワーク管理・調査ツール（悪用厳禁!!）</b></p>
                     </button>
                     <button class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#wikiCollapseI01_List10" aria-expanded="false" aria-controls="wikiCollapseI01_List10">
                         フィッシングの報告や注意喚起
@@ -293,21 +293,21 @@
                 <div id="wikiCollapseI01_List9" class="collapse" data-bs-parent="#wikiAccordion">
                     <div class="row row-cols-1 row-cols-md-2 g-3">
                         <div class="col">
-                            <div class="card h-100 shadow-sm">
+                            <div class="card h-100 shadow-sm text-bg-dark">
                                 <div class="card-body">
                                     <h5 class="card-title">Microsoft Sysinternalsのドメイン調査用ツール</h5>
-                                    <p class="card-text text-muted">Whois v1.21<br><a href="https://learn.microsoft.com/ja-jp/sysinternals/downloads/whois">https://learn.microsoft.com/ja-jp/sysinternals/downloads/whois</a></p>
+                                    <p class="card-text text-bg-dark ">Whois v1.21<br><a href="https://learn.microsoft.com/ja-jp/sysinternals/downloads/whois">https://learn.microsoft.com/ja-jp/sysinternals/downloads/whois</a></p>
                                 </div>
-                                <div class="card-footer text-muted">リンク確認：2026/11/12</div>
+                                <div class="card-footer text-bg-dark">リンク確認：2026/11/12</div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card h-100 shadow-sm">
+                            <div class="card h-100 shadow-sm text-bg-dark">
                                 <div class="card-body">
-                                    <h5 class="card-title">NMAPのリファレンスページ</h5>
-                                    <p class="card-text text-muted">他者へのポートスキャンはサイバー攻撃とみなされます。!!<br><a href="https://nmap.org/man/ja/index.html">https://nmap.org/man/ja/index.html</a></p>
+                                    <h5 class="card-title ">NMAPのリファレンスページ</h5>
+                                    <p class="card-text text-bg-dark">他者へのポートスキャンはサイバー攻撃とみなされます。!!<br><a href="https://nmap.org/man/ja/index.html">https://nmap.org/man/ja/index.html</a></p>
                                 </div>
-                                <div class="card-footer text-muted">リンク確認：2026/11/13</div>
+                                <div class="card-footer text-bg-dark">リンク確認：2026/11/13</div>
                             </div>
                         </div>
                     </div>
@@ -360,6 +360,14 @@
                 </div>
             </div>
         </div>
+        <br>
+        <section class="mb-4 text-center">
+            <button type="button" id="hacker-toggle" class="char-btn" aria-label="連絡先を表示・非表示">
+                <img src="../images/hacker.png" class="char-icon" alt="はと">
+            </button>
+        </section>
+
+
     </main>
     
     <footer class="bg-success text-light border-top border-secondary py-4 mt-5">
@@ -371,8 +379,22 @@
     </footer>    
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
+         // トップページの鳩ボタンから#hackerでここに来たとき、連絡先を表示する
+        // 鳩のアイコンボタンで連絡先の表示を切り替える
+        document.addEventListener('DOMContentLoaded', function () {
+            var hacker = document.getElementById('hacker-info');
+            if (location.hash === '#contact') {
+                hacker.classList.remove('d-none');
+            }
+            var toggle = document.getElementById('hacker-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    hacker.classList.toggle('d-none');
+                });
+            } 
+        });          
         document.querySelectorAll('*').forEach(function(el){
             if (getComputedStyle(el).overflow === 'hidden') {
                 el.style.overflow = 'auto';
